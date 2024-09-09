@@ -20,7 +20,7 @@ const links = [
     icon: DocumentDuplicateIcon,
   },
   {
-    name: "Certificados",
+    name: "Certificadosss",
     href: "/certs",
     icon: UserGroupIcon,
   },
@@ -49,7 +49,7 @@ export default function NavLinks() {
           <Link
             key={link.name}
             href={link.href}
-            className={`text-lg text-blackblue  hover:underline hover:text-primaryblue dark:hover:text-blue-100 ${
+            className={`text-lg text-blackblue font-light  hover:underline hover:text-primaryblue dark:hover:text-blue-100 ${
               isActive ? "underline text-primaryblue dark:text-blue-100 " : "dark:text-white"
             }`}
           >

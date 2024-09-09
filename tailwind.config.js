@@ -23,8 +23,15 @@ module.exports = {
       colors: {
         'blackblue': '#1e293b',
         'blackblue2': '#0f172a',
-        'primaryblue': '#0e7ac2',
-        'primaryblack': '#262626'
+        'primaryblue': '#7d3665',
+        'primaryblack': '#262626',
+        'customPurple800': '#7d3665', // Cambiar a customPurple800
+        'customWhiteOcean': '#F0F0F0',
+        'customPurple300': '#ff6c8a',
+        'customOrange': '#FAA32F',
+        'customYellow': '#FFD700',
+        'customOscure':  '#1D2027',
+        'customGradient': 'linear-gradient(to right, #FFD700, #FAA32F)', // Arreglar el gradiente
       },
       textColor: {
         'textrosa': '#ff00d4', // Cambia esto al color rosado que prefieras

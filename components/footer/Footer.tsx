@@ -23,7 +23,7 @@ export default function Footer() {
               <div className="mb-4 lg:-mt-2">
                 <Link href="/">
                   <Image
-                    src="/image/ECOMAS-HORIZONTAL.png"
+                    src="/image/logo_footer.png"
                     alt="Imagen banner"
                     width={300}
                     height={150}
@@ -32,7 +32,7 @@ export default function Footer() {
                 </Link>
                 <Link href="/">
                   <Image
-                    src="/image/ecomas.png"
+                    src="/image/logo9.png"
                     alt="Imagen banner"
                     width={310}
                     height={150}
