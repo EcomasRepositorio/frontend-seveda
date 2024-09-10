@@ -27,7 +27,7 @@ export default function Main() {
       <div className="">
         <PrincipalHome />
       </div>
-      <div className="mx-auto max-w-screen-xl ">
+      <div className="mx-auto max-w-screen-xl  ">
         <NuestrosDiplomados />
       </div>
       <div className="absolute w-96 h-96 blur-2xl -z-10 bg-gradient-radial dark:from-teal-950 from-blue-200 to-transparent right-52 top-[25%] hidden md:block"></div>

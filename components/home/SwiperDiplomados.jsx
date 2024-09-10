@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import { motion } from "framer-motion"; // Importamos Framer Motion
 import ScrollAnimation from "./scrollAnimation";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
@@ -81,7 +82,7 @@ const SwiperCarrousel = () => {
           clickable: true,
         }}
         autoplay={{
-          delay: 3000, // Intervalo de tiempo entre cada slide (5 segundos)
+          delay: 3000, // Intervalo de tiempo entre cada slide (3 segundos)
           disableOnInteraction: false, // Autoplay no se detendrá al interactuar con el swiper
         }}
         loop={true}
@@ -90,9 +91,11 @@ const SwiperCarrousel = () => {
       >
         {cursosDestacados.map((curso, index) => (
           <SwiperSlide key={index} style={{}}>
-            <div
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 300 }}
               key={index}
-              className="w-full mt-4 shadow-lg pt-2 hover:opacity-90 rounded-lg bg-white dark:bg-blackblue2"
+              className="w-full mt-4 shadow-lg pt-2 hover:opacity-90 rounded-lg bg-customWhiteOcean dark:bg-blackblue2"
             >
               <div className="p-2 rounded-lg">
                 <Image
@@ -103,29 +106,32 @@ const SwiperCarrousel = () => {
                   className="object-cover h-96 rounded-lg w-full"
                 />
               </div>
+
+              {/* Botón de más información */}
               <Link href="/diplomados" passHref legacyBehavior>
-                <div className="mx-2 flex items-center justify-between dark:bg-blackblue dark:text-white dark:border-0 bg-blue-100 border-blue-200 border text-primaryblue rounded-md text-xs font-medium px-4 py-1">
+                <div className="mx-2 flex items-center justify-between bg-customPurple800 dark:bg-customWhiteOcean dark:text-customOscure border-none text-white rounded-md text-xs font-medium px-4 py-1">
                   <span>Más información</span>
                   <span>
                     <GrFormNextLink className="w-6 h-6" />
                   </span>
                 </div>
               </Link>
+
+              {/* Título del curso */}
               <div className="flex items-center justify-center px-4 pt-1 mb-12 pb-2 min-h-[4rem]">
-                {" "}
-                {/* Ajusta min-h-[4rem] según tu diseño */}
                 <a
                   href="/"
-                  className="font-normal text-center inline-block hover:text-primaryblue transition duration-500 ease-in-out"
+                  className="font-normal text-center inline-block hover:text-[#FAA32F] dark:hover:text-[#FFD700] transition duration-500 ease-in-out"
                 >
                   {curso.title}
                 </a>
               </div>
-            </div>
+            </motion.div>
           </SwiperSlide>
         ))}
       </Swiper>
     </ScrollAnimation>
   );
 };
+
 export default SwiperCarrousel;
