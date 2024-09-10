@@ -16,9 +16,9 @@ const ContactForm = () => {
     event?.preventDefault();
     console.log(data);
     setSending(true);
-    const serviceID = "service_1rp6atp";
-    const templateID = "template_hrh30ar";
-    const apiKey = "dytk6DbZcu9OjBm_2";
+    const serviceID = "service_a93sala";
+    const templateID = "template_xwyx36i";
+    const apiKey = "fuFabeBauLKR6c-V7";
     if (refForm.current) {
       try {
         await emailjs.sendForm(serviceID, templateID, refForm.current, apiKey);

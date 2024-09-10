@@ -1,130 +1,125 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { motion, useAnimation } from "framer-motion";
-import { UsersIcon, BookOpenIcon, AcademicCapIcon, StarIcon } from '@heroicons/react/solid';
+import { UsersIcon, GlobeAltIcon, BriefcaseIcon, HeartIcon } from '@heroicons/react/solid';
 
-const PorqueNosotros = () => {
+const PorQueElegirnos = () => {
   const [isVisible, setIsVisible] = useState(false);
   const controls = useAnimation();
 
-  // Efecto para activar la animación cuando el componente se vuelve visible
   useEffect(() => {
     if (isVisible) {
       controls.start("visible");
     }
   }, [isVisible, controls]);
 
-  // Función para manejar el evento de scroll y determinar la visibilidad del componente
   const handleScroll = () => {
-    const element = document.getElementById("porque-nosotros");
+    const element = document.getElementById("por-que-elegirnos");
     if (element) {
       const elementPosition = element.getBoundingClientRect().top;
-      const screenPosition = window.innerHeight / 1.2;
+      const screenPosition = window.innerHeight / 1.5;
       if (elementPosition < screenPosition) {
         setIsVisible(true);
       }
     }
   };
 
-  // Efecto para añadir el listener de scroll
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Variantes de animación
   const textVariants = {
-    hidden: { opacity: 0, x: -100 },
-    visible: { opacity: 1, x: 0, transition: { duration: 2, ease: "easeOut" } }
+    hidden: { opacity: 0, x: -50 },
+    visible: { opacity: 1, x: 0, transition: { duration: 1.5, ease: "easeOut" } }
   };
 
   const imageVariants = {
-    hidden: { opacity: 0, x: 100 },
-    visible: { opacity: 1, x: 0, transition: { duration: 2, ease: "easeOut" } }
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: { opacity: 1, scale: 1, transition: { duration: 1.5, ease: "easeOut" } }
   };
 
   const features = [
-    { name: '+3000', description: 'Alumnos beneficiados', icon: UsersIcon },
-    { name: '+70', description: 'Diplomados disponibles', icon: AcademicCapIcon },
-    { name: '+700', description: 'Cursos disponibles', icon: BookOpenIcon },
-    { name: '+10000', description: 'Clases virtuales impartidas', icon: StarIcon },
+    { name: '+5000', description: 'Clientes satisfechos', icon: UsersIcon },
+    { name: '50+', description: 'Países con presencia', icon: GlobeAltIcon },
+    { name: '200+', description: 'Proyectos completados', icon: BriefcaseIcon },
+    { name: '100%', description: 'Compromiso con la calidad', icon: HeartIcon },
   ];
 
   return (
-    <div id="porque-nosotros" className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 items-center pt-4 px-4 sm:px-6 sm:py-10 lg:max-w-7xl lg:grid-cols-2 lg:px-8">
+    <div id="por-que-elegirnos" className="mx-auto grid max-w-6xl grid-cols-1 gap-x-8 gap-y-12 items-center pt-8 px-4 sm:px-6 sm:py-12 lg:max-w-8xl lg:grid-cols-2 lg:px-10">
       <div>
         <motion.h2
-          className="text-primaryblue dark:text-white text-4xl font-extrabold mb-1 sm:text-4xl"
+          className="text-customPurple800 text-5xl font-bold mb-3 sm:text-5xl"
           variants={textVariants}
           initial="hidden"
           animate={controls}
         >
-          ¿Por qué confiar en nosotros?
+          ¿Por qué elegirnos?
         </motion.h2>
         <motion.p
-          className="mt-4 text-gray-800 dark:text-white text-justify"
+          className="mt-5 text-gray-700 text-lg leading-relaxed text-justify"
           variants={textVariants}
           initial="hidden"
           animate={controls}
         >
-          En Seveda, nos dedicamos a ayudar a mejorar el currículum vitae de los titulados mediante una amplia
-          gama de cursos y diplomados especializados en áreas clave como ingenierías,
-          ofreciendo oportunidades para el desarrollo profesional y el crecimiento personal.
+          Nuestra misión es entregar soluciones innovadoras y personalizadas para nuestros clientes. Nos enorgullece
+          ofrecer servicios de alta calidad y acompañar a nuestros clientes en cada paso del camino hacia el éxito.
         </motion.p>
         <motion.dl
-          className="mt-16 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-4"
+          className="mt-12 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2 sm:gap-y-10 lg:gap-x-8"
           variants={textVariants}
           initial="hidden"
           animate={controls}
         >
           {features.map((feature, index) => (
-            <motion.div key={index} className="border-t border-gray-200 dark:border-gray-500 pt-4 flex items-center" variants={textVariants}>
-              <div className="mr-2">
-                <feature.icon className="h-12 w-12 mr-4 text-primaryblue" aria-hidden="true" />
+            <motion.div key={index} className="border-l-4 border-customPurple800 pl-4 flex items-center" variants={textVariants}>
+              <div className="mr-3">
+                <feature.icon className="h-10 w-10 text-customPurple800" aria-hidden="true" />
               </div>
               <div>
-                <dt className="font-extrabold text-4xl text-gray-800 dark:text-white">{feature.name}</dt>
-                <dd className="mt-2 text-sm text-gray-800 dark:text-white">{feature.description}</dd>
+                <dt className="text-3xl font-bold text-gray-800">{feature.name}</dt>
+                <dd className="mt-1 text-md text-gray-600">{feature.description}</dd>
               </div>
             </motion.div>
           ))}
         </motion.dl>
       </div>
-      <div className="grid grid-cols-2 grid-rows-2 gap-4 sm:gap-6 lg:gap-8">
+      <div className="grid grid-cols-2 grid-rows-2 gap-6 lg:gap-10">
         <motion.div className="relative" variants={imageVariants} initial="hidden" animate={controls}>
           <Image
             src='/image/prueba.jpg'
-            alt='Imagen banner'
-            width={400}
-            height={300}
-            className='hidden md:block rounded-lg w-full h-72 object-cover object-center'
+            alt='Imagen uno'
+            width={500}
+            height={350}
+            className='rounded-lg shadow-lg object-cover'
           />
         </motion.div>
         <motion.div className="relative" variants={imageVariants} initial="hidden" animate={controls}>
           <Image
             src='/image/prueba.jpg'
-            alt='Imagen banner'
-            width={400}
-            height={300}
-            className='hidden md:block rounded-lg w-full h-72 object-cover object-center'
+            alt='Imagen dos'
+            width={500}
+            height={350}
+            className='rounded-lg shadow-lg object-cover'
           />
         </motion.div>
         <motion.div className="relative" variants={imageVariants} initial="hidden" animate={controls}>
           <Image
             src='/image/prueba.jpg'
-            alt='Imagen banner'
-            width={400}
-            height={300}
-            className='hidden md:block rounded-lg w-full h-72 object-cover object-center'
+            alt='Imagen tres'
+            width={500}
+            height={350}
+            className='rounded-lg shadow-lg object-cover'
           />
         </motion.div>
         <motion.div className="relative" variants={imageVariants} initial="hidden" animate={controls}>
           <Image
-           src='/image/prueba.jpg'
-            alt='Imagen banner'
-            width={400}
-            height={300}
-            className='hidden md:block rounded-lg w-full h-72 object-cover object-center'
+            src='/image/prueba.jpg'
+            alt='Imagen cuatro'
+            width={500}
+            height={350}
+            className='rounded-lg shadow-lg object-cover'
           />
         </motion.div>
       </div>
@@ -132,4 +127,4 @@ const PorqueNosotros = () => {
   );
 };
 
-export default PorqueNosotros;
+export default PorQueElegirnos;
