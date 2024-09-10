@@ -12,7 +12,7 @@ export default function Main() {
   return (
     <div className="mx-auto max-w-screen-2xl px-4 md:px-8 mb-12">
       
-      <div className="mb-8">
+      <div className="mb-8 ">
         <h2 className="mb-4 mt-8 text-center text-2xl font-bold text-primaryblue dark:text-white md:mb-6 lg:text-4xl">
           Nuestros Diplomados
         </h2>

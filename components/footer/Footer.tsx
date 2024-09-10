@@ -49,7 +49,7 @@ export default function Footer() {
                   <PhoneIcon className="w-5 h-5 mr-2 text-primaryblue dark:text-white " />
                   <span>
                     Número de celular:{" "}
-                    <a target="_blank" href="https://wa.me/51921818181">
+                    <a target="_blank" href="https://wa.me/51969052575">
                       +51921818181
                     </a>
                   </span>
@@ -58,7 +58,7 @@ export default function Footer() {
                 <div className="flex items-center text-darkblue dark:text-white ">
                   <AtSymbolIcon className="w-5 h-5 mr-2 text-primaryblue dark:text-white" />
                   <span>
-                    Correo electrónico: <a>contacto@ecomas.pe</a>
+                    Correo electrónico: <a>contacto@seveda.pe</a>
                   </span>
                 </div>
 
@@ -263,7 +263,7 @@ export default function Footer() {
             </div>
             <div className="max-w-lg sm:mx-auto sm:text-center text-darkblue dark:text-white ">
               <p className="leading-relaxed mt-2 text-[15px]">
-                "Gracias por visitarnos. En ECOMÁS, estamos comprometidos con tu
+                "Gracias por visitarnos. En SEVEDA, estamos comprometidos con tu
                 desarrollo profesional. ¡Esperamos verte pronto!"
               </p>
               <div className="mt-2 sm:mt-0 sm:ml-2">

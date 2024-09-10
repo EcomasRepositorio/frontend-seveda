@@ -20,7 +20,7 @@ const links = [
     icon: DocumentDuplicateIcon,
   },
   {
-    name: "Certificadosss",
+    name: "Certificados",
     href: "/certs",
     icon: UserGroupIcon,
   },

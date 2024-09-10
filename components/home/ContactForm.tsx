@@ -1,132 +1,133 @@
+"use client";
+import Image from 'next/image';
 import React, { useState, useRef } from 'react';
+import { useForm, SubmitHandler } from 'react-hook-form';
 import emailjs from '@emailjs/browser';
-import { useForm } from 'react-hook-form';
-import { Button } from "@nextui-org/react";
-emailjs.init('UgIciLgmKy6Akg6-Z');
-
+import { FaFacebookSquare, FaInstagram, FaTiktok, FaWhatsapp, FaPhoneAlt, FaHome } from "react-icons/fa";
+import { MdMarkEmailRead } from "react-icons/md";
 
 const ContactForm = () => {
+
+  const { register, formState: { errors }, handleSubmit } = useForm();
   const [sending, setSending] = useState(false);
-  const [showAlert, setShowAlert] = useState(false);
-  const { register, handleSubmit, formState: { errors } } = useForm();
-  const formRef = useRef<HTMLFormElement>(null);
 
-  const onSubmit = () => {
+  const refForm = useRef<HTMLFormElement>(null);
+  const onSubmit: SubmitHandler<any> = async (data, event) => {
+    event?.preventDefault();
+    console.log(data);
     setSending(true);
-
-    const serviceID = 'service_94bs7oi';
-    const templateID = 'template_sryp9ce';
-
-    const form = formRef.current;
-    if (form) {
-      emailjs.sendForm(serviceID, templateID, form)
-        .then(() => {
-          setSending(false);
-          setShowAlert(true);
-
-          // Después de 3 segundos, ocultar la alerta
-          setTimeout(() => {
-            setShowAlert(false);
-          }, 4000);
-        })
-        .catch((err) => {
-          setSending(false);
-          alert(JSON.stringify(err));
-        });
+    const serviceID = "service_1rp6atp";
+    const templateID = "template_hrh30ar";
+    const apiKey = "dytk6DbZcu9OjBm_2";
+    if (refForm.current) {
+      try {
+        await emailjs.sendForm(serviceID, templateID, refForm.current, apiKey);
+        alert('¡Mensaje Enviado!');
+      } catch (err) {
+        alert(JSON.stringify(err));
+      } finally {
+        setSending(false);
+      }
     }
-  };
-
+  }
 
   return (
-    <section id='contacto'>
-      <div className="relative z-10 text-gray-600 sm:px-4 md:px-8" style={{ backgroundAttachment: "fixed", backgroundImage: "url(/image/contacto.jpg)", backgroundSize: "cover", backgroundPosition: "center" }}>
-        <div className="absolute inset-0 bg-black opacity-50">
-        </div>
-        <div className="relative z-10  text-gray-600 sm:px-4 md:px-8 mt-10" >
-          <div className="max-w-lg space-y-1 px-4 sm:mx-auto sm:text-center sm:px-0 ">
-            <h2 className="text-white dark:text-white text-4xl font-semibold sm:text-5xl pt-10">
-              ¡Nosotros te llamamos!
-            </h2>
-            <p className="text-white dark:text-white">
-              ¡Nos encantaría saber de usted! Por favor complete el formulario a continuación.
-            </p>
-          </div>
-          <div className="mt-2 mx-auto px-4 p-8  sm:max-w-lg sm:px-8 sm:rounded-xl">
-            <form
-              ref={formRef}
-              onSubmit={handleSubmit(onSubmit)}
-              className="space-y-2 "
-            >
-              <div>
-                <label className="font-medium text-white dark:text-white">
-                  Nombres completos
-                </label>
-                <input
-                  {...register('nombres', { required: true })}
-                  type="text"
-                  required
-                  className="w-full mt-2 px-3 py-2 text-gray-500 bg-white outline-none border-2 focus:border-primaryblue shadow-sm rounded-lg"
-                  placeholder="Nombres y apellidos"
-                />
-              </div>
-              <div>
-                <label className="font-medium text-white dark:text-white">
-                  Correo electrónico
-                </label>
-                <input
-                  {...register('correo', { required: true, pattern: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/ })}
-                  type="email"
-                  required
-                  className="w-full mb-2 mt-2 px-3 py-2 text-gray-500 bg-white outline-none border-2 focus:border-primaryblue shadow-sm rounded-lg"
-                  placeholder="Ej: ejemplo@gmail.com"
-                />
-                {errors.correo && <span className="p-2  rounded-xl bg-white text-sm text-red-500">Por favor, introduce un correo electrónico válido</span>}
-              </div>
-              <div>
-                <label className="font-medium text-white dark:text-white">
-                  Número de teléfono
-                </label>
-                <input
-                  {...register('celular', { required: true, pattern: /^\d{9}$/ })}
-                  type="number"
-                  placeholder="999 999 999"
-                  required
-                  className="w-full my-2 px-3 py-2 text-gray-500 bg-white outline-none border-2 focus:border-primaryblue shadow-sm rounded-lg"
-                />
-                {errors.celular && <span className="p-2 mt-2 rounded-xl bg-white text-sm text-red-500">Por favor, introduce un número de teléfono válido (9 cifras)</span>}
-              </div>
-              <div>
-                <label className="font-medium text-white dark:text-white">
-                  Mensaje (Opcional)
-                </label>
-                <textarea  {...register('mensaje')} placeholder="Escribe tu mensaje aquí..." className="w-full mt-2 h-36 px-3 py-2 resize-none appearance-none bg-white outline-none border-2 focus:border-primaryblue shadow-sm rounded-lg"></textarea>
-              </div>
-              <Button type='submit' color="primary" className="w-full px-4 py-2 bg-blue-100 dark:bg-blackblue2 dark:text-white dark:border-blackblue border-blue-200 border text-primaryblue hover:scale-105 hover:bg-blue-200" >
-                {sending ? 'Enviando...' : 'Enviar'}
-              </Button>
-            </form>
-          </div>
-          {/* Alerta de éxito */}
-          {showAlert && (
-            <div id="alert-border-3" className="flex items-center p-4  text-green-800 border-t-4 border-green-300 bg-green-50 dark:text-green-400 dark:bg-gray-800 dark:border-green-800" role="alert">
-              <svg className="flex-shrink-0 w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
-              </svg>
-              <div className="ms-3 text-normal font-medium">
-                ¡Correo enviado con éxito!
-              </div>
-              <button type="button" className="-mx-1.5 -my-1.5 bg-green-50 text-green-500 rounded-lg focus:ring-2 focus:ring-green-400 p-1.5 hover:bg-green-200 inline-flex items-center justify-center h-8 w-8 dark:bg-gray-800 dark:text-green-400 dark:hover:bg-gray-700" onClick={() => setShowAlert(false)} aria-label="Cerrar">
-                <span className="sr-only">Cerrar</span>
-                <svg className="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                  <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                </svg>
-              </button>
+    <section id='contacto' className="antialiased bg-[url('/image/contact4.jpg')] ">
+      <div className="flex w-full min-h-screen justify-center items-center">
+        <div className="flex flex-col md:flex-row md:space-x-6 space-y-6 md:space-y-0 bg-customPurple800 dark:bg-blackblue2 w-full max-w-4xl p-8 sm:p-12 rounded-xl shadow-lg text-white overflow-hidden">
+          <div className='flex flex-col space-y-8 justify-between'>
+            <div>
+              <h1 className='relative font-bold text-4xl tracking-wide z-10'>Contáctanos</h1>
             </div>
-          )}
+            <div className='relative z-10'>
+              <Image
+                src="/image/contact.jpg"
+                alt='rizo contacto'
+                width={800}
+                height={800}
+                className='w-96 h-56 rounded-xl'/>
+            </div>
+            <div className='flex flex-col space-y-4 font-bold'>
+              <div className='inline-flex space-x-2 items-center'>
+                <FaHome className='text-customYellow text-2xl' />
+                <span>Perú</span>
+              </div>
+              <div className='inline-flex space-x-2 items-center'>
+                <FaPhoneAlt className='text-customYellow text-2xl' />
+                <span>+51 969052575</span>
+              </div>
+              <div className='inline-flex space-x-2 items-center'>
+                <MdMarkEmailRead className='text-customYellow text-2xl' />
+                <span>capacitaciones@seveda.edu.pe</span>
+              </div>
+            </div>
+            <div  className='flex space-x-4 text-3xl gap-10'>
+              <a href="https://web.facebook.com/corp.rizo" target='_blank'>
+                <FaFacebookSquare />
+              </a>
+              <a href="https://www.instagram.com/corporacion.rizo/" target='_blank'>
+                <FaInstagram />
+              </a>
+              <a href="https://www.tiktok.com/@corporacion.rizo" target='_blank'>
+                <FaTiktok />
+              </a>
+              <a href="https://wa.me/51961646248?text=Hola, deseo más información sobre los diplomados" target='_blank'>
+                <FaWhatsapp className='z-50'/>
+              </a>
+            </div>
+          </div>
+          <div className='relative'>
+            <div className='absolute z-0 w-48 h-48 bg-customOrange rounded-full -left-96 -top-28'></div>
+            <div className='absolute z-0 w-48 h-48 bg-customOrange rounded-full -right-28 -top-28'></div>
+            <div className='absolute z-0 w-48 h-48 bg-customOrange rounded-full -left-6 -bottom-28'></div>
+            <div className='relative z-10 bg-white rounded-xl shadow-lg p-8 text-gray-600 md:w-full'>
+              <form ref={refForm} onSubmit={handleSubmit(onSubmit)} className='flex flex-col space-y-4'>
+                <div>
+                  <label htmlFor="" className='text-sm font-semibold'>Nombres:</label>
+                  <input
+                    id='Nombres'
+                    type="text" {...register('name', { required: true })}
+                    name='name'
+                    placeholder='Nombres y Apellidos'
+                    className='ring-1 ring-customPurple800 bg-white dark:bg-customWhiteOcean w-full mt-1 rounded-md px-2 py-1 outline-none focus:ring-2 '/>
+                </div>
+                <div>
+                  <label htmlFor="" className='text-sm font-semibold'>Correo eléctronico:</label>
+                  <input
+                    id='Email'
+                    type="email" {...register('email', { required: true })}
+                    name='email'
+                    placeholder='Email'
+                    className='ring-1 ring-customPurple800 bg-white dark:bg-customWhiteOcean w-full mt-1 rounded-md px-2 py-1 outline-none focus:ring-2 '/>
+                </div>
+                <div>
+                  <label htmlFor="" className='text-sm font-semibold'>Teléfono:</label>
+                  <input
+                    id='telefono'
+                    type="number" {...register('phone', { required: true })}
+                    name='phone'
+                    placeholder='N° teléfono'
+                    className='ring-1 ring-customPurple800 bg-white dark:bg-customWhiteOcean w-full mt-1 rounded-md px-2 py-1 outline-none focus:ring-2'/>
+                </div>
+                <div>
+                  <label htmlFor="" className='text-sm font-semibold'>Mensaje:</label>
+                  <textarea
+                    id='mensaje'
+                    {...register('message', {required: true})}
+                    name='message'
+                    placeholder='Mensaje'
+                    rows={4}
+                    className='ring-1 ring-customPurple800 bg-white dark:bg-customWhiteOcean w-full mt-1 rounded-md px-2 py-1 outline-none focus:ring-2'>
+                  </textarea>
+                </div>
+                <input type="submit" value={sending ? 'Enviando...' : 'Enviar'} className='inline-block self-end bg-customPurple800 dark:bg-customOscure  text-white font-bold rounded-lg px-6 py-2 uppercase text-sm'/>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
 export default ContactForm;

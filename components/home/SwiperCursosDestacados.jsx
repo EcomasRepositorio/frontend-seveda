@@ -7,49 +7,49 @@ import { useMediaQuery } from 'react-responsive';
 const cursosDestacados = [
   {
     id: 1,
-    imageUrl: "/image/solidos.jpg",
+    imageUrl: "/image/prueba.jpg",
     title: "Gestion y manejo de residuos sólidos municipales",
     description:
       "Este curso aborda estrategias y técnicas para gestionar eficazmente los residuos sólidos en entornos urbanos, incluyendo temas como reciclaje, tratamiento de residuos y participación comunitaria.",
   },
   {
     id: 2,
-    imageUrl: "/image/aspersor.jpg",
+    imageUrl: "/image/prueba.jpg",
     title: "Sistemas de riego por aspersión",
     description:
       "Curso sobre el diseño y uso eficiente de sistemas de riego por aspersión.",
   },
   {
     id: 3,
-    imageUrl: "/image/goteo.jpg",
+    imageUrl: "/image/prueba.jpg",
     title: "Sistemas de riego por goteo",
     description:
       "Curso que explora el diseño y aplicación de sistemas eficientes de riego por goteo en agricultura y jardinería.",
   },
   {
     id: 4,
-    imageUrl: "/image/viales.jpg",
+    imageUrl: "/image/prueba.jpg",
     title: "Arqueología en proyectos viales",
     description:
       "Curso sobre la integración de la arqueología en el diseño y desarrollo de proyectos viales.",
   },
   {
     id: 5,
-    imageUrl: "/image/obras.jpg",
+    imageUrl: "/image/prueba.jpg",
     title: "Ampliaciones de plazo, adicionales de obra y penalidades en obra",
     description:
       "Curso que aborda la gestión de ampliaciones de plazo, cambios en obra y las penalizaciones asociadas en proyectos de construcción.",
   },
   {
     id: 6,
-    imageUrl: "/image/aguaca.jpg",
+    imageUrl: "/image/prueba.jpg",
     title: "Monitoreo de la calidad de agua",
     description:
       "Curso sobre técnicas y métodos para monitorear la calidad del agua en diferentes contextos ambientales y aplicaciones.",
   },
   {
     id: 7,
-    imageUrl: "/image/ssoma.jpg",
+    imageUrl: "/image/prueba.jpg",
     title: "Supervisor SSOMA",
     description:
       "Curso que prepara a los supervisores en seguridad, salud ocupacional y medio ambiente (SSOMA) para la gestión efectiva en entornos laborales.",
@@ -90,7 +90,7 @@ const SwiperCursosDestacados = () => {
     <ScrollAnimation>
       <div className="rounded-lg p-8 md:p-5 flex flex-col items-center">
         <h2 className="text-primaryblue dark:text-white text-4xl font-extrabold mb-1">
-          Nuestros Cursos Destacados
+          Nuestros Cursos
         </h2>
       </div>
       <div className="relative overflow-hidden py-5">

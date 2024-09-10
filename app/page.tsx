@@ -10,16 +10,12 @@ const SwiperCarrouselDiplomados = dynamic(
 const CarouselCursosDestacados = dynamic(
   () => import("@/components/home/SwiperCursosDestacados")
 );
-const TestimoniosFb = dynamic(() => import("@/components/home/TestimoniosFb"));
-const QuienesSomos = dynamic(() => import("@/components/home/QuienesSomos"));
 const NuestrosDiplomados = dynamic(
   () => import("@/components/home/NuestrosDiplomados")
 );
 const ContactForm = dynamic(() => import("@/components/home/ContactForm"));
 const ScrollToBotButton = dynamic(() => import("@/components/home/bounceDown"));
-const LogosCarrousel = dynamic(
-  () => import("@/components/home/logosCarrousel")
-);
+
 
 
 export default function Main() {
@@ -30,12 +26,6 @@ export default function Main() {
       {/* Botón para cambiar de tema */}
       <div className="">
         <PrincipalHome />
-      </div>
-      <div className="">
-        <QuienesSomos />
-      </div>
-      <div className="">
-        <LogosCarrousel />
       </div>
       <div className="mx-auto max-w-screen-xl ">
         <NuestrosDiplomados />
@@ -56,10 +46,7 @@ export default function Main() {
       <div className=" mx-auto max-w-screen-xl ">
         <CarouselCursosDestacados />
       </div>
-      <div className=" mx-auto max-w-screen-xl mt-6 ">
-        <TestimoniosFb />
-      </div>
-
+    
       <div className=" ">
         <ContactForm />
       </div>

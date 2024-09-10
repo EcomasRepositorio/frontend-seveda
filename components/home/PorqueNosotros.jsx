@@ -59,7 +59,7 @@ const PorqueNosotros = () => {
           initial="hidden"
           animate={controls}
         >
-          ¿Por qué debes elegirnos?
+          ¿Por qué confiar en nosotros?
         </motion.h2>
         <motion.p
           className="mt-4 text-gray-800 dark:text-white text-justify"
@@ -67,7 +67,7 @@ const PorqueNosotros = () => {
           initial="hidden"
           animate={controls}
         >
-          En Ecomas, nos dedicamos a ayudar a mejorar el currículum vitae de los titulados mediante una amplia
+          En Seveda, nos dedicamos a ayudar a mejorar el currículum vitae de los titulados mediante una amplia
           gama de cursos y diplomados especializados en áreas clave como ingenierías,
           ofreciendo oportunidades para el desarrollo profesional y el crecimiento personal.
         </motion.p>
@@ -93,7 +93,7 @@ const PorqueNosotros = () => {
       <div className="grid grid-cols-2 grid-rows-2 gap-4 sm:gap-6 lg:gap-8">
         <motion.div className="relative" variants={imageVariants} initial="hidden" animate={controls}>
           <Image
-            src='/image/inges.jpg'
+            src='/image/prueba.jpg'
             alt='Imagen banner'
             width={400}
             height={300}
@@ -102,7 +102,7 @@ const PorqueNosotros = () => {
         </motion.div>
         <motion.div className="relative" variants={imageVariants} initial="hidden" animate={controls}>
           <Image
-            src='/image/riego.jpg'
+            src='/image/prueba.jpg'
             alt='Imagen banner'
             width={400}
             height={300}
@@ -111,7 +111,7 @@ const PorqueNosotros = () => {
         </motion.div>
         <motion.div className="relative" variants={imageVariants} initial="hidden" animate={controls}>
           <Image
-            src='/image/autocad.jpg'
+            src='/image/prueba.jpg'
             alt='Imagen banner'
             width={400}
             height={300}
@@ -120,7 +120,7 @@ const PorqueNosotros = () => {
         </motion.div>
         <motion.div className="relative" variants={imageVariants} initial="hidden" animate={controls}>
           <Image
-            src='/image/alkumnos.jpg'
+           src='/image/prueba.jpg'
             alt='Imagen banner'
             width={400}
             height={300}

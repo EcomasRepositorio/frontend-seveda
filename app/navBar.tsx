@@ -142,7 +142,7 @@ const Header = () => {
           <NavLinks />
           <NavbarContent justify="end">
             <Link href="/login">
-            <FaUser className="text-2xl text-customPurple800" />
+            <FaUser className="text-2xl text-customPurple800 dark:text-customWhiteOcean" />
 
             </Link>
             <ThemeSwitcher />
