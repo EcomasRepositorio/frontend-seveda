@@ -9,49 +9,33 @@ import { GrFormNextLink } from "react-icons/gr";
 
 // Import Swiper styles
 import "swiper/css";
-import "swiper/css/scrollbar";
-import "swiper/css/navigation";
 import "swiper/css/pagination";
+import "swiper/css/autoplay"; // Importa los estilos de autoplay
 
 // import required modules
-import {
-  Keyboard,
-  Scrollbar,
-  Navigation,
-  Pagination,
-  Autoplay,
-} from "swiper/modules";
+import { Mousewheel, Pagination, Autoplay } from "swiper/modules";
 
 const SwiperCarrousel = () => {
   const cursosDestacados = [
-    // Tus datos de cursos destacados
     {
       imageUrl: "/image/prueba.jpg",
-      title: "Lorem impum",
+      title: "Curso 1",
     },
     {
       imageUrl: "/image/prueba.jpg",
-      title: "Lorem impum",
+      title: "Curso 2",
     },
     {
       imageUrl: "/image/prueba.jpg",
-      title: "Lorem impum",
+      title: "Curso 3",
     },
     {
       imageUrl: "/image/prueba.jpg",
-      title: "Lorem impum",
+      title: "Curso 4",
     },
     {
       imageUrl: "/image/prueba.jpg",
-      title: "Lorem impum",
-    },
-    {
-      imageUrl: "/image/prueba.jpg",
-      title: "Lorem impum",
-    },
-    {
-      imageUrl: "/image/prueba.jpg",
-      title: "Lorem impum",
+      title: "Curso 5",
     },
   ];
 
@@ -59,51 +43,55 @@ const SwiperCarrousel = () => {
     <ScrollAnimation>
       <Swiper
         slidesPerView={1}
-        centeredSlides={false}
-        slidesPerGroupSkip={1}
-        grabCursor={true}
-        keyboard={{
-          enabled: true,
+        spaceBetween={15} // Espaciado entre slides
+        mousewheel={true} // Habilita la interacción con la rueda del mouse
+        autoplay={{
+          delay: 3000, // 3 segundos entre cada slide
+          disableOnInteraction: false, // No detener al interactuar
         }}
-        spaceBetween={15}
+        pagination={{
+          clickable: true, // Habilita la paginación clicable
+        }}
         breakpoints={{
           769: {
-            slidesPerView: 2,
-            slidesPerGroup: 1,
+            slidesPerView: 2, // 2 slides por vista en pantallas medianas
+            spaceBetween: 20, // Ajusta el espaciado para pantallas medianas
           },
           1024: {
-            slidesPerView: 4,
-            slidesPerGroup: 1,
+            slidesPerView: 3, // 3 slides por vista en pantallas grandes
+            spaceBetween: 30, // Ajusta el espaciado para pantallas grandes
           },
         }}
-        scrollbar={false}
-        navigation={false}
-        pagination={{
-          clickable: true,
-        }}
-        autoplay={{
-          delay: 3000, // Intervalo de tiempo entre cada slide (3 segundos)
-          disableOnInteraction: false, // Autoplay no se detendrá al interactuar con el swiper
-        }}
-        loop={true}
-        modules={[Keyboard, Scrollbar, Navigation, Pagination, Autoplay]}
-        style={{ padding: "10px" }}
+        modules={[Mousewheel, Pagination, Autoplay]} // Importa los módulos necesarios
+        className="mySwiper "
       >
         {cursosDestacados.map((curso, index) => (
-          <SwiperSlide key={index} style={{}}>
+          <SwiperSlide key={index}>
+            {/* Gradiente superior para light y dark mode con opciones ajustables */}
+            <div className="absolute inset-0 z-10 pointer-events-none">
+              {/* Gradiente ajustable con opacidad y tamaño */}
+              <div
+                className="absolute inset-0 top-0 w-full h-[30%] bg-gradient-to-b from-customWhiteOcean to-transparent dark:from-blackblue hover:from-blackblue/75 dark:to-transparent"
+                style={{
+                  opacity: 0.8, // Ajusta la opacidad del gradiente
+                  height: "25%", // Ajusta la altura del gradiente (puedes cambiar el valor)
+                }}
+              ></div>
+            </div>
+
             <motion.div
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.01 }}
               transition={{ type: "spring", stiffness: 300 }}
-              key={index}
-              className="w-full mt-4 shadow-lg pt-2 hover:opacity-90 rounded-lg bg-customWhiteOcean dark:bg-blackblue2"
+              className="w-full mt-4 shadow-lg pt-2 hover:opacity-90 rounded-lg bg-customWhiteOcean dark:bg-blackblue2 ring-1 ring-gray-200/50 hover:ring-4 hover:ring-gray-50 dark:ring-1 dark:ring-blackblue2 dark:hover:ring-customOscure" // Ring y colores organizados para light/dark
             >
+              {/* Contenido del curso */}
               <div className="p-2 rounded-lg">
                 <Image
                   src={curso.imageUrl}
-                  alt="Imagen banner"
+                  alt={`Imagen del curso ${curso.title}`}
                   width={450}
                   height={300}
-                  className="object-cover h-96 rounded-lg w-full"
+                  className="object-cover w-full h-auto rounded-lg md:h-96"
                 />
               </div>
 

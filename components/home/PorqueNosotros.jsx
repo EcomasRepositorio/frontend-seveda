@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { motion, useAnimation } from "framer-motion";
-import { UsersIcon, GlobeAltIcon, BriefcaseIcon, HeartIcon } from '@heroicons/react/solid';
+import Lottie from "react-lottie";
+
+// Importar animaciones Lottie
+import animationDataUsers from "../../public/icons/animation02.json";
+
 
 const PorQueElegirnos = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -39,18 +43,30 @@ const PorQueElegirnos = () => {
     visible: { opacity: 1, scale: 1, transition: { duration: 1.5, ease: "easeOut" } }
   };
 
+  const lottieOptions = (animationData) => ({
+    loop: true,
+    autoplay: true,
+    animationData,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  });
+
   const features = [
-    { name: '+5000', description: 'Clientes satisfechos', icon: UsersIcon },
-    { name: '50+', description: 'Países con presencia', icon: GlobeAltIcon },
-    { name: '200+', description: 'Proyectos completados', icon: BriefcaseIcon },
-    { name: '100%', description: 'Compromiso con la calidad', icon: HeartIcon },
+    { name: "+5000", description: "Clientes satisfechos", animation: animationDataUsers },
+    { name: "50+", description: "Países con presencia", animation: animationDataUsers },
+    { name: "200+", description: "Proyectos completados", animation: animationDataUsers },
+    { name: "100%", description: "Compromiso con la calidad", animation: animationDataUsers },
   ];
 
   return (
-    <div id="por-que-elegirnos" className="mx-auto grid max-w-6xl grid-cols-1 gap-x-8 gap-y-12 items-center pt-8 px-4 sm:px-6 sm:py-12 lg:max-w-8xl lg:grid-cols-2 lg:px-10">
+    <div
+      id="por-que-elegirnos"
+      className="mx-auto grid max-w-6xl grid-cols-1 gap-x-8 gap-y-12 items-center pt-8 px-4 sm:px-6 sm:py-12 lg:max-w-8xl lg:grid-cols-2 lg:px-10"
+    >
       <div>
         <motion.h2
-          className="text-customPurple800 text-5xl font-bold mb-3 sm:text-5xl"
+          className="text-customPurple800 text-5xl font-bold mb-3 sm:text-5xl dark:text-customWhiteOcean"
           variants={textVariants}
           initial="hidden"
           animate={controls}
@@ -58,7 +74,7 @@ const PorQueElegirnos = () => {
           ¿Por qué elegirnos?
         </motion.h2>
         <motion.p
-          className="mt-5 text-gray-700 text-lg leading-relaxed text-justify"
+          className="mt-5 text-gray-700 text-lg leading-relaxed text-justify dark:text-customWhiteOcean"
           variants={textVariants}
           initial="hidden"
           animate={controls}
@@ -73,55 +89,47 @@ const PorQueElegirnos = () => {
           animate={controls}
         >
           {features.map((feature, index) => (
-            <motion.div key={index} className="border-l-4 border-customPurple800 pl-4 flex items-center" variants={textVariants}>
+            <motion.div
+              key={index}
+              className="border-l-4 border-customPurple800 pl-4 flex items-center"
+              variants={textVariants}
+            >
               <div className="mr-3">
-                <feature.icon className="h-10 w-10 text-customPurple800" aria-hidden="true" />
+                {/* Aquí se renderiza cada animación de Lottie */}
+                <Lottie options={lottieOptions(feature.animation)} height={100} width={100} />
               </div>
               <div>
-                <dt className="text-3xl font-bold text-gray-800">{feature.name}</dt>
-                <dd className="mt-1 text-md text-gray-600">{feature.description}</dd>
+                <dt className="text-3xl font-bold text-gray-800 dark:text-customWhiteOcean">
+                  {feature.name}
+                </dt>
+                <dd className="mt-1 text-md text-gray-600 dark:text-customWhiteOcean">
+                  {feature.description}
+                </dd>
               </div>
             </motion.div>
           ))}
         </motion.dl>
       </div>
+
+      {/* Imágenes animadas */}
       <div className="grid grid-cols-2 grid-rows-2 gap-6 lg:gap-10">
-        <motion.div className="relative" variants={imageVariants} initial="hidden" animate={controls}>
-          <Image
-            src='/image/prueba.jpg'
-            alt='Imagen uno'
-            width={500}
-            height={350}
-            className='rounded-lg shadow-lg object-cover'
-          />
-        </motion.div>
-        <motion.div className="relative" variants={imageVariants} initial="hidden" animate={controls}>
-          <Image
-            src='/image/prueba.jpg'
-            alt='Imagen dos'
-            width={500}
-            height={350}
-            className='rounded-lg shadow-lg object-cover'
-          />
-        </motion.div>
-        <motion.div className="relative" variants={imageVariants} initial="hidden" animate={controls}>
-          <Image
-            src='/image/prueba.jpg'
-            alt='Imagen tres'
-            width={500}
-            height={350}
-            className='rounded-lg shadow-lg object-cover'
-          />
-        </motion.div>
-        <motion.div className="relative" variants={imageVariants} initial="hidden" animate={controls}>
-          <Image
-            src='/image/prueba.jpg'
-            alt='Imagen cuatro'
-            width={500}
-            height={350}
-            className='rounded-lg shadow-lg object-cover'
-          />
-        </motion.div>
+        {["Imagen uno", "Imagen dos", "Imagen tres", "Imagen cuatro"].map((altText, index) => (
+          <motion.div
+            key={index}
+            className="relative"
+            variants={imageVariants}
+            initial="hidden"
+            animate={controls}
+          >
+            <Image
+              src={`/image/prueba${index + 1}.jpg`}
+              alt={altText}
+              width={500}
+              height={350}
+              className="rounded-lg shadow-lg object-cover"
+            />
+          </motion.div>
+        ))}
       </div>
     </div>
   );
