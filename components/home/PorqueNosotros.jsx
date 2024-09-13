@@ -122,7 +122,7 @@ const PorQueElegirnos = () => {
             animate={controls}
           >
             <Image
-              src={`/image/prueba${index + 1}.jpg`}
+              src={`/image/prueba.jpg`}
               alt={altText}
               width={500}
               height={350}

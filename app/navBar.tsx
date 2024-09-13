@@ -2,7 +2,7 @@
 import Image from "next/image";
 import React from "react";
 import { FaUser } from "react-icons/fa";
-
+import { PiUserCircleFill } from "react-icons/pi";
 import { useEffect, useState } from "react";
 import {
   Navbar,
@@ -18,7 +18,8 @@ import ThemeSwitcher from "../components/ThemeSwitcher";
 import { useTheme } from "next-themes";
 import NavLinks from "./nav-links";
 import Link from "next/link";
-import { UserCircleIcon } from "@heroicons/react/solid";
+
+
 const Header = () => {
   const { theme, resolvedTheme } = useTheme();
   const [imageSrc, setImageSrc] = useState("/image/logo9.png"); // imagen por defecto
@@ -142,7 +143,7 @@ const Header = () => {
           <NavLinks />
           <NavbarContent justify="end">
             <Link href="/login">
-            <FaUser className="text-2xl text-customPurple800 dark:text-customWhiteOcean" />
+            <PiUserCircleFill className="text-4xl text-customPurple800 hover:text-customOrange dark:hover:text-customOrange dark:text-customWhiteOcean" />
 
             </Link>
             <ThemeSwitcher />
@@ -165,11 +166,12 @@ const Header = () => {
           ))}
           <ThemeSwitcher />
           <Link href="/login" passHref legacyBehavior>
-            <UserCircleIcon
+            <PiUserCircleFill
+              className="text-customPurple800 text-5xl dark:text-customWhiteOcean"
               width={40}
               height={40}
               onClick={handleMenuItemClick}
-            ></UserCircleIcon>
+            ></PiUserCircleFill>
           </Link>
         </NavbarMenu>
       </Navbar>
