@@ -26,6 +26,7 @@ const CreateStudentExcel: React.FC<CreateStudentFormProps> = ({ onCloseModal, on
 
   const onSubmit: SubmitHandler<StudentFormData> = async (data) => {
     try {
+      
       const formData = new FormData();
       formData.append('excelFile', data.excelFile[0]);
 

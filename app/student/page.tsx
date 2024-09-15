@@ -201,7 +201,7 @@ const Student = () => {
       const wb = XLSX.utils.book_new();
       const ws = XLSX.utils.json_to_sheet(dataWithoutId);
       XLSX.utils.book_append_sheet(wb, ws, 'participantesRizo');
-      XLSX.writeFile(wb, 'participantesRizo.xlsx');
+      XLSX.writeFile(wb, 'participantesSeveda.xlsx');
       console.log('Datos exportados exitosamente a Excel.');
     } catch (error) {
       console.error('Error al exportar datos a Excel:', error);

@@ -31,7 +31,7 @@ const Login: React.FC = () => {
   const [form, setForm] = useState<Auth>(dataForm);
   const { theme } = useTheme();
   const imageSrc =
-    theme === "dark" ? "/image/ECOMAS-HORIZONTAL.png" : "/image/ecomas.png";
+    theme === "dark" ? "/image/logo_footer.png" : "/image/logo9.png";
 
   const [isVisible, setIsVisible] = useState(false);
 
@@ -67,7 +67,7 @@ const Login: React.FC = () => {
   const onSubmit = async () => {
     try {
       const response = await axios.post(
-        "https://backend.ecomas.pe/api/v1/user/login",
+        "http://localhost:8000/api/v1/user/login",
         form
       );
       if (response.data.token) {
