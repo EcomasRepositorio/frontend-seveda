@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion"; // Importamos Framer Motion
-import ScrollAnimation from "./scrollAnimation";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
 import Link from "next/link";
@@ -13,7 +12,7 @@ import "swiper/css/pagination";
 import "swiper/css/autoplay"; // Importa los estilos de autoplay
 
 // import required modules
-import { Mousewheel, Pagination, Autoplay } from "swiper/modules";
+import { Pagination, Autoplay } from "swiper/modules";
 
 const SwiperCarrousel = () => {
   const cursosDestacados = [
@@ -40,7 +39,7 @@ const SwiperCarrousel = () => {
   ];
 
   return (
-    <ScrollAnimation>
+    
       <Swiper
         slidesPerView={1}
         spaceBetween={15} // Espaciado entre slides
@@ -62,7 +61,7 @@ const SwiperCarrousel = () => {
             spaceBetween: 30, // Ajusta el espaciado para pantallas grandes
           },
         }}
-        modules={[Mousewheel, Pagination, Autoplay]} // Importa los módulos necesarios
+        modules={[ Pagination, Autoplay]} // Importa los módulos necesarios
         className="mySwiper "
       >
         {cursosDestacados.map((curso, index) => (
@@ -118,7 +117,7 @@ const SwiperCarrousel = () => {
           </SwiperSlide>
         ))}
       </Swiper>
-    </ScrollAnimation>
+    
   );
 };
 

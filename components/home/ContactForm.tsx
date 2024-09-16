@@ -120,7 +120,7 @@ const ContactForm = () => {
                     className='ring-1 ring-customPurple800 bg-white dark:bg-customWhiteOcean w-full mt-1 rounded-md px-2 py-1 outline-none focus:ring-2'>
                   </textarea>
                 </div>
-                <input type="submit" value={sending ? 'Enviando...' : 'Enviar'} className='inline-block self-end bg-customPurple800 dark:bg-customOscure  text-white font-bold rounded-lg px-6 py-2 uppercase text-sm'/>
+                <input type="submit" value={sending ? 'Enviando...' : 'Enviar'} className='inline-block self-end bg-customPurple800 dark:bg-customOrange dark:hover:bg-customOscure   text-white font-bold rounded-lg px-6 py-2 uppercase text-sm'/>
               </form>
             </div>
           </div>
