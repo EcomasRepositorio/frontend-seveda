@@ -49,8 +49,7 @@ export default function NavLinks() {
           <Link
             key={link.name}
             href={link.href}
-            className={`text-lg text-blackblue font-light  hover:underline hover:text-primaryblue dark:hover:text-blue-100 ${
-              isActive ? "underline text-primaryblue dark:text-blue-100 " : "dark:text-white"
+            className={`font-light text-xl text-gray-100 lg:mb-0 md:mb-0 mb-6 py-1 px-3 text-center border border-transparent hover:border-testCian hover:bg-white/15 rounded transition-transform transform hover:scale-125
             }`}
           >
             <p className="hidden md:block">{link.name}</p>

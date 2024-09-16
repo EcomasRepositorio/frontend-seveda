@@ -96,7 +96,7 @@ const Header = () => {
       <Navbar
         isMenuOpen={isMenuOpen}
         onMenuOpenChange={setIsMenuOpen}
-        className="z-20 bg-blue-100 dark:bg-blackblue2 "
+        className="z-20 bg-customPurple800 dark:bg-blackblue2 "
         position="sticky"
       >
         <NavbarContent className="sm:hidden w-full" justify="center">
@@ -143,7 +143,7 @@ const Header = () => {
           <NavLinks />
           <NavbarContent justify="end">
             <Link href="/login">
-            <PiUserCircleFill className="text-4xl text-customPurple800 hover:text-customOrange dark:hover:text-customOrange dark:text-customWhiteOcean" />
+            <PiUserCircleFill className="text-4xl text-customWhiteOcean hover:text-customOrange dark:hover:text-customOrange dark:text-customWhiteOcean" />
 
             </Link>
             <ThemeSwitcher />
