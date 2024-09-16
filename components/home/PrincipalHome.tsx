@@ -1,185 +1,224 @@
 "use client";
-import React, { useState, useEffect } from 'react';
-import { motion, Variants } from "framer-motion";
-import { slideInFromLeft, fadeInFrom, textVariants, slideInFromTop, slideFromRight } from '@/components/utils/motion';
+import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import {
+  slideInFromLeft,
+  slideInFromRight,
+  slideInFromTop,
+} from "@/components/utils/motion";
+import Image from "next/image";
 import { FaFacebookF, FaInstagram, FaTiktok, FaWhatsapp, FaYoutube } from "react-icons/fa";
-import Image from 'next/image';
-import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
-import "./StylesHome.css"
-import Link from 'next/link';
-import { title } from 'process';
+import { BiChevronLeft, BiChevronRight } from "react-icons/bi";
+import Link from "next/link";
 
-const texts = [
-  {text1:"Para profesionales y público en general", colorText: "text-customOrange dark:text-customOrange"},
-  {text1:"La mejor opción para tu desarrollo profesional",
-    
-    
-    colorText: "text-customOrange dark:text-customOrange"},
+const images = [
+  { src: "/IMAGEN.png" },
+  { src: "/IMAGEN_2.png" },
+ /*  { src: "/IMAGEN.png", variants: slideInFromRight(1) } */
 ];
 
-const slides = [
-  { title: "Diplomados y cursos", color: "from-customPurple800 to-customPurple300 dark:bg-blackblue2" },
-  { title: "Aprendizaje virtual", color: "from-customPurple800 to-customPurple300 dark:bg-blackblue2" },
+const texts = [
+  "Tu puerta abierta al conocimiento en vivo, desde donde estes...",
+  "Con nuestros Cursos y Diplomados de especialización...",
+  /* "Unete a nosotros para alcanzar nuevas metas..m" */
+];
 
-  
-]
+const tittles = [
+  { tittle1: "DIPLOMADOS, CURSOS PROMÁS", color1: "from-purple-700 to-pink-500" },
+  { tittle2: "¡CONSTRUYENDO", color2: "text-customPurple", tittle3: "UN MUNDO MEJOR!", color3: "text-customPink"},
+  /* { tittle4: "DIPLOMADOS, CURSOS PROMÁS", color4: "from-green-700 to-blue-500" } */
+];
 
 const icons = [
-  {img1: <FaFacebookF className='text-white ' />, img2: <FaInstagram className='text-white' />, img3: <FaTiktok className='text-white' />, img4: <FaWhatsapp className='text-white' />, img5: <FaYoutube />, color: ""},
-  {img1: <FaFacebookF className='text-white' />, img2: <FaInstagram className='text-white'/>, img3: <FaTiktok className='text-white' />, img4: <FaWhatsapp className='text-white' />, img5: <FaYoutube />, color: ""},
+  {img1: <FaFacebookF />, img2: <FaInstagram />, img3: <FaTiktok />, img4: <FaWhatsapp />, img5: <FaYoutube />},
+  {img1: <FaFacebookF />, img2: <FaInstagram />, img3: <FaTiktok />, img4: <FaWhatsapp />, img5: <FaYoutube />},
+  /* {img1: <FaFacebookF />, img2: <FaInstagram />, img3: <FaTiktok />, img4: <FaWhatsapp />, img5: <FaYoutube />}, */
+
 ]
-const PrincipalHome = () => {
+
+const buttons = [
+  {text: "Contacto", link: "#contact"},
+  {text:"Informes", link: "#contact"},
+  /* "¡Inscribete!" */
+]
+
+const Home = () => {
+
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
-    const slider = document.querySelector(".slider");
-    const nextBtn = document.querySelector('.next-btn');
-    const prevBtn = document.querySelector('.prev-btn');
-    const slides = document.querySelectorAll('.slide');
-    const slideIcons = document.querySelectorAll('.slide-icon');
-    const numberOfSlides = slides.length;
-    let playSlider: ReturnType<typeof setInterval>;
-    let slideNumber = 0;
-
-    if (nextBtn) {
-      nextBtn.addEventListener('click', () => {
-        slides[slideNumber].classList.remove("active");
-        slideNumber = (slideNumber + 1) % numberOfSlides;
-        slides[slideNumber].classList.add("active");
-        setIndex(slideNumber);
-      })
-    };
-
-    if (prevBtn) {
-      prevBtn.addEventListener('click', () => {
-        slides[slideNumber].classList.remove("active");
-        slideNumber = (slideNumber - 1 + numberOfSlides) % numberOfSlides;
-        slides[slideNumber].classList.add("active");
-        setIndex(slideNumber);
-      })
-    };
-
-    const repeat = () => {
-      playSlider = setInterval(() => {
-        slides.forEach((slide) => {
-          slide.classList.remove("active");
-        });
-        slideIcons.forEach((slideIcon) => {
-          slideIcon.classList.remove("active");
-        });
-
-        slideNumber--;
-
-        if(slideNumber < 0){
-          slideNumber = numberOfSlides - 1;
-        }
-
-        if (slides[slideNumber] !== undefined) {
-          slides[slideNumber].classList.add("active");
-        }
-        if (slideIcons[slideNumber] !== undefined) {
-          slideIcons[slideNumber].classList.add("active");
-        }
-
-        setIndex(slideNumber);
-      }, 7000);
-    }
-    repeat();
-
-    if (slider !== null) {
-      slider.addEventListener("mouseover", () => {
-        clearInterval(playSlider);
-      });
-
-      slider.addEventListener("mouseout", () => {
-        repeat();
-      });
-    }
+    const interval = setInterval(() => {
+      if (!document.hidden) {
+        setIndex((prevIndex) =>
+          prevIndex === images.length - 1 ? 0 : prevIndex + 1
+        );
+      };
+    }, 10000);
+    return () => clearInterval(interval);
   }, []);
 
-  return (
-    <section className="">
-      <div className='slider'>
-        {slides.map((slide, i) => (
-          <motion.div
-          key={i}
-          className={`slide ${i === index ? 'active' : ''}`}>
-            <Image src={`/image/banners0${i + 1}.jpg`} alt="seveda" width={1200} height={1200} className=''/>
-            <div
-              className="relative mx-auto text-right max-w-screen-xl p-4 xl:mt-[200px] lg:mt-[200px] md:mt-40 mt-20">
-              {icons.map((icon, i) => (
-                i === index && (
-              <motion.div
-                key={i}
-                initial="hidden"
-                animate="visible"
-                exit="hidden"
-                variants={slideInFromTop}
-                className={`py-1 lg:text-right px-1 opacity-[0.9] ${icon.color}`}>
-                <h1 className='lg:text-2xl text-2xl text-center inline-flex lg:gap-6 gap-3'>
-                  <Link key={`link-${i}`} href='https://web.facebook.com/corp.rizo' target="_blank"
-                    className="border bg-blue-600 dark:bg-customOscure p-2 rounded-full transition-transform transform hover:scale-150 shadow-xl ">
-                    {icon.img1}
-                  </Link>
-                  <Link key={`link-${i+1}`} href='https://www.instagram.com/corporacion.rizo/' target="_blank"
-                    className="border bg-customPurple300 dark:bg-customOscure p-2 rounded-full transition-transform transform hover:scale-150 shadow-xl ">
-                    {icon.img2}
-                  </Link>
-                  <Link key={`link-${i+2}`} href='https://www.tiktok.com/@corporacion.rizo' target="_blank"
-                    className="border bg-gray-500 dark:bg-customOscure p-2 rounded-full transition-transform transform hover:scale-150 shadow-xl ">
-                    {icon.img3}
-                  </Link>
-                  <Link key={`link-${i+3}`} href='https://wa.me/51961646248?text=Hola, deseo más información sobre los diplomados y cursos...' target="_blank"
-                    className="border bg-green-600 dark:bg-customOscure p-2 rounded-full transition-transform transform hover:scale-150 shadow-xl ">
-                    {icon.img4}
-                  </Link>
-                </h1>
-              </motion.div>
-              )
-              ))}
-              <motion.h1
-                initial="hidden"
-                animate={i === index ? "visible" : "hidden"}
-                exit="hidden"
-                variants={textVariants}
-                className="font-extrabold text-[31px] md:text-6xl lg:text-7xl xl-text-9xl mb-4 relative">
-                <span className={`bg-clip-text text-transparent bg-gradient-to-r ${slide.color}`}>
-                {slide.title.split(' ').map((word, j, array) => (
-                  <React.Fragment key={j}>
-                    {j > 0 && j % 3 === 0 && <br />}
-                    {word}{' '}
-                  </React.Fragment>
-                  ))}
-                  </span>
-              </motion.h1>
-              {texts.map((text, i) => (
-                i === index && (
-              <motion.h2
-                key={i}
-                initial="hidden"
-                animate={i === index ? 'visible' : 'hidden'}
-                exit="hidden"
-                variants={slideFromRight}
-                className={`font-extrabold text-lg lg:text-3xl ${text.colorText}`}>
-                {text.text1.split(' ').map((word, j, array) => (
-                  <React.Fragment key={j}>
-                    {j > 0 && j % 7 === 0 && <br />}
-                    {word}{' '}
-                  </React.Fragment>
-                  ))}
-              </motion.h2>
-              )
-            ))}
-        </div>
-        </motion.div>
-        ))}
-        <div className="navigation md:text-2xl font-extrabold">
-          <BsChevronLeft className="prev-btn"/>
-          <BsChevronRight className="next-btn"/>
-        </div>
-      </div>
-    </section>
-  )
-}
+  const nextSlide = () => {
+    setIndex((prevIndex) =>
+      prevIndex === tittles.length - 1 ? 0 : prevIndex + 1
+    );
+  };
 
-export default PrincipalHome;
+  const prevSlide = () => {
+    setIndex((prevIndex) =>
+      prevIndex === 0 ? tittles.length - 1 : prevIndex - 1
+    );
+  };
+
+  return (
+    <div className="bg-transparent dark:bg-customOscure relative">
+      {/* <div className="hidden lg:block w-[300px] h-[300px] bg-pink-500 rounded-[100%] absolute z-1 top-[75%] left-[30%] translate-x-[-60%] translate-y-[-60%] blur-[150px]"></div>
+      <div className=" w-[300px] h-[400px] bg-violet-600 rounded-[100%] absolute z-1 top-[30%] left-[70%] translate-x-[-60%] translate-y-[-60%] blur-[150px]"></div> */}
+    <motion.div
+      initial="hidden"
+      animate="visible"
+      className="relative z-10 flex flex-col-reverse md:flex-row max-w-screen-xl mx-auto items-center justify-between w-full">
+
+      <div className="mb-10 lg:mb-0 p-2 md:mt-20">
+        {icons.map((icon, i) => (
+          i === index && (
+        <motion.div
+          key={i}
+          initial="hidden"
+          animate="visible"
+          exit="hidden"
+          variants={slideInFromTop}
+          className="py-1 lg:text-left text-cen0t0er px-1 opacity-[0.9]"
+        >
+          <h1 className="text-customWhiteOcean lg:text-2xl text-2xl text-center inline-flex lg:gap-6 gap-3">
+            <Link key={`link-${i}`} href='https://www.facebook.com/people/Corporaci%C3%B3n-Prom%C3%A1s/61552473052389/' target="_blank"
+              className="border bg-blue-600 dark:bg-customOscure p-2 rounded-full transition-transform transform hover:scale-150 shadow-xl">
+              {icon.img1}
+            </Link>
+            <Link key={`link-${i+1}`} href='https://www.instagram.com/corporacion.promas/' target="_blank"
+              className="border bg-customPurple300 dark:bg-customOscure p-2 rounded-full transition-transform transform hover:scale-150 shadow-xl">
+              {icon.img2}
+            </Link>
+            <Link key={`link-${i+2}`} href='https://www.tiktok.com/@promas.corp' target="_blank"
+              className="border bg-gray-500 dark:bg-customOscure p-2 rounded-full transition-transform transform hover:scale-150 shadow-xl">
+              {icon.img3}
+            </Link>
+            <Link key={`link-${i+3}`} href='https://wa.me/51984040264?text=Hola,%20deseo%20más%20información%20sobre%20los%20diplomados' target="_blank"
+              className="border bg-green-600 dark:bg-customOscure p-2 rounded-full transition-transform transform hover:scale-150 shadow-xl">
+              {icon.img4}
+            </Link>
+            <Link key={`link-${i+4}`} href='https://www.youtube.com/@Corporacion.Promas' target="_blank" className="border bg-red-600 dark:bg-customOscure p-2 rounded-full transition-transform transform hover:scale-150 shadow-xl">
+              {icon.img5}
+            </Link>
+          </h1>
+        </motion.div>
+        )
+        ))}
+
+        {tittles.map((tittle, i) => (
+          i === index && (
+          <React.Fragment key={`tittles-${i}`}>
+            <motion.div
+              key={`${i}-1`}
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+              variants={slideInFromLeft(1)}
+              className="lg:leading-[3.8em] leading-[2.3em]">
+              <h1>
+                <p className={`mt-6 lg:text-[63px] text-[36px] font-extrabold text-transparent bg-clip-text bg-gradient-to-r ${tittle.color1}`}>
+                  {tittle.tittle1}
+                </p>
+              </h1>
+            </motion.div>
+            <motion.div
+              key={`${i}-2`}
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+              variants={slideInFromLeft(1)}
+              className="lg:leading-[3.8em] leading-[2.3em]">
+              <h1>
+                <p className={`mt-6 lg:text-[60px] text-[32px] font-extrabold bg-clip-text text-customPurple ${tittle.color2}`}>
+                  {tittle.tittle2}
+                </p>
+              </h1>
+            </motion.div>
+            <motion.div
+              key={`${i}-3`}
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+              variants={slideInFromLeft(1)}
+              className="lg:leading-[3.8em] leading-[2.3em]">
+              <h1>
+                <p className={`lg:text-[55px] text-[35px] font-extrabold bg-clip-text ${tittle.color3}`}>
+                  {tittle.tittle3}
+                </p>
+              </h1>
+            </motion.div>
+          </React.Fragment>
+        )
+        ))}
+
+        {texts.map((text, i) => (
+          i === index && (
+            <motion.p
+              key={i}
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+              variants={slideInFromLeft(1.5)}
+              className="lg:text-3xl text-gray-200 mb-10">
+              {text}
+            </motion.p>
+          )
+        ))}
+
+        {buttons.map((button, i) => ( i === index && (
+        <motion.a
+          key={i}
+          initial="hidden"
+          animate="visible"
+          exit="hidden"
+          variants={slideInFromLeft(2)}
+          href={button.link}
+          className="py-2 lg:text-2xl px-10 font-mono text-center button-primary text-white cursor-pointer rounded-lg">
+          {button.text}
+        </motion.a>
+        )))}
+      </div>
+
+      <motion.div
+        key={index}
+        initial="hidden"
+        animate="visible"
+        variants={slideInFromRight(1)}
+        className="w-full h-full flex justify-center items-center text-center mt-32"
+      >
+        <Image
+          key={index}
+          src={images[index].src}
+          alt="icons"
+          height={800}
+          width={800}
+          priority={true}
+        />
+      </motion.div>
+    </motion.div>
+    <div className="flex justify-center">
+    <button
+      onClick={prevSlide}
+      className="py-2 px-4 mr-2 font-mono text-center button-primary text-white cursor-pointer rounded-lg">
+      <BiChevronLeft className="text-xl" />
+    </button>
+    <button
+      onClick={nextSlide}
+      className="py-2 px-4 font-mono text-center button-primary text-white cursor-pointer rounded-lg">
+      <BiChevronRight className="text-xl"/>
+    </button>
+      </div>
+    </div>
+  );
+};
+
+export default Home;
