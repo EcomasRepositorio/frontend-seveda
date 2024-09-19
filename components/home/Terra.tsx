@@ -3,11 +3,12 @@ import { OrbitControls, Stars } from "@react-three/drei";
 import * as THREE from "three";
 import { useRef, useEffect, useState, useMemo } from "react";
 import { FaGlobe } from "react-icons/fa"; // Importa un icono de react-icons
+import Image from "next/image";
 
 const cartesianToSpherical = (x: number, y: number, z: number) => {
   const radius = Math.sqrt(x * x + y * y + z * z);
-  const theta = Math.acos(z / radius); 
-  const phi = Math.atan2(y, x); 
+  const theta = Math.acos(z / radius);
+  const phi = Math.atan2(y, x);
   return { radius, theta, phi };
 };
 
@@ -20,7 +21,10 @@ const sphericalToCartesian = (radius: number, theta: number, phi: number) => {
 
 const RotatingGlobe = () => {
   const globeRef = useRef<THREE.Mesh>(null);
-  const texture = useMemo(() => new THREE.TextureLoader().load("/textures/terra12.jpg"), []);
+  const texture = useMemo(
+    () => new THREE.TextureLoader().load("/textures/terra12.jpg"),
+    []
+  );
 
   useFrame(() => {
     if (globeRef.current) {
@@ -36,13 +40,23 @@ const RotatingGlobe = () => {
   );
 };
 
-const FlightLine = ({ start, end }: { start: [number, number, number]; end: [number, number, number]; }) => {
+const FlightLine = ({
+  start,
+  end,
+}: {
+  start: [number, number, number];
+  end: [number, number, number];
+}) => {
   const startSpherical = cartesianToSpherical(...start);
   const endSpherical = cartesianToSpherical(...end);
 
   const midTheta = (startSpherical.theta + endSpherical.theta) / 2;
   const midPhi = (startSpherical.phi + endSpherical.phi) / 2;
-  const controlPoint = sphericalToCartesian(startSpherical.radius + 0.1, midTheta, midPhi);
+  const controlPoint = sphericalToCartesian(
+    startSpherical.radius + 0.1,
+    midTheta,
+    midPhi
+  );
 
   const curve = new THREE.CatmullRomCurve3([
     new THREE.Vector3(...start),
@@ -54,9 +68,7 @@ const FlightLine = ({ start, end }: { start: [number, number, number]; end: [num
   const lineGeometry = new THREE.BufferGeometry().setFromPoints(points);
 
   return (
-    <line>
-      {/* Aquí iría el material y las propiedades de la línea */}
-    </line>
+    <line>{/* Aquí iría el material y las propiedades de la línea */}</line>
   );
 };
 
@@ -88,10 +100,43 @@ const Globe = () => {
   }
 
   return (
-    <div style={{ position: "relative", width: `${size.width}px`, margin: "0 auto" }}>
+    <div
+      style={{
+        position: "relative",
+        width: `${size.width}px`,
+        margin: "0 auto",
+      }}
+    >
       {/* Icono en la parte superior */}
-      <FaGlobe style={{ position: "absolute", top: "10px", left: "10%", transform: "translateX(-50%)", fontSize: "24px" }} />
-      
+      <div style={{ position: "relative" }}>
+        <Image
+          className="dark:hidden animate-bounce"
+          src="/image/sun_3d.png"
+          alt="Globo"
+          width={130} // Cambia el tamaño según lo necesites
+          height={130}
+          style={{
+            position: "absolute",
+            top: "10px",
+            left: "10%",
+            transform: "translateX(-50%)",
+          }}
+        />
+        <Image
+          className="hidden dark:block animate-bounce"
+          src="/image/moon_3d.png"
+          alt="Globo"
+          width={130} // Cambia el tamaño según lo necesites
+          height={130}
+          style={{
+            position: "absolute",
+            top: "10px",
+            left: "10%",
+            transform: "translateX(-50%)",
+          }}
+        />
+      </div>
+
       {/* El canvas con el globo */}
       <Canvas
         style={{
