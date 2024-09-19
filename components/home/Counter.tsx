@@ -50,7 +50,7 @@ const Counter: React.FC = () => {
             transition={{ duration: 1, delay: 0.2 }}
             className="w-full p-4"
           >
-            <div key={`counter1-${key}`} className={`flex justify-center items-center flex-col  border-2 border-customPurple800 dark:border-customOrange rounded-xl p-4 mt-5 hover:scale-110 hover:bg-customOrange duration-300`}>
+            <div key={`counter1-${key}`} className={`flex justify-center items-center flex-col  border-2 border-customPurple800 dark:border-customOrange rounded-xl p-4 mt-5 hover:scale-110 hover:bg-transparent dark:hover:bg-customOrange duration-300`}>
               <Lottie options={defaultOptions(studentsAnimation as AnimationData)} height={150} width={150} />
               <div className='text-black dark:text-customWhiteOcean mt-5 mb-5'>
                 {inView && (
@@ -74,7 +74,7 @@ const Counter: React.FC = () => {
             transition={{ duration: 1, delay: 0.4 }}
             className="w-full p-4"
           >
-            <div key={`counter2-${key}`} className={`flex justify-center items-center flex-col border-2 border-customPurple800 dark:border-customOrange rounded-xl p-4 mt-5 hover:scale-110 hover:bg-customOrange duration-300`}>
+            <div key={`counter2-${key}`} className={`flex justify-center items-center flex-col border-2 border-customPurple800 dark:border-customOrange rounded-xl p-4 mt-5 hover:scale-110 hover:bg-transparent dark:hover:bg-customOrange duration-300`}>
               <Lottie options={defaultOptions(graduatesAnimation as AnimationData)} height={150} width={150} />
               <div className='text-black dark:text-customWhiteOcean mt-5 mb-5'>
                 {inView && (
@@ -98,7 +98,7 @@ const Counter: React.FC = () => {
             transition={{ duration: 1, delay: 0.6 }}
             className="w-full p-4"
           >
-            <div className={`flex justify-center items-center flex-col rounded-xl border-2 border-customPurple800 dark:border-customOrange p-4 mt-5 hover:scale-110 hover:bg-customOrange duration-300`}>
+            <div className={`flex justify-center items-center flex-col rounded-xl border-2 border-customPurple800 dark:border-customOrange p-4 mt-5 hover:scale-110 hover:bg-transparent dark:hover:bg-customOrange duration-300`}>
               <Lottie options={defaultOptions(excelentAnimation as AnimationData)} height={150} width={150} />
               <div className='text-black dark:text-customWhiteOcean mt-5 mb-5'>
                 {inView && (
@@ -122,7 +122,7 @@ const Counter: React.FC = () => {
             transition={{ duration: 1, delay: 0.8 }}
             className="w-full p-4"
           >
-            <div className={`flex justify-center items-center flex-col border-2 border-customPurple800 dark:border-customOrange rounded-xl p-4 mt-5 hover:scale-110 hover:bg-customOrange duration-300`}>
+            <div className={`flex justify-center items-center flex-col border-2 border-customPurple800 dark:border-customOrange rounded-xl p-4 mt-5 hover:scale-110 hover:bg-transparent dark:hover:bg-customOrange duration-300`}>
               <Lottie options={defaultOptions(coursesAnimation as AnimationData)} height={150} width={150} />
               <div className='text-black dark:text-customWhiteOcean mt-5 mb-5'>
                 {inView && (

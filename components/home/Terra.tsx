@@ -2,16 +2,15 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, Stars } from "@react-three/drei";
 import * as THREE from "three";
 import { useRef, useEffect, useState, useMemo } from "react";
+import { FaGlobe } from "react-icons/fa"; // Importa un icono de react-icons
 
-// Función para convertir coordenadas cartesianas a esféricas
 const cartesianToSpherical = (x: number, y: number, z: number) => {
   const radius = Math.sqrt(x * x + y * y + z * z);
-  const theta = Math.acos(z / radius); // ángulo con respecto al eje z
-  const phi = Math.atan2(y, x); // ángulo en el plano xy
+  const theta = Math.acos(z / radius); 
+  const phi = Math.atan2(y, x); 
   return { radius, theta, phi };
 };
 
-// Función para convertir coordenadas esféricas a cartesianas
 const sphericalToCartesian = (radius: number, theta: number, phi: number) => {
   const x = radius * Math.sin(theta) * Math.cos(phi);
   const y = radius * Math.sin(theta) * Math.sin(phi);
@@ -19,14 +18,13 @@ const sphericalToCartesian = (radius: number, theta: number, phi: number) => {
   return [x, y, z];
 };
 
-// Componente para la rotación del globo
 const RotatingGlobe = () => {
   const globeRef = useRef<THREE.Mesh>(null);
-  const texture = useMemo(() => new THREE.TextureLoader().load("/textures/terra12.jpg"), []); // Carga de textura optimizada
+  const texture = useMemo(() => new THREE.TextureLoader().load("/textures/terra12.jpg"), []);
 
   useFrame(() => {
     if (globeRef.current) {
-      globeRef.current.rotation.y += 0.004; // Ajusta este valor para cambiar la velocidad de rotación
+      globeRef.current.rotation.y += 0.004;
     }
   });
 
@@ -38,46 +36,33 @@ const RotatingGlobe = () => {
   );
 };
 
-// Función para crear líneas curvas que simulan rutas, siguiendo la curvatura del globo
-const FlightLine = ({
-  start,
-  end,
-}: {
-  start: [number, number, number];
-  end: [number, number, number];
-}) => {
+const FlightLine = ({ start, end }: { start: [number, number, number]; end: [number, number, number]; }) => {
   const startSpherical = cartesianToSpherical(...start);
   const endSpherical = cartesianToSpherical(...end);
 
-  // Generar un punto de control intermedio en la curvatura de la esfera
   const midTheta = (startSpherical.theta + endSpherical.theta) / 2;
   const midPhi = (startSpherical.phi + endSpherical.phi) / 2;
-  const controlPoint = sphericalToCartesian(
-    startSpherical.radius + 0.1, // Puedes ajustar este valor para controlar qué tan alta es la curva
-    midTheta,
-    midPhi
-  );
+  const controlPoint = sphericalToCartesian(startSpherical.radius + 0.1, midTheta, midPhi);
 
   const curve = new THREE.CatmullRomCurve3([
-    new THREE.Vector3(...start), // Punto de inicio
-    new THREE.Vector3(...controlPoint), // Punto de control en la curvatura de la esfera
-    new THREE.Vector3(...end), // Punto de destino
+    new THREE.Vector3(...start),
+    new THREE.Vector3(...controlPoint),
+    new THREE.Vector3(...end),
   ]);
 
-  const points = curve.getPoints(1000); // Número de puntos a lo largo de la curva
+  const points = curve.getPoints(1000);
   const lineGeometry = new THREE.BufferGeometry().setFromPoints(points);
 
   return (
     <line>
-     
+      {/* Aquí iría el material y las propiedades de la línea */}
     </line>
   );
 };
 
-// Componente principal del globo
 const Globe = () => {
   const [isClient, setIsClient] = useState(false);
-  const [size, setSize] = useState({ width: 600, height: 600 }); // Estado para controlar el tamaño del Canvas
+  const [size, setSize] = useState({ width: 600, height: 600 });
 
   useEffect(() => {
     setIsClient(typeof window !== "undefined");
@@ -103,25 +88,27 @@ const Globe = () => {
   }
 
   return (
-    <Canvas
-      style={{
-        width: `${size.width}px`,
-        height: `${size.height}px`,
-        margin: "0 auto",
-      }}
-      camera={{ position: [0, 0, 5], fov: 50 }}
-    >
-      <OrbitControls enableZoom={false} />
-      <Stars radius={300} depth={50} count={5000} factor={15} fade />
-
-      <ambientLight intensity={3.5} />
-      <directionalLight position={[2, 5, 2]} intensity={1} />
-      <RotatingGlobe />
-
-      {/* Añadiendo algunas líneas de rutas (curvas) que siguen la curvatura */}
-      <FlightLine start={[2, 1, 1]} end={[-1, -1, 0]} />
-      <FlightLine start={[-1.5, 1, 1]} end={[1.5, -1, -1]} />
-    </Canvas>
+    <div style={{ position: "relative", width: `${size.width}px`, margin: "0 auto" }}>
+      {/* Icono en la parte superior */}
+      <FaGlobe style={{ position: "absolute", top: "10px", left: "10%", transform: "translateX(-50%)", fontSize: "24px" }} />
+      
+      {/* El canvas con el globo */}
+      <Canvas
+        style={{
+          width: `${size.width}px`,
+          height: `${size.height}px`,
+        }}
+        camera={{ position: [0, 0, 5], fov: 50 }}
+      >
+        <OrbitControls enableZoom={false} />
+        <Stars radius={300} depth={50} count={5000} factor={15} fade />
+        <ambientLight intensity={3.5} />
+        <directionalLight position={[2, 5, 2]} intensity={1} />
+        <RotatingGlobe />
+        <FlightLine start={[2, 1, 1]} end={[-1, -1, 0]} />
+        <FlightLine start={[-1.5, 1, 1]} end={[1.5, -1, -1]} />
+      </Canvas>
+    </div>
   );
 };
 

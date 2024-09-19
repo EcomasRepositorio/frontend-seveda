@@ -25,7 +25,7 @@ module.exports = {
         'blackblue2': '#0f172a',
         'primaryblue': '#7d3665',
         'primaryblack': '#262626',
-        'customPurple800': '#7d3665', // Cambiar a customPurple800
+        'customPurple800': '#7d3665', // Cambiar a customPurple800 552B50
         'customWhiteOcean': '#F0F0F0',
         'customPurple300': '#ff6c8a',
         'customOrange': '#FAA32F',

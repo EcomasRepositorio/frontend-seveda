@@ -29,7 +29,7 @@ const Certificate: React.FC = () => {
       {/* Background */}
       <div className="absolute inset-0 bg-no-repeat bg-center ">
         <Image
-          src="/image/background_light.png"
+          src="/image/certs_back.jpg"
           alt="Background Image"
           layout="fill"
           objectFit="cover"
@@ -38,7 +38,7 @@ const Certificate: React.FC = () => {
           priority
         />
         <Image
-          src="/image/background_dark.png"
+          src="/image/certs_back.jpg"
           alt="Background Image"
           layout="fill"
           objectFit="cover"
@@ -46,11 +46,11 @@ const Certificate: React.FC = () => {
           className="w-full h-full object-cover hidden dark:block"
           priority
         />
-        F
+        
       </div>
 
       {/* Main Content */}
-      <div className="max-w-screen-lg mx-auto rounded-3xl shadow-2xl text-center p-6 relative backdrop-blur-xl bg-gradient-to-b from-purple-900/80 via-purple-700/60 to-purple-800/80">
+      <div className="max-w-screen-lg mx-auto rounded-3xl shadow-2xl text-center p-6 relative backdrop-blur-2xl border-3 border-customWhiteOcean dark:border-customWhiteOcean bg-gradient-to-t bg-transparent dark:from-black dark:to-blackblue2 ">
         {/* Header */}
         <div className="flex flex-wrap justify-center gap-4 md:gap-8 mb-10">
           <Image
@@ -101,8 +101,8 @@ const Certificate: React.FC = () => {
         <div className="flex flex-wrap justify-center items-center gap-6">
           <button
             onClick={() => handleButton("documentNumber")}
-            className={`px-6 py-3 font-bold border-2 rounded-lg text-white hover:text-purple-900 hover:bg-gray-200 transition transform hover:scale-105 ${
-              searchType === "documentNumber" ? "bg-purple-600" : ""
+            className={`px-6 py-3 font-bold border-2 rounded-lg text-white hover:text-customWhiteOcean hover:bg-customPurple800 dark:hover:bg-blackblue2/60 transition transform hover:scale-105 ${
+              searchType === "documentNumber" ? "bg-customPurple800 dark:bg-blackblue2 " : ""
             }`}
           >
             <BsPersonVcard className="text-xl inline-block mr-2" />
@@ -110,8 +110,8 @@ const Certificate: React.FC = () => {
           </button>
           <button
             onClick={() => handleButton("name")}
-            className={`px-6 py-3 font-bold border-2 rounded-lg text-white hover:text-purple-900 hover:bg-gray-200 transition transform hover:scale-105 ${
-              searchType === "name" ? "bg-purple-600" : ""
+            className={`px-6 py-3 font-bold border-2 rounded-lg text-white hover:text-customWhiteOcean hover:bg-customPurple800 dark:hover:bg-blackblue2/60 transition transform hover:scale-105 ${
+              searchType === "name" ? "bg-customPurple800 dark:bg-blackblue2" : ""
             }`}
           >
             <BsPersonSquare className="text-xl inline-block mr-2" />
@@ -119,8 +119,8 @@ const Certificate: React.FC = () => {
           </button>
           <button
             onClick={() => handleButton("code")}
-            className={`px-6 py-3 font-bold border-2 rounded-lg text-white hover:text-purple-900 hover:bg-gray-200 transition transform hover:scale-105 ${
-              searchType === "code" ? "bg-purple-600" : ""
+            className={`px-6 py-3 font-bold border-2 rounded-lg text-white hover:text-customWhiteOcean hover:bg-customPurple800 dark:hover:bg-blackblue2/60 transition transform hover:scale-105 ${
+              searchType === "code" ? "bg-customPurple800 dark:bg-blackblue2" : ""
             }`}
           >
             <BsQrCodeScan className="text-xl inline-block mr-2" />

@@ -14,7 +14,7 @@ export default function Footer() {
   return (
     <footer
       id="footer"
-      className="bg-blue-100 dark:bg-blackblue2  items-center px-4 md:px-0"
+      className="bg-gradient-to-t bg-blue-100 dark:from-black dark:to-blackblue2 items-center px-4 md:px-0"
     >
       <div className="pt-12">
         <div className="mx-auto max-w-screen-xl px-4 md:px-8">

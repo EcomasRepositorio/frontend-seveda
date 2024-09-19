@@ -17,8 +17,8 @@ const texts = [
 ];
 
 const tittles = [
-  { tittle1: "DIPLOMADOS, CURSOS SEVEDA", color1: "from-customOrange to-pink-500" },
-  { tittle2: "¡CONSTRUYENDO", color2: "text-customPurple", tittle3: "UN MUNDO MEJOR!", color3: "text-customPink" },
+  { tittle1: "DIPLOMADOS, CURSOS SEVEDA", color1: "text-customWhiteOcean" },
+  { tittle2: "¡CONSTRUYENDO", color2: "text-customWhiteOcean", tittle3: "UN MUNDO MEJOR!", color3: "text-customWhiteOcean" },
 ];
 
 const icons = [
@@ -58,7 +58,7 @@ const Home = () => {
   };
 
   return (
-    <div className="bg-gradient-to-br from-customPurple800 via-customPurple800 to-white dark:bg-gradient-to-tr dark:from-black dark:to-customDarkBlue700  relative">
+    <div className="bg-gradient-to-b from-customPurple800 via-[#552B50] to-[#552B50] dark:bg-gradient-to-tr dark:from-black dark:to-blackblue2  relative">
       <motion.div
         initial="hidden"
         animate="visible"
@@ -128,7 +128,7 @@ const Home = () => {
                   className="lg:leading-[3.8em] leading-[2.3em]"
                 >
                   <h1>
-                    <p className={`mt-6 lg:text-[63px] text-[36px] font-extrabold text-transparent bg-clip-text bg-gradient-to-r ${tittle.color1}`}>
+                    <p className={`t-6 lg:text-[60px] text-[32px] font-extrabold bg-clip-text text-customPurple ${tittle.color1}`}>
                       {tittle.tittle1}
                     </p>
                   </h1>

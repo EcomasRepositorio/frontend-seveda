@@ -142,7 +142,7 @@ const SearchName: React.FC<SearchNameProps> = ({ onSearchName }) => {
             />
           </div>
           <div className=" ml-2 h-full">
-            <Button color="primary" type="submit" className="bg-primaryblue">
+            <Button color="primary" type="submit" className="bg-customPurple800 dark:bg-blackblue dark:text-customWhiteOcean">
               Buscar
             </Button>
           </div>
