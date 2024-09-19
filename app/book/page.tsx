@@ -64,16 +64,23 @@ const Book = () => {
           alt='logo_seveda_book'
           width={300}
           height={300}
-          className='flex justify-center mx-auto mb-10 pt-28 p-2'
+          className='flex justify-center mx-auto mb-10 pt-28 p-2 dark:hidden'
+          priority={true}/>
+          <Image
+          src="/image/logo_certs_dark.png"
+          alt='logo_seveda_book'
+          width={300}
+          height={300}
+          className=' justify-center mx-auto mb-10 pt-28 p-2 hidden dark:block'
           priority={true}/>
 
       <div className='p-2'>
-        <h1 className='uppercase text-customPurple800 text-center md:text-3xl text-2xl mb-4 font-extrabold'>Hoja de Reclamación</h1>
+        <h1 className='uppercase text-customPurple800 dark:text-customWhiteOcean text-center md:text-3xl text-2xl mb-4 font-extrabold'>Hoja de Reclamación</h1>
       
         <h2 className='bg-customPurple800 p-3 text-lg font-semibold text-gray-50 rounded-xl'>Identificación del consumidor</h2>
       </div>
     <form ref={refForm} onSubmit={handleSubmit(onSubmit)} className='grid grid-cols-1 md:grid-cols-2 gap-4 p-2'>
-        <div className='text-gray-500 md:mt-4'>
+        <div className='text-gray-500 dark:text-customWhiteOcean md:mt-4'>
           <label
             className='font-bold absolute text-lg duration-500 scale-75 origin-[0]'>
               Apellido paterno:
@@ -91,7 +98,7 @@ const Book = () => {
           </div>
           </div>
 
-          <div className='text-gray-500 md:mt-4'>
+          <div className='text-gray-500 dark:text-customWhiteOcean md:mt-4'>
           <label
             className='font-bold absolute text-lg duration-500 scale-75 origin-[0]'>
               Apellido materno:
@@ -109,7 +116,7 @@ const Book = () => {
         </div>
         </div>
 
-        <div className='text-gray-500'>
+        <div className='text-gray-500 dark:text-customWhiteOcean'>
           <label
             className='font-bold absolute text-lg duration-500 scale-75 origin-[0]'>
               Nombres:
@@ -129,7 +136,7 @@ const Book = () => {
           {errors.nombres && <p>El campo nombre debe contener menos de 20 caracteres</p>}
         </div>
 
-        <div className='text-gray-500'>
+        <div className='text-gray-500 dark:text-customWhiteOcean'>
           <label
             className='font-bold absolute text-lg duration-500 scale-75 origin-[0]'>
               Teléfono:
@@ -147,7 +154,7 @@ const Book = () => {
         </div>
         </div>
 
-        <div className='text-gray-500'>
+        <div className='text-gray-500 dark:text-customWhiteOcean'>
           <label
             className='font-bold absolute text-lg duration-500 scale-75 origin-[0]'>
               Tipo de documento:
@@ -165,7 +172,7 @@ const Book = () => {
         </div>
         </div>
 
-        <div className='text-gray-500'>
+        <div className='text-gray-500 dark:text-customWhiteOcean'>
           <label
             className='font-bold absolute text-lg duration-500 scale-75 origin-[0]'>
               N° de documento:
@@ -183,7 +190,7 @@ const Book = () => {
         </div>
         </div>
 
-        <div className='text-gray-500'>
+        <div className='text-gray-500 dark:text-customWhiteOcean'>
           <label
             className='font-bold absolute text-lg duration-500 scale-75 origin-[0]'>
               Departamento:
@@ -201,7 +208,7 @@ const Book = () => {
         </div>
         </div>
 
-        <div className='text-gray-500'>
+        <div className='text-gray-500 dark:text-customWhiteOcean'>
           <label
             className='font-bold absolute text-lg duration-500 scale-75 origin-[0]'>
               Provincia:
@@ -219,7 +226,7 @@ const Book = () => {
         </div>
         </div>
 
-        <div className='text-gray-500'>
+        <div className='text-gray-500 dark:text-customWhiteOcean'>
           <label
             className='font-bold absolute text-lg duration-500 scale-75 origin-[0]'>
               Distrito:
@@ -237,7 +244,7 @@ const Book = () => {
         </div>
         </div>
 
-        <div className='text-gray-500'>
+        <div className='text-gray-500 dark:text-customWhiteOcean'>
           <label
             className='font-bold absolute text-lg duration-500 scale-75 origin-[0]'>
               Dirección:
@@ -255,7 +262,7 @@ const Book = () => {
         </div>
         </div>
 
-        <div className='text-gray-500'>
+        <div className='text-gray-500 dark:text-customWhiteOcean'>
         <label
             className='font-bold absolute text-lg duration-500 scale-75 origin-[0]'>
               Email:
@@ -273,7 +280,7 @@ const Book = () => {
           </div>
         </div>
 
-          <div className='text-gray-500 mb-6'>
+          <div className='text-gray-500 dark:text-customWhiteOcean mb-6'>
           <label
             className='font-bold absolute text-lg duration-500 scale-75 origin-[0]'>
               Pais:
@@ -312,7 +319,7 @@ const Book = () => {
             onChange={handleReclamoChange}
             className="w-6 h-6 text-purple-600 bg-gray-100 border-gray-300 rounded focus:ring-purple-500 dark:focus:ring-purple-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
           />
-          <label htmlFor="purple-checkbox-reclamo" className="ms-2 font-bold text-gray-600">Reclamo</label>
+          <label htmlFor="purple-checkbox-reclamo" className="ms-2 font-bold text-gray-600 dark:text-customWhiteOcean">Reclamo</label>
         </div>
         <div className="flex items-center me-4">
           <input
@@ -325,7 +332,7 @@ const Book = () => {
             onChange={handleSugerenciaChange}
             className="w-6 h-6 text-purple-600 bg-gray-100 border-gray-300 rounded focus:ring-purple-500 dark:focus:ring-purple-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
           />
-          <label htmlFor="purple-checkbox-sugerencia" className="ms-2 font-bold text-gray-600">Sugerencia</label>
+          <label htmlFor="purple-checkbox-sugerencia" className="ms-2 font-bold text-gray-600 dark:text-customWhiteOcean">Sugerencia</label>
         </div>
       </div>
 
@@ -338,7 +345,7 @@ const Book = () => {
             </textarea>
           </div> */}
 
-      <label className='font-bold absolute text-gray-600 text-lg duration-500 scale-75 origin-[0]'>
+      <label className='font-bold absolute text-gray-600 dark:text-customWhiteOcean text-lg duration-500 scale-75 origin-[0]'>
         Mensaje:
       </label>
       <div className='relative'>
