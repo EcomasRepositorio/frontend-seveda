@@ -119,7 +119,7 @@ const SearchName: React.FC<SearchCodeProps> = ({ onSearchCode }) => {
             {/* Light Mode Logos */}
             <div className="dark:hidden flex items-center gap-4">
               <Image
-                src={"/image/logo_certs.png"}
+                src={"/image/logo_box.png"}
                 alt="logo_certs"
                 className="object-contain"
                 width={120} // Ajuste automático de tamaño

@@ -107,7 +107,7 @@ const Header = () => {
             <div className="flex items-center justify-between w-full">
               <Link href="/">
                 <Image
-                  src={imageSrc}
+                  src="/image/logo8.png"
                   alt="Imagen banner"
                   width={130}
                   height={150}

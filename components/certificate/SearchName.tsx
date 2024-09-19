@@ -142,7 +142,11 @@ const SearchName: React.FC<SearchNameProps> = ({ onSearchName }) => {
             />
           </div>
           <div className=" ml-2 h-full">
-            <Button color="primary" type="submit" className="bg-customPurple800 dark:bg-blackblue dark:text-customWhiteOcean">
+            <Button
+              color="primary"
+              type="submit"
+              className="bg-customPurple800 dark:bg-blackblue dark:text-customWhiteOcean"
+            >
               Buscar
             </Button>
           </div>
@@ -233,54 +237,44 @@ const SearchName: React.FC<SearchNameProps> = ({ onSearchName }) => {
                       onClose={() => closeStudentModal(index)}
                     >
                       <div className="flex justify-center items-center mb-4 gap-2">
-                        <Image
-                          src={"/certificate/UNP.png"}
-                          alt="ecomas"
-                          className="md:w-20 w-16  object-contain mt-2"
-                          width={200}
-                          height={200}
-                          priority={true}
-                        />
-                        <Image
-                          src={"/certificate/LOGO-VERTICAL-COLOR.png"}
-                          alt="ecomas"
-                          className="block dark:hidden md:w-20  w-16 h-[125px] md:mt-[13px] mt-[11px] object-contain"
-                          width={200}
-                          height={200}
-                          priority={true}
-                        />
-                        <Image
-                          src={"/image/EcomasVert_dark.png"}
-                          alt="ecomas"
-                          className="hidden dark:block md:w-20  w-16 h-[125px] md:mt-[13px] mt-[11px] object-contain"
-                          width={200}
-                          height={200}
-                          priority={true}
-                        />
-                        <Image
-                          src={"/certificate/CAL.png"}
-                          alt="ecomas"
-                          className="md:w-20  w-16 object-contain mt-2"
-                          width={200}
-                          height={200}
-                          priority={true}
-                        />
-                        <Image
-                          src={"/certificate/CIP.png"}
-                          alt="ecomas"
-                          className="block dark:hidden md:w-20  w-16 object-contain mt-2"
-                          width={200}
-                          height={200}
-                          priority={true}
-                        />
-                        <Image
-                          src={"/image/CIP_dark.png"}
-                          alt="ecomas"
-                          className="hidden dark:block md:w-20  w-16 object-contain mt-2"
-                          width={200}
-                          height={200}
-                          priority={true}
-                        />
+                        <div className="dark:hidden flex items-center gap-4">
+                          <Image
+                            src={"/image/logo_box.png"}
+                            alt="logo_certs"
+                            className="object-contain"
+                            width={120} // Ajuste automático de tamaño
+                            height={120}
+                            priority={true}
+                          />
+                          <Image
+                            src={"/image/uni_blue.png"}
+                            alt="uni_blue"
+                            className="object-contain"
+                            width={120}
+                            height={120}
+                            priority={true}
+                          />
+                        </div>
+
+                        {/* Dark Mode Logos */}
+                        <div className="hidden dark:flex items-center gap-4">
+                          <Image
+                            src={"/image/logo_certs_dark.png"}
+                            alt="logo_certs_dark"
+                            className="object-contain"
+                            width={120}
+                            height={120}
+                            priority={true}
+                          />
+                          <Image
+                            src={"/image/uni_dark.png"}
+                            alt="uni_dark"
+                            className="object-contain"
+                            width={120}
+                            height={120}
+                            priority={true}
+                          />
+                        </div>
                       </div>
                       <div className="max-w-md text-center rounded-md mx-auto">
                         {tableRows.map((row, index) => (
