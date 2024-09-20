@@ -176,7 +176,7 @@ const Login: React.FC = () => {
                         autoComplete="on"
                         placeholder="*******"
                         onChange={(
-                          event: React.ChangeEvent<HTMLInputElement>
+                          event: React.ChangeEvent <HTMLInputElement>
                         ) => handleFormData(event, "password")}
                       />
                       <button
