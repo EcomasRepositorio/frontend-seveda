@@ -129,7 +129,7 @@ const Counter: React.FC = () => {
                   <div className='flex flex-col items-center'>
                     <div className='flex items-center text-5xl font-extrabold'>
                       <span className="text-5xl ml-1">+</span>
-                      <CountUp start={0} end={700} duration={5} separator="." />
+                      <CountUp start={0} end={350} duration={5} separator="." />
                     </div>
                     <span className='mt-2 font-semibold'>Cursos disponibles</span>
                   </div>

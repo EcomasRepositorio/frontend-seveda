@@ -30,13 +30,13 @@ const Login: React.FC = () => {
   const [resErrors, setResErrors] = useState<ResErrors | null>(null);
   const [form, setForm] = useState<Auth>(dataForm);
   const { theme } = useTheme();
-  const imageSrc =
-    theme === "dark" ? "/image/logo_footer.png" : "/image/logo9.png";
+  const imageSrc = theme === "dark" ? "/image/logo_certs_dark.png" : "/image/logo_certs.png";
 
   const [isVisible, setIsVisible] = useState(false);
 
   const toggleVisibility = () => setIsVisible(!isVisible);
 
+  // Manejo del formulario con tipificación correcta del evento
   const handleFormData = (
     { target }: React.ChangeEvent<HTMLInputElement>,
     textField: string
@@ -62,9 +62,12 @@ const Login: React.FC = () => {
 
   useEffect(() => {
     redirectIfLoggedIn(); // Verifica si el usuario ya está logueado al cargar la página
-  }, []); // Se ejecuta solo una vez al cargar el componente
+  }, []);
 
-  const onSubmit = async () => {
+  // Actualiza la función `onSubmit` para tipificar correctamente el evento
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault(); // Evita el comportamiento predeterminado del formulario
+
     try {
       const response = await axios.post(
         "http://localhost:8000/api/v1/user/login",
@@ -108,28 +111,25 @@ const Login: React.FC = () => {
 
   return (
     <section
-      className=""
+      className="bg-cover bg-fixed flex justify-center items-center"
       style={{
-        backgroundAttachment: "fixed",
-        backgroundImage: "url(/image/bg_test7.jpg)",
+        backgroundImage: `url(${theme === "dark" ? "/image/bg_login_dark.jpeg" : "/image/bg_login_light.jpeg"})`,
         backgroundSize: "cover",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
+        backgroundAttachment: "fixed",
       }}
     >
-      <div className="p-10  items-center">
+      <div className="p-10 lg:p-24 items-center">
         <div className="text-gray-600">
-          <div className="rounded-3xl bg-white dark:bg-blackblue">
+          <div className="rounded-3xl backdrop-blur-lg bg-transparent border border-white/20 shadow-lg w-96 dark:bg-transparent">
             <div className="md:px-0">
               <div className="p-10 md:p-8">
                 <div className="text-center">
                   <Image
-                    className="mx-auto mb-6"
+                    className="mx-auto mb-16 items-center"
                     src={imageSrc}
                     alt="logo"
-                    width={300}
-                    height={300}
+                    width={180}
+                    height={180}
                   />
                 </div>
                 {resErrors?.message && (
@@ -138,16 +138,14 @@ const Login: React.FC = () => {
                   </p>
                 )}
 
+                {/* Formulario con el evento onSubmit tipificado */}
                 <form
                   className="w-full max-w-sm"
-                  onSubmit={(e) => {
-                    e.preventDefault();
-                    onSubmit();
-                  }}
+                  onSubmit={onSubmit}
                 >
                   <div className="md:flex md:items-center mb-6 items-center justify-center">
                     <div className="md:w-1/3">
-                      <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4">
+                      <label className="block text-customWhiteOcean font-bold md:text-right mb-1 md:mb-0 pr-4">
                         Correo electrónico:
                       </label>
                     </div>
@@ -159,12 +157,12 @@ const Login: React.FC = () => {
                         id="username"
                         type="email"
                         placeholder="Correo Electrónico"
-                      ></input>
+                      />
                     </div>
                   </div>
                   <div className="md:flex md:items-center mb-6">
                     <div className="md:w-1/3">
-                      <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4">
+                      <label className="block text-customWhiteOcean font-bold md:text-right mb-1 md:mb-0 pr-4">
                         Contraseña:
                       </label>
                     </div>
@@ -176,7 +174,7 @@ const Login: React.FC = () => {
                         autoComplete="on"
                         placeholder="*******"
                         onChange={(
-                          event: React.ChangeEvent <HTMLInputElement>
+                          event: React.ChangeEvent<HTMLInputElement>
                         ) => handleFormData(event, "password")}
                       />
                       <button
@@ -194,11 +192,11 @@ const Login: React.FC = () => {
                   </div>
                   <div className="">
                     <Button
-                      className="w-full bg-primaryblue"
+                      className="w-full bg-transparent border border-customWhiteOcean/40 dark:bg-transparent"
                       color="primary"
                       value="login"
                       type="submit"
-                      onClick={() => onSubmit()}
+                      onClick={() => onSubmit}
                     >
                       Iniciar sesión
                     </Button>
