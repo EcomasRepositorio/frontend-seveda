@@ -29,7 +29,7 @@ const Certificate: React.FC = () => {
       {/* Background */}
       <div className="absolute inset-0 bg-no-repeat bg-center ">
         <Image
-          src="/image/certs_back.jpg"
+          src="/image/light02.svg"
           alt="Background Image"
           layout="fill"
           objectFit="cover"
@@ -38,7 +38,7 @@ const Certificate: React.FC = () => {
           priority
         />
         <Image
-          src="/image/certs_back.jpg"
+          src="/image/blue_oficial.svg"
           alt="Background Image"
           layout="fill"
           objectFit="cover"
@@ -50,7 +50,7 @@ const Certificate: React.FC = () => {
       </div>
 
       {/* Main Content */}
-      <div className="max-w-screen-lg mx-auto rounded-3xl shadow-2xl text-center p-6 relative backdrop-blur-2xl border-3 border-customWhiteOcean dark:border-customWhiteOcean bg-gradient-to-t bg-transparent dark:from-black dark:to-blackblue2 ">
+      <div className="max-w-screen-lg mx-auto rounded-3xl shadow-2xl text-center p-6 relative backdrop-blur-sm dark:backdrop-blur-md bg-transparent dark:bg-transparent border border-white/20">
         {/* Header */}
         <div className="flex flex-wrap justify-center gap-4 md:gap-8 mb-10">
           <Image
