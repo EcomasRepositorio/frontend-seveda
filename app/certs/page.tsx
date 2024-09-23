@@ -101,7 +101,7 @@ const Certificate: React.FC = () => {
         <div className="flex flex-wrap justify-center items-center gap-6">
           <button
             onClick={() => handleButton("documentNumber")}
-            className={`px-6 py-3 font-bold border-2 rounded-lg text-white hover:text-customWhiteOcean hover:bg-customPurple800 dark:hover:bg-blackblue2/60 transition transform hover:scale-105 ${
+            className={`px-6 py-3 font-bold border-2 rounded-lg text-white hover:text-customWhiteOcean hover:bg-customOrange/90 dark:hover:bg-blackblue2/60 transition transform hover:scale-105 ${
               searchType === "documentNumber" ? "bg-customPurple800 dark:bg-blackblue2 " : ""
             }`}
           >
@@ -110,7 +110,7 @@ const Certificate: React.FC = () => {
           </button>
           <button
             onClick={() => handleButton("name")}
-            className={`px-6 py-3 font-bold border-2 rounded-lg text-white hover:text-customWhiteOcean hover:bg-customPurple800 dark:hover:bg-blackblue2/60 transition transform hover:scale-105 ${
+            className={`px-6 py-3 font-bold border-2 rounded-lg text-white hover:text-customWhiteOcean hover:bg-customOrange/90 dark:hover:bg-blackblue2/60 transition transform hover:scale-105 ${
               searchType === "name" ? "bg-customPurple800 dark:bg-blackblue2" : ""
             }`}
           >
@@ -119,7 +119,7 @@ const Certificate: React.FC = () => {
           </button>
           <button
             onClick={() => handleButton("code")}
-            className={`px-6 py-3 font-bold border-2 rounded-lg text-white hover:text-customWhiteOcean hover:bg-customPurple800 dark:hover:bg-blackblue2/60 transition transform hover:scale-105 ${
+            className={`px-6 py-3 font-bold border-2 rounded-lg text-white hover:text-customWhiteOcean hover:bg-customOrange/90 dark:hover:bg-blackblue2/60 transition transform hover:scale-105 ${
               searchType === "code" ? "bg-customPurple800 dark:bg-blackblue2" : ""
             }`}
           >

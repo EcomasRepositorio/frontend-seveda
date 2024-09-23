@@ -177,9 +177,9 @@ const SwiperCursosDestacados = () => {
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                stroke-width="2"
+                strokeWidth="2"
                 strokeLinecap="round"
-                stroke-linejoin="round"
+                strokelinejoin="round"
                 className="icon icon-tabler icons-tabler-outline icon-tabler-chevron-left"
               >
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -196,9 +196,9 @@ const SwiperCursosDestacados = () => {
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                stroke-width="2"
+                strokeWidth="2"
                 strokeLinecap="round"
-                stroke-linejoin="round"
+                strokelinejoin="round"
                 className="icon icon-tabler icons-tabler-outline icon-tabler-chevron-right"
               >
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />

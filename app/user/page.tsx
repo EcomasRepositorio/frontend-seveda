@@ -104,10 +104,10 @@ const User = () => {
   return (
       <section id="user">
         <div className='flex justify-center mt-8 mb-8'>
-        <a className="uppercase border rounded-2xl shadow-2xl text-center text-xl font-bold text-gray-500 p-4">
+        <a className="uppercase border rounded-2xl shadow-2xl text-center text-xl font-bold text-gray-500 dark:text-customWhiteOcean p-4">
           Registro de usuarios</a>
         </div>
-        <div className='flex justify-end'>
+        <div className='flex justify-end mb-8'>
         <button
           type="button"
           className="text-[#006eb0] uppercase hover:text-white border-2 border-[#006eb0] hover:bg-[#006eb0] focus:ring-4 focus:outline-none font-semibold rounded-lg text-xs px-3 py-2 text-center me-2 dark:hover:text-white dark:focus:ring-[#BFE9FB] inline-flex items-center"

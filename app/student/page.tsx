@@ -303,7 +303,7 @@ const Student = () => {
 
       <div className="text-center text-gray-600 dark:text-blue-100  lg:p-6 p-0 lg:text-2xl text-xl font-extrabold">
         <p className="dark:bg-blackblue2 border shadow-2xl dark:border-transparent p-4 rounded-xl">
-          ADMINISTRAR ESTUDIANTES
+          ADMINISTRACIÓN ESTUDIANTES
         </p>
       </div>
       <div className="flex flex-col sm:flex-row border-2 mb-6 shadow-xl rounded-xl lg:ml-10 lg:mr-10 justify-between p-2 bg-white dark:bg-blackblue2 dark:border-transparent">
@@ -543,7 +543,7 @@ const Student = () => {
             <ul className="list-style-none flex">
               <li>
                 <button
-                  className="block rounded bg-transparent px-3 py-1.5 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-100 dark:hover:bg-neutral-700 dark:hover:text-white"
+                  className="block rounded bg-transparent px-3 py-1.5 text-sm text-neutral-600 dark:text-customWhiteOcean transition-all duration-300 hover:bg-neutral-100 dark:hover:bg-neutral-700 dark:hover:text-white"
                   onClick={() => handlePageChange(Math.max(1, currentPage - 1))}>
                   Anterior
                 </button>
@@ -551,7 +551,7 @@ const Student = () => {
               {renderPageButtons()}
               <li>
                 <button
-                  className=" block rounded bg-transparent px-3 py-1.5 text-sm text-neutral-600 transition-all duration-300 hover:bg-neutral-100 dark:hover:bg-neutral-700 dark:hover:text-white"
+                  className=" block rounded bg-transparent px-3 py-1.5 text-sm text-neutral-600 dark:text-customWhiteOcean transition-all duration-300 hover:bg-neutral-100 dark:hover:bg-neutral-700 dark:hover:text-white"
                   onClick={() =>
                     handlePageChange(Math.min(pageCount, currentPage + 1))
                   }>
