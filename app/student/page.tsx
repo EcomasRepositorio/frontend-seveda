@@ -303,7 +303,7 @@ const Student = () => {
 
       <div className="text-center text-gray-600 dark:text-blue-100  lg:p-6 p-0 lg:text-2xl text-xl font-extrabold">
         <p className="dark:bg-blackblue2 border shadow-2xl dark:border-transparent p-4 rounded-xl">
-          ADMINISTRACIÓN ESTUDIANTES
+          ADMINISTRACIÓN DE ESTUDIANTES
         </p>
       </div>
       <div className="flex flex-col sm:flex-row border-2 mb-6 shadow-xl rounded-xl lg:ml-10 lg:mr-10 justify-between p-2 bg-white dark:bg-blackblue2 dark:border-transparent">
