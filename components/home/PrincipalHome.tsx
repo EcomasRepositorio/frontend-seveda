@@ -58,13 +58,13 @@ const Home = () => {
   };
 
   return (
-    <div className="bg-gradient-to-b from-customPurple800 via-[#552B50] to-[#552B50] dark:bg-gradient-to-tr dark:from-black dark:to-blackblue2  relative">
+    <div className="bg-gradient-to-b from-customPurple800 via-[#552B50] to-[#552B50] dark:bg-gradient-to-tr dark:from-black dark:to-blackblue2 relative overflow-hidden">
       <motion.div
         initial="hidden"
         animate="visible"
-        className="relative z-10 flex flex-col-reverse md:flex-row max-w-screen-xl mx-auto items-center justify-between w-full"
+        className="relative flex flex-col-reverse md:flex-row max-w-screen-xl mx-auto items-center justify-between w-full"
       >
-        <div className="mb-10 lg:mb-0 p-2 md:mt-20">
+        <div className="mb-6 lg:mb-0 p-2 md:mt-12">
           {icons.map((icon, i) => (
             i === index && (
               <motion.div
@@ -73,9 +73,9 @@ const Home = () => {
                 animate="visible"
                 exit="hidden"
                 variants={slideInFromTop}
-                className="py-1 lg:text-left text-center px-1 opacity-[0.9]"
+                className="py-1 lg:text-left text-center px-1 opacity-90"
               >
-                <h1 className="text-customWhiteOcean lg:text-2xl text-2xl text-center inline-flex lg:gap-6 gap-3">
+                <h1 className="text-customWhiteOcean lg:text-2xl text-xl text-center inline-flex lg:gap-6 gap-2">
                   <Link
                     href="https://www.facebook.com/people/Corporaci%C3%B3n-Prom%C3%A1s/61552473052389/"
                     target="_blank"
@@ -125,10 +125,10 @@ const Home = () => {
                   animate="visible"
                   exit="hidden"
                   variants={slideInFromLeft(1)}
-                  className="lg:leading-[3.8em] leading-[2.3em]"
+                  className="lg:leading-[3.5em] leading-[2.2em]"
                 >
                   <h1>
-                    <p className={`t-6 lg:text-[60px] text-[32px] font-extrabold bg-clip-text text-customPurple ${tittle.color1}`}>
+                    <p className={`t-6 lg:text-[50px] text-[28px] font-extrabold bg-clip-text text-customPurple ${tittle.color1}`}>
                       {tittle.tittle1}
                     </p>
                   </h1>
@@ -139,10 +139,10 @@ const Home = () => {
                   animate="visible"
                   exit="hidden"
                   variants={slideInFromLeft(1)}
-                  className="lg:leading-[3.8em] leading-[2.3em]"
+                  className="lg:leading-[3.5em] leading-[2.2em] mt-4"
                 >
                   <h1>
-                    <p className={`mt-6 lg:text-[60px] text-[32px] font-extrabold bg-clip-text text-customPurple ${tittle.color2}`}>
+                    <p className={`lg:text-[50px] text-[28px] font-extrabold bg-clip-text text-customPurple ${tittle.color2}`}>
                       {tittle.tittle2}
                     </p>
                   </h1>
@@ -153,10 +153,10 @@ const Home = () => {
                   animate="visible"
                   exit="hidden"
                   variants={slideInFromLeft(1)}
-                  className="lg:leading-[3.8em] leading-[2.3em]"
+                  className="lg:leading-[3.5em] leading-[2.2em] mt-4"
                 >
                   <h1>
-                    <p className={`lg:text-[55px] text-[35px] font-extrabold bg-clip-text ${tittle.color3}`}>
+                    <p className={`lg:text-[45px] text-[32px] font-extrabold bg-clip-text ${tittle.color3}`}>
                       {tittle.tittle3}
                     </p>
                   </h1>
@@ -173,7 +173,7 @@ const Home = () => {
                 animate="visible"
                 exit="hidden"
                 variants={slideInFromLeft(1.5)}
-                className="lg:text-3xl text-gray-200 mb-10"
+                className="lg:text-3xl text-gray-200 mb-8"
               >
                 {text}
               </motion.p>
@@ -189,7 +189,7 @@ const Home = () => {
                 exit="hidden"
                 variants={slideInFromLeft(2)}
                 href={button.link}
-                className="py-2 lg:text-2xl px-10 font-mono text-center button-primary text-white cursor-pointer rounded-lg"
+                className="py-2 lg:text-2xl px-8 font-mono text-center button-primary text-white cursor-pointer rounded-lg"
               >
                 {button.text}
               </motion.a>
@@ -198,12 +198,12 @@ const Home = () => {
         </div>
 
         {/* Reemplazamos las imágenes por tu componente Globe */}
-        <div className="w-full h-full flex justify-center items-center text-center mt-32">
+        <div className="w-full h-full flex justify-center items-center text-center mt-20 max-w-full max-h-[350px] lg:max-h-full lg:max-w-full">
           <Globe /> {/* Aquí se muestra tu componente Globe */}
         </div>
       </motion.div>
 
-      <div className="flex justify-center">
+      <div className="flex justify-center mt-6">
         <button
           onClick={prevSlide}
           className="py-2 px-4 mr-2 font-mono text-center button-primary text-white cursor-pointer rounded-lg"
