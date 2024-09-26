@@ -14,7 +14,7 @@ const DashboardSkeleton = dynamic(() => import("@/components/home/skeletons"));
 export default function Main() {
   return (
     <div className="">
-      <div className="relative h-full max-w-full  pt-20 lg:pt-40 pb-20 lg:pb-40 mb-16">
+       <div className="relative h-full max-w-full  pt-20 lg:pt-40 pb-20 lg:pb-40 mb-16">
         <div className="absolute top-0 w-full h-full z-0">
           <video className="w-full h-full object-cover" autoPlay loop muted>
             <source src="/image/graduate_bg.webm" type="video/webm" />
