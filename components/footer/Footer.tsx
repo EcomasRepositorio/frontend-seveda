@@ -58,7 +58,7 @@ export default function Footer() {
                 <div className="flex items-center text-darkblue dark:text-white ">
                   <AtSymbolIcon className="w-5 h-5 mr-2 text-primaryblue dark:text-white" />
                   <span>
-                    Correo electrónico: <a>contacto@seveda.pe</a>
+                    Correo electrónico: <a>capacitaciones@seveda.edu.pe</a>
                   </span>
                 </div>
 

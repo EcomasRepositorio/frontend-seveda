@@ -1,76 +1,8 @@
-import { Canvas, useFrame } from "@react-three/fiber";
+import React, { useState, useEffect } from "react";
+import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Stars } from "@react-three/drei";
-import * as THREE from "three";
-import { useRef, useEffect, useState, useMemo } from "react";
-import { FaGlobe } from "react-icons/fa"; // Importa un icono de react-icons
+import RotatingModel from "@/components/home/RotatingModel"; // Importa el componente de modelo
 import Image from "next/image";
-
-const cartesianToSpherical = (x: number, y: number, z: number) => {
-  const radius = Math.sqrt(x * x + y * y + z * z);
-  const theta = Math.acos(z / radius);
-  const phi = Math.atan2(y, x);
-  return { radius, theta, phi };
-};
-
-const sphericalToCartesian = (radius: number, theta: number, phi: number) => {
-  const x = radius * Math.sin(theta) * Math.cos(phi);
-  const y = radius * Math.sin(theta) * Math.sin(phi);
-  const z = radius * Math.cos(theta);
-  return [x, y, z];
-};
-
-const RotatingGlobe = () => {
-  const globeRef = useRef<THREE.Mesh>(null);
-  const texture = useMemo(
-    () => new THREE.TextureLoader().load("/textures/terra12.jpg"),
-    []
-  );
-
-  useFrame(() => {
-    if (globeRef.current) {
-      globeRef.current.rotation.y += 0.004;
-    }
-  });
-
-  return (
-    <mesh ref={globeRef} position={[0, 0, 0]}>
-      <sphereGeometry args={[1.5, 64, 64]} />
-      <meshStandardMaterial map={texture} />
-    </mesh>
-  );
-};
-
-const FlightLine = ({
-  start,
-  end,
-}: {
-  start: [number, number, number];
-  end: [number, number, number];
-}) => {
-  const startSpherical = cartesianToSpherical(...start);
-  const endSpherical = cartesianToSpherical(...end);
-
-  const midTheta = (startSpherical.theta + endSpherical.theta) / 2;
-  const midPhi = (startSpherical.phi + endSpherical.phi) / 2;
-  const controlPoint = sphericalToCartesian(
-    startSpherical.radius + 0.1,
-    midTheta,
-    midPhi
-  );
-
-  const curve = new THREE.CatmullRomCurve3([
-    new THREE.Vector3(...start),
-    new THREE.Vector3(...controlPoint),
-    new THREE.Vector3(...end),
-  ]);
-
-  const points = curve.getPoints(1000);
-  const lineGeometry = new THREE.BufferGeometry().setFromPoints(points);
-
-  return (
-    <line>{/* Aquí iría el material y las propiedades de la línea */}</line>
-  );
-};
 
 const Globe = () => {
   const [isClient, setIsClient] = useState(false);
@@ -100,14 +32,7 @@ const Globe = () => {
   }
 
   return (
-    <div
-      style={{
-        position: "relative",
-        width: `${size.width}px`,
-        margin: "0 auto",
-      }}
-    >
-      {/* Icono en la parte superior */}
+    <div style={{ width: `${size.width}px`, margin: "0 auto" }}>
       <div style={{ position: "relative" }}>
         <Image
           className="dark:hidden animate-bounce"
@@ -136,22 +61,18 @@ const Globe = () => {
           }}
         />
       </div>
-
-      {/* El canvas con el globo */}
       <Canvas
-        style={{
-          width: `${size.width}px`,
-          height: `${size.height}px`,
-        }}
-        camera={{ position: [0, 0, 5], fov: 50 }}
+        style={{ width: `${size.width}px`, height: `${size.height}px` }}
+        camera={{ position: [0, 0, 5], fov: 54 }}
       >
         <OrbitControls enableZoom={false} />
         <Stars radius={400} depth={50} count={5000} factor={15} fade />
-        <ambientLight intensity={3.5} />
+        <ambientLight intensity={5.5} />
         <directionalLight position={[2, 5, 2]} intensity={1} />
-        <RotatingGlobe />
-        <FlightLine start={[2, 1, 1]} end={[-1, -1, 0]} />
-        <FlightLine start={[-1.5, 1, 1]} end={[1.5, -1, -1]} />
+
+        {/* Añadir los modelos en posiciones específicas */}
+        <RotatingModel path="/textures/texture1.glb" scale={1} position={[0, 0, 0]} />
+    
       </Canvas>
     </div>
   );

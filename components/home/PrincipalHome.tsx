@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import { motion } from "framer-motion";
 import {
   slideInFromLeft,
@@ -10,6 +10,9 @@ import Globe from "@/components/home/Terra"; // Importamos tu componente Globe (
 import { FaFacebookF, FaInstagram, FaTiktok, FaWhatsapp, FaYoutube } from "react-icons/fa";
 import { BiChevronLeft, BiChevronRight } from "react-icons/bi";
 import Link from "next/link";
+import Image from "next/image";
+
+
 
 const texts = [
   "Tu puerta abierta al conocimiento en vivo, desde donde estes...",
@@ -58,7 +61,25 @@ const Home = () => {
   };
 
   return (
-    <div className="bg-gradient-to-b from-customPurple800 via-[#552B50] to-[#552B50] dark:bg-gradient-to-tr dark:from-black dark:to-blackblue2 relative overflow-hidden">
+    <div className=" relative overflow-hidden">
+       <Image
+          src="/image/background_light.jpg"
+          alt="Background_light"
+          layout="fill"
+          objectFit="cover"
+          quality={75}
+          className="w-full h-full object-cover dark:hidden"
+          priority
+        />
+        <Image
+          src="/image/tep_blue.svg"
+          alt="Background_dark"
+          layout="fill"
+          objectFit="cover"
+          quality={75}
+          className="w-full h-full object-cover hidden dark:block"
+          priority
+        />
       <motion.div
         initial="hidden"
         animate="visible"
@@ -126,6 +147,7 @@ const Home = () => {
                   exit="hidden"
                   variants={slideInFromLeft(1)}
                   className="lg:leading-[3.5em] leading-[2.2em]"
+                 
                 >
                   <h1>
                     <p className={`t-6 lg:text-[50px] text-[28px] font-extrabold bg-clip-text text-customPurple ${tittle.color1}`}>
@@ -199,7 +221,9 @@ const Home = () => {
 
         {/* Reemplazamos las imágenes por tu componente Globe */}
         <div className="w-full h-full flex justify-center items-center text-center mt-20 max-w-full max-h-[350px] lg:max-h-full lg:max-w-full">
-          <Globe /> {/* Aquí se muestra tu componente Globe */}
+          <Suspense fallback={<div></div>}>
+            <Globe />
+          </Suspense>
         </div>
       </motion.div>
 
