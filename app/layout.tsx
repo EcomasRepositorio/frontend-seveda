@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
-import ClientLayout from './clientLayout';
 import './globals.css';
+import ClientWrapper from '@/components/ClientWrapper'; // Importa el nuevo componente cliente
 
 export const metadata: Metadata = {
   title: 'SEVEDA - Corporación',
@@ -10,9 +10,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="es">
       <body>
-        <ClientLayout>
+        {/* Usa ClientWrapper para manejar la lógica de cliente */}
+        <ClientWrapper>
           {children}
-        </ClientLayout>
+        </ClientWrapper>
       </body>
     </html>
   );
