@@ -1,22 +1,18 @@
 import React from "react";
 import { DiAndroid } from "react-icons/di";
 import Lottie from "react-lottie";
-import animationData from "../../public/icons/animation02.json"; // Ruta del archivo de animación
-import { PiCertificate, PiChalkboardTeacherFill, PiBooksBold } from "react-icons/pi";
+import {
+  PiCertificate,
+  PiChalkboardTeacherFill,
+  PiBooksBold,
+} from "react-icons/pi";
 import { TbClockHour9 } from "react-icons/tb";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer"; // Importamos el hook
+import Image from "next/image";
 
 function Header() {
   // Configuración de la animación Lottie
-  const defaultOptions = {
-    loop: true,
-    autoplay: true,
-    animationData: animationData, // Animación cargada
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
-  };
 
   // Utilizamos el hook `useInView` para detectar cuando el componente está visible
   const { ref, inView } = useInView({ triggerOnce: true });
@@ -32,10 +28,12 @@ function Header() {
           transition={{ duration: 1, delay: 0.2 }}
           className="w-full md:w-1/2 p-4"
         >
-          <Lottie
-            options={defaultOptions} // Configuración de la animación
-            height={400} // Altura de la animación
-            width={400} // Ancho de la animación
+          <Image
+            src="/image/middle.png" // Ruta de la imagen
+            alt="Descripción de la imagen" // Descripción de la imagen
+            width={500} // Ancho de la imagen
+            height={300} // Alto de la imagen
+            className="my-custom-class" // Clases adicionales de Tailwind o CSS
           />
         </motion.div>
 
@@ -51,7 +49,8 @@ function Header() {
             Servicios Educativos en Línea
           </h1>
           <p className="text-gray-600 font-light dark:text-customWhiteOcean mb-6">
-            Descubre una plataforma de cursos en línea adaptada a tus necesidades, desde cualquier lugar y en cualquier momento
+            Descubre una plataforma de cursos en línea adaptada a tus
+            necesidades, desde cualquier lugar y en cualquier momento
           </p>
           <ul className="space-y-4 mb-6">
             <li className="flex items-center text-lg font-light text-gray-600 dark:text-customWhiteOcean">
