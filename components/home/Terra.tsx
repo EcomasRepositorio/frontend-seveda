@@ -71,7 +71,7 @@ const Globe = () => {
         <directionalLight position={[2, 5, 2]} intensity={1} />
 
         {/* Añadir los modelos en posiciones específicas */}
-        <RotatingModel path="/textures/texture1.glb" scale={1} position={[0, 0, 0]} />
+        <RotatingModel path="/textures/texture3.glb" scale={1} position={[0, 0, 0]} />
     
       </Canvas>
     </div>

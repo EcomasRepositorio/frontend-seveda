@@ -61,7 +61,7 @@ const Home = () => {
   };
 
   return (
-    <div className=" relative overflow-hidden">
+    <div className=" relative overflow-hidden bg-transparent">
        <Image
           src="/image/background_light.jpg"
           alt="Background_light"
