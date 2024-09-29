@@ -7,7 +7,7 @@ const DiploDerecho = () => {
     {
       area: "DERECHO",
       titulo: "PERITO FORENSE Y CRIMINALÍSTICO",
-      imagen: "/image/perito_forense.jpg",
+      imagen: "/graduate/RIEGOYFERTIRRIEGO.png",
       fechaInicio: "01/09/2024",
       modalidad: "Virtual",
       duracion: "4 meses",

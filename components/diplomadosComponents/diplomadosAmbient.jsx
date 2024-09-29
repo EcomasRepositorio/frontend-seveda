@@ -7,7 +7,7 @@ const DiploAmbient = () => {
     {
       area: "INGENIERÍA AMBIENTAL",
       titulo: "SSOMA (Seguridad y Salud Ocupacional y Medio Ambiente)",
-      imagen: "/image/diplo_ssoma.jpg",
+      imagen: "/graduate/SEGURIDAD,SALUDOCUPACIONALYMEDIOAMBIENTE.png",
       fechaInicio: "12/10/2024",
       modalidad: "Virtual",
       duracion: "4 meses",
@@ -32,7 +32,7 @@ const DiploAmbient = () => {
     {
       area: "INGENIERÍA AMBIENTAL",
       titulo: "Gestión Ambiental Municipal y Regional",
-      imagen: "/image/diplo_municipal.jpg",
+      imagen: "/graduate/GESTIONMUNICIPAL.png",
       fechaInicio: "10/08/2024",
       modalidad: "Virtual",
       duracion: "4 meses",
@@ -56,7 +56,7 @@ const DiploAmbient = () => {
     {
       area: "INGENIERÍA AMBIENTAL",
       titulo: "Monitoreo y Evaluación de la Calidad Ambiental",
-      imagen: "/image/evalAmbiental.jpg",
+      imagen: "/graduate/MONITOREOYEVALUACIÓNDELACALIDADAMBIENTAL.png",
       fechaInicio: "31/08/2024",
       modalidad: "Virtual",
       duracion: "04 meses",
@@ -79,7 +79,7 @@ const DiploAmbient = () => {
     {
       area: "INGENIERÍA AMBIENTAL",
       titulo: "Gestión y manejo integral de residuos sólidos",
-      imagen: "/image/gest-residuos-solidos.jpg",
+      imagen: "/graduate/GESTIÓNYMANEJOINTEGRALDERESIDUOSSÓLIDOS.png",
       fechaInicio: "05/10/2024",
       modalidad: "Virtual",
       duracion: "04 meses",

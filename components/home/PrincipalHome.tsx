@@ -202,21 +202,7 @@ const Home = () => {
             )
           ))}
 
-          {buttons.map((button, i) => (
-            i === index && (
-              <motion.a
-                key={i}
-                initial="hidden"
-                animate="visible"
-                exit="hidden"
-                variants={slideInFromLeft(2)}
-                href={button.link}
-                className="py-2 lg:text-2xl px-8 font-mono text-center button-primary text-white cursor-pointer rounded-lg"
-              >
-                {button.text}
-              </motion.a>
-            )
-          ))}
+         
         </div>
 
         {/* Reemplazamos las imágenes por tu componente Globe */}

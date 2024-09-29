@@ -17,24 +17,28 @@ import { Pagination, Autoplay } from "swiper/modules";
 const SwiperCarrousel = () => {
   const cursosDestacados = [
     {
-      imageUrl: "/image/test_ing.png",
+      imageUrl: "/courses/1.jpg",
       title: "Curso 1",
     },
     {
-      imageUrl: "/image/test_ing.png",
+      imageUrl: "/courses/2.jpg",
       title: "Curso 2",
     },
     {
-      imageUrl: "/image/test_ing.png",
+      imageUrl: "/courses/3.jpg",
       title: "Curso 3",
     },
     {
-      imageUrl: "/image/test_ing.png",
+      imageUrl: "/courses/4.jpg",
       title: "Curso 4",
     },
     {
-      imageUrl: "/image/test_ing.png",
+      imageUrl: "/courses/5.jpg",
       title: "Curso 5",
+    },
+    {
+      imageUrl: "/courses/7.jpg",
+      title: "Curso 6",
     },
   ];
 

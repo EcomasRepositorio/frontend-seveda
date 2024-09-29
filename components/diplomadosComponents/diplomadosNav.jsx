@@ -37,7 +37,7 @@ export default function App() {
           placement={isMobile ? "top" : "start"}
           classNames={{
             tabList: " w-full dark:bg-blackblue2 bg-blue-50",
-            cursor: "bg-primaryblue",
+            cursor: "bg-primaryblue dark:bg-customOrange",
             tab: "",
             tabContent:
               "group-data-[selected=true]:text-white dark:text-white ",
