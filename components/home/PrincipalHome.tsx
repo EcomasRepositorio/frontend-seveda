@@ -206,7 +206,7 @@ const Home = () => {
         </div>
 
         {/* Reemplazamos las imágenes por tu componente Globe */}
-        <div className="w-full h-full flex justify-center items-center text-center mt-20 max-w-full max-h-[350px] lg:max-h-full lg:max-w-full">
+        <div className="w-full h-full flex justify-center items-center text-center  max-w-full max-h-[350px] lg:max-h-full lg:max-w-full">
           <Suspense fallback={<div></div>}>
             <Globe />
           </Suspense>

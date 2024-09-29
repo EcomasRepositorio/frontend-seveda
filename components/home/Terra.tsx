@@ -63,7 +63,7 @@ const Globe = () => {
       </div>
       <Canvas
         style={{ width: `${size.width}px`, height: `${size.height}px` }}
-        camera={{ position: [0, 0, 5], fov: 54 }}
+        camera={{ position: [0, 0, 5], fov: 64 }}
       >
         <OrbitControls enableZoom={false} />
         <Stars radius={400} depth={50} count={5000} factor={15} fade />

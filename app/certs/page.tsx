@@ -93,7 +93,7 @@ const Certificate: React.FC = () => {
         </h2>
         <p className="font-semibold text-white text-lg lg:px-36 mb-6">
           En este módulo podrá realizar la búsqueda de certificados de los
-          diferentes eventos ofrecidos por Seveda.
+          diferentes eventos ofrecidos por SEVEDA.
         </p>
         <p className="text-xl font-semibold text-white mb-8">Buscar por:</p>
 

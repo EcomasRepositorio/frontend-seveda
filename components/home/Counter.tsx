@@ -3,13 +3,7 @@ import React, { useEffect, useState } from "react";
 import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
-import Lottie from "react-lottie";
-import studentsAnimation from "../../public/icons/students.json";
-import graduatesAnimation from "../../public/icons/graduate.json";
-import excelentAnimation from "../../public/icons/excelent.json";
-import coursesAnimation from "../../public/icons/courses.json";
-
-type AnimationData = Record<string, any>;
+import Image from "next/image";
 
 const Counter: React.FC = () => {
   const [key, setKey] = useState(0);
@@ -23,15 +17,6 @@ const Counter: React.FC = () => {
     }
   }, [inView]);
 
-  const defaultOptions = (animationData: AnimationData) => ({
-    loop: true,
-    autoplay: true,
-    animationData: animationData,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
-  });
-
   return (
     <section className="relative bg-transparent">
       <div
@@ -40,15 +25,15 @@ const Counter: React.FC = () => {
       ></div>
       <div className="relative z-10 p-6 lg:p-10 max-w-screen-xl mx-auto">
         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-customPurple800 dark:text-customWhiteOcean text-center mt-10">
-          ¿Por qué Seveda?
+          ¿Por qué SEVEDA?
         </h1>
         <h3 className="text-black dark:text-customWhiteOcean mt-6 lg:mt-10 mb-10 font-light text-sm sm:text-base lg:text-xl text-center lg:px-40">
           Porque impulsamos el desarrollo creativo de todo profesional a través
           de nuestros cursos y diplomados, apostando por una formación con
           pensamiento estratégico e innovador.
         </h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 text-center gap-6 mb-20">
-          {/* Primer contador con animación */}
+        <div className="grid justify-center sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 text-center gap-6 mb-20">
+          {/* Primer contador - Nuestros Alumnos */}
           <motion.div
             ref={ref}
             initial={{ opacity: 0, translateX: -50, translateY: -50 }}
@@ -58,28 +43,31 @@ const Counter: React.FC = () => {
           >
             <div
               key={`counter1-${key}`}
-              className="flex justify-center items-center flex-col border-2 border-customPurple800 dark:border-customOrange rounded-xl p-4 mt-5 hover:scale-105 hover:bg-transparent dark:hover:bg-customOrange duration-300"
+              className="relative flex justify-center items-center flex-col border-3 dark:border-1 border-customOrange bg-customPurple800 dark:bg-transparent dark:border-customOrange rounded-xl w-60 h-80 p-0 mt-5 hover:scale-105 duration-300 overflow-hidden group"
             >
-              <Lottie
-                options={defaultOptions(studentsAnimation as AnimationData)}
-                height={120}
-                width={120}
+              <Image
+                src="/counter/counter_alumnos.png"
+                layout="fill"
+                objectFit="cover"
+                alt="Nuestros Alumnos"
+                className="rounded-xl transform transition duration-300 group-hover:grayscale"
               />
-              <div className="text-black dark:text-customWhiteOcean mt-4 mb-4">
+              <div className="relative z-10 p-4 text-center">
                 {inView && (
-                  <div className="flex flex-col items-center">
+                 <div className="flex flex-col items-center mt-52 w-60  bg-customPurple800 dark:bg-blackblue2 rounded-lg text-customWhiteOcean dark:text-customOrange">
                     <div className="flex items-center text-4xl lg:text-5xl font-extrabold">
                       <span className="ml-1">+</span>
-                      <CountUp start={0} end={1000} duration={5} separator="." />
+                      <CountUp  start={0} end={1000} duration={5} separator="." />
                     </div>
                     <span className="mt-2 font-semibold">Nuestros Alumnos</span>
                   </div>
                 )}
               </div>
+              <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition duration-300 rounded-xl"></div>
             </div>
           </motion.div>
 
-          {/* Segundo contador con animación */}
+          {/* Segundo contador - Diplomados Disponibles */}
           <motion.div
             ref={ref}
             initial={{ opacity: 0, translateX: -50, translateY: -50 }}
@@ -89,16 +77,18 @@ const Counter: React.FC = () => {
           >
             <div
               key={`counter2-${key}`}
-              className="flex justify-center items-center flex-col border-2 border-customPurple800 dark:border-customOrange rounded-xl p-4 mt-5 hover:scale-105 hover:bg-transparent dark:hover:bg-customOrange duration-300"
+              className="relative flex justify-center items-center flex-col border-3 dark:border-1 border-customOrange bg-customPurple800 dark:bg-transparent dark:border-customOrange rounded-xl w-60 h-80 p-0 mt-5 hover:scale-105 duration-300 overflow-hidden group"
             >
-              <Lottie
-                options={defaultOptions(graduatesAnimation as AnimationData)}
-                height={120}
-                width={120}
+              <Image
+                src="/counter/count_diplomados.png"
+                layout="fill"
+                objectFit="cover"
+                alt="Diplomados Disponibles"
+                className="rounded-xl transform transition duration-300 group-hover:grayscale"
               />
-              <div className="text-black dark:text-customWhiteOcean mt-4 mb-4">
+              <div className="relative z-10 p-4 text-center">
                 {inView && (
-                  <div className="flex flex-col items-center">
+                  <div className="flex flex-col items-center mt-52 w-60  bg-customPurple800 dark:bg-blackblue2 rounded-lg text-customWhiteOcean dark:text-customOrange">
                     <div className="flex items-center text-4xl lg:text-5xl font-extrabold">
                       <span className="ml-1">+</span>
                       <CountUp start={0} end={40} duration={5} separator="." />
@@ -109,10 +99,11 @@ const Counter: React.FC = () => {
                   </div>
                 )}
               </div>
+              <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition duration-300 rounded-xl"></div>
             </div>
           </motion.div>
 
-          {/* Tercer contador con animación */}
+          {/* Tercer contador - Contenidos de excelencia */}
           <motion.div
             ref={ref}
             initial={{ opacity: 0, translateX: -50, translateY: -50 }}
@@ -120,15 +111,20 @@ const Counter: React.FC = () => {
             transition={{ duration: 1, delay: 0.6 }}
             className="w-full p-4"
           >
-            <div className="flex justify-center items-center flex-col rounded-xl border-2 border-customPurple800 dark:border-customOrange p-4 mt-5 hover:scale-105 hover:bg-transparent dark:hover:bg-customOrange duration-300">
-              <Lottie
-                options={defaultOptions(excelentAnimation as AnimationData)}
-                height={120}
-                width={120}
+            <div
+              key={`counter3-${key}`}
+              className="relative flex justify-center items-center flex-col border-3 dark:border-1 border-customOrange bg-customPurple800 dark:bg-transparent dark:border-customOrange rounded-xl w-60 h-80 p-0 mt-5 hover:scale-105 duration-300 overflow-hidden group"
+            >
+              <Image
+                src="/counter/count_excelencia.png"
+                layout="fill"
+                objectFit="cover"
+                alt="Contenidos de excelencia"
+                className="rounded-xl transform transition duration-300 group-hover:grayscale"
               />
-              <div className="text-black dark:text-customWhiteOcean mt-4 mb-4">
+              <div className="relative  z-10 p-4 text-center">
                 {inView && (
-                  <div className="flex flex-col items-center">
+                 <div className="flex flex-col items-center mt-52 w-60  bg-customPurple800 dark:bg-blackblue2 rounded-lg text-customWhiteOcean dark:text-customOrange">
                     <div className="flex items-center text-4xl lg:text-5xl font-extrabold">
                       <CountUp start={0} end={100} duration={5} separator="." />
                       <span className="ml-1">%</span>
@@ -139,10 +135,11 @@ const Counter: React.FC = () => {
                   </div>
                 )}
               </div>
+              <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition duration-300 rounded-xl"></div>
             </div>
           </motion.div>
 
-          {/* Cuarto contador con animación */}
+          {/* Cuarto contador - Cursos disponibles */}
           <motion.div
             ref={ref}
             initial={{ opacity: 0, translateX: -50, translateY: -50 }}
@@ -150,25 +147,29 @@ const Counter: React.FC = () => {
             transition={{ duration: 1, delay: 0.8 }}
             className="w-full p-4"
           >
-            <div className="flex justify-center items-center flex-col border-2 border-customPurple800 dark:border-customOrange rounded-xl p-4 mt-5 hover:scale-105 hover:bg-transparent dark:hover:bg-customOrange duration-300">
-              <Lottie
-                options={defaultOptions(coursesAnimation as AnimationData)}
-                height={120}
-                width={120}
+            <div
+              key={`counter4-${key}`}
+              className="relative flex justify-center items-center flex-col border-3 dark:border-1 border-customOrange bg-customPurple800 dark:bg-transparent dark:border-customOrange rounded-xl w-60 h-80 p-0 mt-5 hover:scale-105 duration-300 overflow-hidden group"
+            >
+              <Image
+                src="/counter/course_male.png"
+                layout="fill"
+                objectFit="cover"
+                alt="Cursos disponibles"
+                className="rounded-xl transform transition duration-300 group-hover:grayscale"
               />
-              <div className="text-black dark:text-customWhiteOcean mt-4 mb-4">
+              <div className="relative z-10 p-4 text-center">
                 {inView && (
-                  <div className="flex flex-col items-center">
+                 <div className="flex flex-col items-center mt-52 w-60  bg-customPurple800 dark:bg-blackblue2 rounded-lg text-customWhiteOcean dark:text-customOrange">
                     <div className="flex items-center text-4xl lg:text-5xl font-extrabold">
                       <span className="ml-1">+</span>
                       <CountUp start={0} end={350} duration={5} separator="." />
                     </div>
-                    <span className="mt-2 font-semibold">
-                      Cursos disponibles
-                    </span>
+                    <span className="mt-2 font-semibold">Cursos disponibles</span>
                   </div>
                 )}
               </div>
+              <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition duration-300 rounded-xl"></div>
             </div>
           </motion.div>
         </div>
