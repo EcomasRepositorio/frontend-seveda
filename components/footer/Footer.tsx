@@ -70,7 +70,7 @@ export default function Footer() {
 
               <div className="flex gap-4 mt-3">
                 <a
-                  href="https://web.facebook.com/ecomascyc"
+                  href="https://www.facebook.com/profile.php?id=61565436586197"
                   target="_blank"
                   className="text-primaryblue dark:text-white dark:hover:text-blue-100 transition duration-100 hover:text-[#37753a] active:text-gray-600"
                 >
@@ -123,7 +123,7 @@ export default function Footer() {
                 </a>
 
                 <a
-                  href="https://www.instagram.com/ecomas_cyc/"
+                  href="https://www.instagram.com/corporacion.seveda/?next=%2F"
                   target="_blank"
                   className="text-primaryblue dark:text-white dark:hover:text-blue-100 transition duration-100 hover:text-[#de6c29]  active:text-gray-600"
                 >

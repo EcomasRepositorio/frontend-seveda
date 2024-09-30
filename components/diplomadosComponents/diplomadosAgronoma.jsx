@@ -6,9 +6,9 @@ const DiploAgronoma = () => {
   const cursosData = [
     {
       area: "INGENIERÍA AGRÓNOMA",
-      titulo: "Sistemas de Riego Tecnificado",
+      titulo: "SISTEMAS  DE RIEGO TECNIFICADO",
       imagen: "/graduate/SISTEMASDERIEGOTECNIFICADO.png",
-      fechaInicio: "18/08/2024",
+      fechaInicio: "Proximamente",
       modalidad: "Virtual",
       duracion: "4 meses",
       horas: "420 horas correspondientes a 26 créditos.",
@@ -28,9 +28,9 @@ const DiploAgronoma = () => {
     },
     {
       area: "INGENIERÍA AGRÓNOMA",
-      titulo: "Riego y Fertirriego",
+      titulo: "RIEGO Y FERTIRRIEGO",
       imagen: "/graduate/SISTEMASDERIEGOTECNIFICADO.png",
-      fechaInicio: "31/08/2024",
+      fechaInicio: "Proximamente",
       modalidad: "Virtual",
       duracion: "4 meses",
       horas: "420 horas correspondientes a 26 créditos.",

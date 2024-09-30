@@ -98,14 +98,14 @@ const Home = () => {
               >
                 <h1 className="text-customWhiteOcean lg:text-2xl text-xl text-center inline-flex lg:gap-6 gap-2">
                   <Link
-                    href="https://www.facebook.com/people/Corporaci%C3%B3n-Prom%C3%A1s/61552473052389/"
+                    href="https://www.facebook.com/profile.php?id=61565436586197"
                     target="_blank"
                     className="border bg-blue-600 dark:bg-customOscure p-2 rounded-full transition-transform transform hover:scale-150 shadow-xl"
                   >
                     {icon.img1}
                   </Link>
                   <Link
-                    href="https://www.instagram.com/corporacion.promas/"
+                    href="https://www.instagram.com/corporacion.seveda/?next=%2F"
                     target="_blank"
                     className="border bg-customPurple300 dark:bg-customOscure p-2 rounded-full transition-transform transform hover:scale-150 shadow-xl"
                   >
@@ -114,7 +114,7 @@ const Home = () => {
                   <Link
                     href="https://www.tiktok.com/@promas.corp"
                     target="_blank"
-                    className="border bg-gray-500 dark:bg-customOscure p-2 rounded-full transition-transform transform hover:scale-150 shadow-xl"
+                    className="border bg-black dark:bg-customOscure p-2 rounded-full transition-transform transform hover:scale-150 shadow-xl"
                   >
                     {icon.img3}
                   </Link>

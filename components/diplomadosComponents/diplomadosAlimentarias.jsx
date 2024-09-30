@@ -9,9 +9,9 @@ const DiploAlimentarias = () => {
     const cursosData = [
         {
             area: 'INGENIERÍA EN ALIMENTOS',
-            titulo: 'Gestión de la calidad e inocuidad alimentaria',
+            titulo: 'GESTIÓN DE LA CALIDAD E INOCUIDAD ALIMENTARIA',
             imagen: '/graduate/GESTIOALIMENTARIA.png',
-            fechaInicio: '22/09/2024',
+            fechaInicio: 'Proximamente',
             modalidad: 'Virtual',
             duracion: '4 meses',
             horas: '420 horas correspondientes a 26 créditos.',

@@ -46,7 +46,7 @@ const Counter: React.FC = () => {
               className="relative flex justify-center items-center flex-col border-3 dark:border-1 border-customOrange bg-customPurple800 dark:bg-transparent dark:border-customOrange rounded-xl w-60 h-80 p-0 mt-5 hover:scale-105 duration-300 overflow-hidden group"
             >
               <Image
-                src="/counter/counter_alumnos.png"
+                src="/counter/counter_alumnos.webp"
                 layout="fill"
                 objectFit="cover"
                 alt="Nuestros Alumnos"
@@ -80,7 +80,7 @@ const Counter: React.FC = () => {
               className="relative flex justify-center items-center flex-col border-3 dark:border-1 border-customOrange bg-customPurple800 dark:bg-transparent dark:border-customOrange rounded-xl w-60 h-80 p-0 mt-5 hover:scale-105 duration-300 overflow-hidden group"
             >
               <Image
-                src="/counter/count_diplomados.png"
+                src="/counter/count_diplomados.webp"
                 layout="fill"
                 objectFit="cover"
                 alt="Diplomados Disponibles"
@@ -116,7 +116,7 @@ const Counter: React.FC = () => {
               className="relative flex justify-center items-center flex-col border-3 dark:border-1 border-customOrange bg-customPurple800 dark:bg-transparent dark:border-customOrange rounded-xl w-60 h-80 p-0 mt-5 hover:scale-105 duration-300 overflow-hidden group"
             >
               <Image
-                src="/counter/count_excelencia.png"
+                src="/counter/count_excelencia.webp"
                 layout="fill"
                 objectFit="cover"
                 alt="Contenidos de excelencia"
@@ -152,7 +152,7 @@ const Counter: React.FC = () => {
               className="relative flex justify-center items-center flex-col border-3 dark:border-1 border-customOrange bg-customPurple800 dark:bg-transparent dark:border-customOrange rounded-xl w-60 h-80 p-0 mt-5 hover:scale-105 duration-300 overflow-hidden group"
             >
               <Image
-                src="/counter/course_male.png"
+                src="/counter/course_male.webp"
                 layout="fill"
                 objectFit="cover"
                 alt="Cursos disponibles"

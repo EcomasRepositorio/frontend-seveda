@@ -18,27 +18,27 @@ const SwiperCarrousel = () => {
   const cursosDestacados = [
     {
       imageUrl: "/courses/1.jpg",
-      title: "Curso 1",
+      title: "Ingeniería Civil",
     },
     {
       imageUrl: "/courses/2.jpg",
-      title: "Curso 2",
+      title: "Ingeniería Agrónoma",
     },
     {
       imageUrl: "/courses/3.jpg",
-      title: "Curso 3",
+      title: "Ingeniería Ambiental",
     },
     {
       imageUrl: "/courses/4.jpg",
-      title: "Curso 4",
+      title: "Ingeniería Alimentaria",
     },
     {
       imageUrl: "/courses/5.jpg",
-      title: "Curso 5",
+      title: "Ingeniería Vial",
     },
     {
       imageUrl: "/courses/7.jpg",
-      title: "Curso 6",
+      title: "SSOMA",
     },
   ];
 
@@ -101,7 +101,7 @@ const SwiperCarrousel = () => {
 
             {/* Botón de más información */}
             <Link href="/diplomados" passHref legacyBehavior>
-              <div className="mx-2 flex items-center justify-between bg-customPurple800 dark:bg-customWhiteOcean dark:text-customOscure border-none text-white rounded-md text-xs font-medium px-4 py-1">
+              <div className="mx-2 cursor-pointer flex items-center justify-between bg-customPurple800 dark:bg-customWhiteOcean dark:text-customOscure border-none text-white rounded-md text-xs font-medium px-4 py-1">
                 <span>Más información</span>
                 <span>
                   <GrFormNextLink className="w-6 h-6" />
@@ -112,8 +112,8 @@ const SwiperCarrousel = () => {
             {/* Título del curso */}
             <div className="flex items-center justify-center px-4 pt-1 mb-12 pb-2 min-h-[4rem]">
               <a
-                href="/"
-                className="font-normal text-center inline-block hover:text-[#FAA32F] dark:hover:text-[#FFD700] transition duration-500 ease-in-out"
+                href="/diplomados"
+                className="font-normal text-center inline-block hover:text-customPurple800 dark:hover:text-customOrange transition duration-500 ease-in-out"
               >
                 {curso.title}
               </a>

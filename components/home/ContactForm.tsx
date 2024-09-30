@@ -62,13 +62,13 @@ const ContactForm = () => {
               </div>
             </div>
             <div  className='flex space-x-4 text-3xl gap-10'>
-              <a href="https://web.facebook.com/corp.rizo" target='_blank'>
+              <a href="https://www.facebook.com/profile.php?id=61565436586197" target='_blank'>
                 <FaFacebookSquare />
               </a>
-              <a href="https://www.instagram.com/corporacion.rizo/" target='_blank'>
+              <a href="https://www.instagram.com/corporacion.seveda/?next=%2F" target='_blank'>
                 <FaInstagram />
               </a>
-              <a href="https://www.tiktok.com/@corporacion.rizo" target='_blank'>
+              <a href="/" target='_blank'>
                 <FaTiktok />
               </a>
               <a href="https://wa.me/51961646248?text=Hola, deseo más información sobre los diplomados" target='_blank'>

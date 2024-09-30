@@ -43,11 +43,25 @@ const Curso = ({ curso }) => {
             />
           </Suspense>
           <div className="lg:w-1/2 lg:pl-10 lg:py-6 mb-6 lg:mb-0">
-            <h2 className="text-sm title-font text-gray-500 dark:text-white tracking-widest mt-4 sm:mt-2 md:mt-2 lg:mt-0">
+            <h2 className="text-sm title-font font-light text-gray-500 dark:text-white tracking-widest mt-4 sm:mt-2 md:mt-2 lg:mt-0">
               {curso.area}
             </h2>
             <h1 className="text-primaryblue dark:text-customOrange text-3xl title-font font-medium mb-4">
               {curso.titulo}
+              <Image
+                src="/icons/starts01.png"
+                alt="starts"
+                width={100}
+                height={100}
+                className="lg:w-24 lg:h-auto object-cover object-center rounded-lg dark:hidden"
+              />
+              <Image
+                src="/icons/starts_white.png"
+                alt="starts"
+                width={100}
+                height={100}
+                className="lg:w-24 lg:h-auto object-cover object-center rounded-lg hidden dark:block"
+              />
             </h1>
             <Accordion defaultExpandedKeys={["1"]}>
               <AccordionItem
@@ -95,13 +109,13 @@ const Curso = ({ curso }) => {
                   </div>
                 </div>
 
-                <div className="mt-4 flex">
+                <div className="mt-6 mb-6 flex flex-wrap justify-center gap-2">
                   <a href="https://wa.me/51921818181" target="_blank">
                     <button
-                      className="flex items-center justify-center px-6 py-3 rounded-full transition-colors duration-100 ease-in-out
-      bg-gradient-to-r from-green-400 to-green-600 text-white shadow-lg transform hover:scale-105 hover:shadow-xl dark:from-green-600 dark:to-green-800 dark:text-gray-200"
+                      className="flex items-center justify-center px-6  py-3 rounded-full transition-colors duration-100 ease-in-out
+      bg-gradient-to-r from-green-400 to-green-600 lg:w-48 md:w-40 sm:w-32 w-full text-white shadow-lg transform hover:scale-105 hover:shadow-xl dark:from-green-600 dark:to-green-800 dark:text-gray-200"
                     >
-                      <FaWhatsapp className="text-2xl mr-2" />
+                      <FaWhatsapp className="text-xl md:text-2xl lg:text-3xl mr-2" />
                       Inscribirse
                     </button>
                   </a>
@@ -109,9 +123,9 @@ const Curso = ({ curso }) => {
                   <a href="https://wa.me/51921818181" target="_blank">
                     <button
                       className="flex items-center justify-center px-6 py-3 rounded-full transition-colors duration-300 ease-in-out
-      bg-gradient-to-r from-blue-400 to-blue-600 text-white shadow-lg transform hover:scale-105 hover:shadow-xl dark:from-blue-600 dark:to-blue-800 dark:text-gray-200 ml-4"
+      bg-gradient-to-r from-blue-400 to-blue-600 text-white shadow-lg transform hover:scale-105 hover:shadow-xl dark:from-blue-600 dark:to-blue-800 dark:text-gray-200 w-full sm:w-40 md:w-48 lg:w-56"
                     >
-                      <FaBook className="text-2xl mr-2" />
+                      <FaBook className="text-xl md:text-2xl lg:text-3xl mr-2" />
                       Plan de estudios
                     </button>
                   </a>

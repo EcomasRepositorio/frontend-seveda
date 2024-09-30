@@ -28,7 +28,7 @@ const HoverDevCards = () => {
       <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
         <Card
           title="Certificaciones"
-          subtitle="Respaldo oficial de la Universidad Nacional de Piura"
+          subtitle="Respaldo oficial de la Escuela de Posgrado de la Universidad Nacional de Piura y Fundenorp"
           Icon={PiCertificateBold}
           index={0}
         />
