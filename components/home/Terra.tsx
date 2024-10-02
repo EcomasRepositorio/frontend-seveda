@@ -36,7 +36,7 @@ const Globe = () => {
       <div style={{ position: "relative" }}>
         <Image
           className="dark:hidden animate-bounce"
-          src="/image/sun_3d.png"
+          src="/image/sun.png"
           alt="Globo"
           width={130} // Cambia el tamaño según lo necesites
           height={130}
@@ -71,8 +71,11 @@ const Globe = () => {
         <directionalLight position={[2, 5, 2]} intensity={1} />
 
         {/* Añadir los modelos en posiciones específicas */}
-        <RotatingModel path="/textures/texture3.glb" scale={1} position={[0, 0, 0]} />
-    
+        <RotatingModel
+          path="/textures/texture3.glb"
+          scale={1}
+          position={[0, 0, 0]}
+        />
       </Canvas>
     </div>
   );

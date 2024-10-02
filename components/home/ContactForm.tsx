@@ -41,8 +41,8 @@ const ContactForm = () => {
             </div>
             <div className='relative z-10'>
               <Image
-                src="/image/contact.jpg"
-                alt='rizo contacto'
+                src="/image/contactt.jpg"
+                alt='seveda_contacto'
                 width={800}
                 height={800}
                 className='w-96 h-56 rounded-xl'/>

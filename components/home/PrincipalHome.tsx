@@ -11,6 +11,7 @@ import { FaFacebookF, FaInstagram, FaTiktok, FaWhatsapp, FaYoutube } from "react
 import { BiChevronLeft, BiChevronRight } from "react-icons/bi";
 import Link from "next/link";
 import Image from "next/image";
+import RotatingImage from "@/components/RotatingImage";
 
 
 
@@ -85,7 +86,7 @@ const Home = () => {
         animate="visible"
         className="relative flex flex-col-reverse md:flex-row max-w-screen-xl mx-auto items-center justify-between w-full"
       >
-        <div className="mb-6 lg:mb-0 p-2 md:mt-12">
+        <div className="mb-6 lg:mb-0 p-2 md:mt-12 md:text-left text-center ">
           {icons.map((icon, i) => (
             i === index && (
               <motion.div
@@ -94,7 +95,7 @@ const Home = () => {
                 animate="visible"
                 exit="hidden"
                 variants={slideInFromTop}
-                className="py-1 lg:text-left text-center px-1 opacity-90"
+                className="py-1 md:text-left text-center px-1 opacity-90"
               >
                 <h1 className="text-customWhiteOcean lg:text-2xl text-xl text-center inline-flex lg:gap-6 gap-2">
                   <Link
@@ -146,7 +147,7 @@ const Home = () => {
                   animate="visible"
                   exit="hidden"
                   variants={slideInFromLeft(1)}
-                  className="lg:leading-[3.5em] leading-[2.2em]"
+                  className="lg:leading-[3.5em] leading-[2.2em] flex justify-center "
                  
                 >
                   <h1>
@@ -208,7 +209,7 @@ const Home = () => {
         {/* Reemplazamos las imágenes por tu componente Globe */}
         <div className="w-full h-full flex justify-center items-center text-center  max-w-full max-h-[350px] lg:max-h-full lg:max-w-full">
           <Suspense fallback={<div></div>}>
-            <Globe />
+            <RotatingImage />
           </Suspense>
         </div>
       </motion.div>
