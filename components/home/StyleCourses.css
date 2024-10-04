@@ -1,0 +1,63 @@
+.tittle{
+    margin-top: 40px;
+}
+.slider{
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+}
+.item{
+    position: absolute;
+    width: 200px;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    transition: 0.5s;
+    top: 10;
+}
+.item.center {
+    z-index: 2; /* Asegurar que el elemento activo esté en el frente */
+    opacity: 1;
+    height: auto;
+}
+.item.left,
+.item.right {
+    left: calc(50% - 75px); /* Alinear los elementos izquierdo y derecho en dispositivos móviles */
+    transform: scale(0.8); /* Reducir más el tamaño en pantallas pequeñas */
+}
+#next, #prev{
+    display: none;
+}
+#next{
+    left: unset;
+    right: 50px;
+}
+
+@media (min-width: 360px) {
+
+  #next,
+  #prev {
+      display: block;
+      position: absolute;
+      top: 40%;
+      color: #fff;
+      background-color: transparent;
+      border: none;
+      font-size: xxx-large;
+      font-family: monospace;
+      font-weight: bold;
+  }
+
+  #prev {
+      left: 10px;
+  }
+
+  #next {
+      right: 10px;
+  }
+}
