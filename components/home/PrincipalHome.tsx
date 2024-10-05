@@ -113,21 +113,21 @@ const Home = () => {
                     {icon.img2}
                   </Link>
                   <Link
-                    href="https://www.tiktok.com/@promas.corp"
+                    href="/"
                     target="_blank"
                     className="border bg-black dark:bg-customOscure p-2 rounded-full transition-transform transform hover:scale-150 shadow-xl"
                   >
                     {icon.img3}
                   </Link>
                   <Link
-                    href="https://wa.me/51984040264?text=Hola,%20deseo%20más%20información%20sobre%20los%20diplomados"
+                    href="/"
                     target="_blank"
                     className="border bg-green-600 dark:bg-customOscure p-2 rounded-full transition-transform transform hover:scale-150 shadow-xl"
                   >
                     {icon.img4}
                   </Link>
                   <Link
-                    href="https://www.youtube.com/@Corporacion.Promas"
+                    href="/"
                     target="_blank"
                     className="border bg-red-600 dark:bg-customOscure p-2 rounded-full transition-transform transform hover:scale-150 shadow-xl"
                   >

@@ -49,7 +49,7 @@ export default function Footer() {
                   <PhoneIcon className="w-5 h-5 mr-2 text-primaryblue dark:text-white " />
                   <span>
                     Número de celular:{" "}
-                    <a target="_blank" href="https://wa.me/51969052575">
+                    <a target="_blank" href="/">
                       +51921818181
                     </a>
                   </span>
@@ -72,7 +72,7 @@ export default function Footer() {
                 <a
                   href="https://www.facebook.com/profile.php?id=61565436586197"
                   target="_blank"
-                  className="text-primaryblue dark:text-white dark:hover:text-blue-100 transition duration-100 hover:text-[#37753a] active:text-gray-600"
+                  className="text-primaryblue dark:text-white dark:hover:text-blue-100 transition duration-100 hover:text-blue-600 active:text-gray-600"
                 >
                   <svg
                     className="h-8 w-8 hover:scale-110"
@@ -84,9 +84,9 @@ export default function Footer() {
                 </a>
 
                 <a
-                  href="https://www.tiktok.com/@ecomas_cyc"
+                  href="/"
                   target="_blank"
-                  className="text-primaryblue dark:text-white dark:hover:text-blue-100 transition duration-100 hover:text-[#de6c29] active:text-gray-600"
+                  className="text-primaryblue dark:text-white dark:hover:text-blue-100 transition duration-100 hover:text-black active:text-gray-600"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -104,7 +104,7 @@ export default function Footer() {
                 </a>
 
                 <a
-                  href="https://wa.me/51921818181"
+                  href="/"
                   target="_blank"
                   className="text-primaryblue dark:text-white dark:hover:text-blue-100 transition duration-100 hover:text-[#37753a]  active:text-gray-600"
                 >
@@ -125,7 +125,7 @@ export default function Footer() {
                 <a
                   href="https://www.instagram.com/corporacion.seveda/?next=%2F"
                   target="_blank"
-                  className="text-primaryblue dark:text-white dark:hover:text-blue-100 transition duration-100 hover:text-[#de6c29]  active:text-gray-600"
+                  className="text-primaryblue dark:text-white dark:hover:text-blue-100 transition duration-100 hover:text-pink-500  active:text-gray-600"
                 >
                   <svg
                     className="h-8 w-8 hover:scale-110"

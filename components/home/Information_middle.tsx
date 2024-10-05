@@ -71,7 +71,7 @@ function Header() {
             </li>
           </ul>
           <a
-            href="#"
+            href="/"
             className="inline-block bg-customPurple800 dark:bg-customOrange text-white px-6 py-3 rounded-full shadow hover:bg-customOrange dark:hover:bg-customPurple800 transition duration-300"
           >
             Más Información

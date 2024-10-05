@@ -1,28 +1,50 @@
 import React, { useState, useEffect } from "react";
 import ScrollAnimation from "./scrollAnimation";
+import { IoLogoWhatsapp } from "react-icons/io";
 
 const CourseCarousel = () => {
   const courses = [
     {
       id: 1,
       image: "/image/SSOMA.webp",
-      title: "Ingeniería de Software",
-      description: "Aprende los fundamentos del desarrollo de software.",
+      title: "Arqueología en proyectos viales",
+      description: "Curso sobre la integración de la arqueología en el diseño y desarrollo de proyectos viales.",
       link: "#",
     },
     {
       id: 2,
       image: "/image/SSOMA.webp",
-      title: "Ciencia de Datos",
-      description: "Domina el análisis de datos y la inteligencia artificial.",
+      title: "Sistemas de riego por goteo",
+      description: "Curso que explora el diseño y aplicación de sistemas eficientes de riego por goteo en agricultura y jardin.",
       link: "#",
     },
     {
       id: 3,
       image: "/image/SSOMA.webp",
-      title: "Marketing Digital",
+      title: "Sistemas de riego por aspersión",
       description:
-        "Conviértete en un experto en estrategias de marketing online.",
+        "Curso sobre el diseño y uso eficiente de sistemas de riego por aspersión.",
+      link: "#",
+    },
+    {
+      id: 4,
+      image: "/image/SSOMA.webp",
+      title: "Gestion y manejo de residuos sólidos municipales",
+      description: "Este curso aborda estrategias y técnicas para gestionar eficazmente los residuos sólidos en entornos urbanos, incluyendo temas como reciclaje, tratamiento de residuos y participación comunitaria.",
+      link: "#",
+    },
+    {
+      id: 5,
+      image: "/image/SSOMA.webp",
+      title: "Supervisor SSOMA",
+      description: "Curso que prepara a los supervisores en seguridad, salud ocupacional y medio ambiente (SSOMA) para la gestión efectiva en entornos laborales.",
+      link: "#",
+    },
+    {
+      id: 6,
+      image: "/image/SSOMA.webp",
+      title: "Monitoreo de la calidad de agua",
+      description: "Curso sobre técnicas y métodos para monitorear la calidad del agua en diferentes contextos ambientales y aplicaciones.",
       link: "#",
     },
   ];
@@ -69,7 +91,7 @@ const CourseCarousel = () => {
           {/* Botón de navegación izquierda */}
           <button
             onClick={prevSlide}
-            className="text-white bg-gray-800 px-2 py-1 rounded-full hover:bg-gray-700"
+            className="text-gray-500 dark:text-customOrange text-4xl bg-transparent px-2 py-1 rounded-full"
           >
             ❮
           </button>
@@ -86,28 +108,33 @@ const CourseCarousel = () => {
               {courses.map((course) => (
                 <div
                   key={course.id}
-                  className="min-w-full px-4 py-6 sm:p-10 flex flex-col sm:flex-row items-center justify-around bg-gray-100 rounded-lg transition-opacity duration-700"
+                  className="min-w-full px-4 py-6 sm:p-10 flex flex-col sm:flex-row items-center justify-around bg-gray-100 dark:bg-blackblue2 rounded-lg transition-opacity duration-700"
                 >
                   {/* Imagen del curso */}
                   <img
                     src={course.image}
                     alt={course.title}
-                    className="w-full h-40 sm:h-60 md:h-72 lg:h-80 object-cover rounded-lg shadow-lg transition-transform duration-500 ease-in-out transform hover:scale-105"
+                    className="w-96 h-40 sm:h-60 md:h-72 lg:h-80 object-cover rounded-lg shadow-lg transition-transform duration-500 ease-in-out transform hover:scale-105"
                   />
 
                   {/* Información del curso */}
-                  <div className="mt-4 sm:ml-4 sm:mt-0 flex flex-col items-center sm:items-start justify-center">
-                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-800 hover:text-blue-600 transition-colors duration-300 text-center sm:text-left">
+                  <div className="mt-4 sm:ml-4 sm:mt-0 flex flex-col items-center justify-center text-center">
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-800 dark:text-customWhiteOcean hover:text-blue-600 transition-colors duration-300">
                       {course.title}
                     </h3>
-                    <p className="mt-2 text-xs sm:text-sm md:text-base text-gray-600 hover:text-gray-800 transition-colors duration-300 text-center sm:text-left">
+                    <p className="mt-2 text-xs sm:text-sm md:text-base text-gray-600 dark:text-customWhiteOcean hover:text-gray-800 transition-colors duration-300">
                       {course.description}
                     </p>
                     <a
                       href={course.link}
-                      className="mt-4 inline-block text-sm sm:text-base text-white bg-blue-600 px-3 py-2 rounded-lg hover:bg-blue-500 hover:scale-105 transform transition-all duration-300"
+                      className="mt-4 text-sm sm:text-base w-full max-w-xs text-center text-white bg-customPurple800 dark:bg-customOrange border-1 dark:border-customOrange px-3 py-2 rounded-lg hover:bg-customOrange dark:hover:bg-customPurple800 hover:scale-105 transform transition-all duration-300 flex justify-center items-center"
                     >
-                      Ver Curso
+                      Más Información
+                      <img
+                        src="/icons/logo_1.svg"
+                        alt="icono_whatsapp"
+                        className="w-8 ml-2"
+                      />
                     </a>
                   </div>
                 </div>
@@ -118,7 +145,7 @@ const CourseCarousel = () => {
           {/* Botón de navegación derecha */}
           <button
             onClick={nextSlide}
-            className="text-white bg-gray-800 px-2 py-1 rounded-full hover:bg-gray-700"
+            className="text-gray-500 dark:text-customOrange text-4xl bg-transparent px-2 py-1 rounded-full "
           >
             ❯
           </button>
@@ -130,8 +157,10 @@ const CourseCarousel = () => {
             <div
               key={index}
               onClick={() => setCurrentSlide(index)}
-              className={`cursor-pointer w-3 h-3 rounded-full ${
-                currentSlide === index ? "bg-blue-600" : "bg-gray-400"
+              className={`cursor-pointer w-2 h-2 rounded-full ${
+                currentSlide === index
+                  ? "bg-customPurple800 dark:bg-customOrange"
+                  : "bg-gray-400"
               }`}
             />
           ))}

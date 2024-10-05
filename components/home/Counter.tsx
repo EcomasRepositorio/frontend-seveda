@@ -32,7 +32,6 @@ const Counter: React.FC = () => {
     <section className="relative bg-transparent">
       <div
         className="absolute inset-0 bg-cover bg-no-repeat bg-center opacity-80"
-        style={{ backgroundImage: "url('/fondo_certificate.jpg')" }}
       ></div>
       <div className="relative z-10 p-6 lg:p-10 max-w-screen-xl mx-auto">
         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-customPurple800 dark:text-customWhiteOcean text-center mt-10">

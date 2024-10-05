@@ -71,7 +71,7 @@ const ContactForm = () => {
               <a href="/" target='_blank'>
                 <FaTiktok />
               </a>
-              <a href="https://wa.me/51961646248?text=Hola, deseo más información sobre los diplomados" target='_blank'>
+              <a href="/" target='_blank'>
                 <FaWhatsapp className='z-50'/>
               </a>
             </div>
