@@ -86,26 +86,26 @@ const CourseCarousel = () => {
               {courses.map((course) => (
                 <div
                   key={course.id}
-                  className="min-w-full p-4 flex items-center justify-around bg-gray-100 rounded-lg transition-opacity duration-700"
+                  className="min-w-full px-4 py-6 sm:p-10 flex flex-col sm:flex-row items-center justify-around bg-gray-100 rounded-lg transition-opacity duration-700"
                 >
                   {/* Imagen del curso */}
                   <img
                     src={course.image}
                     alt={course.title}
-                    className="w-full h-60 sm:h-72 md:h-80 object-cover rounded-lg shadow-lg transition-transform duration-500 ease-in-out transform hover:scale-105"
+                    className="w-full h-40 sm:h-60 md:h-72 lg:h-80 object-cover rounded-lg shadow-lg transition-transform duration-500 ease-in-out transform hover:scale-105"
                   />
 
                   {/* Información del curso */}
-                  <div className="ml-4 sm:ml-8 flex flex-col justify-center">
-                    <h3 className="text-xl sm:text-2xl font-bold text-gray-800 hover:text-blue-600 transition-colors duration-300">
+                  <div className="mt-4 sm:ml-4 sm:mt-0 flex flex-col items-center sm:items-start justify-center">
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-800 hover:text-blue-600 transition-colors duration-300 text-center sm:text-left">
                       {course.title}
                     </h3>
-                    <p className="mt-2 text-sm sm:text-base text-gray-600 hover:text-gray-800 transition-colors duration-300">
+                    <p className="mt-2 text-xs sm:text-sm md:text-base text-gray-600 hover:text-gray-800 transition-colors duration-300 text-center sm:text-left">
                       {course.description}
                     </p>
                     <a
                       href={course.link}
-                      className="mt-4 inline-block text-sm sm:text-base text-white bg-blue-600 px-4 py-2 rounded-lg hover:bg-blue-500 hover:scale-105 transform transition-all duration-300"
+                      className="mt-4 inline-block text-sm sm:text-base text-white bg-blue-600 px-3 py-2 rounded-lg hover:bg-blue-500 hover:scale-105 transform transition-all duration-300"
                     >
                       Ver Curso
                     </a>
