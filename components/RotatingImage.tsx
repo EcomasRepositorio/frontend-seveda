@@ -1,9 +1,9 @@
 "use client";
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
-import reload_img from "@/public/terra/planeta2.png"; // Imagen principal rotatoria
-import sun_img from "@/public/image/sun.png"; // Imagen del sol
-import moon_img from "@/public/image/moon_3d.png"; // Imagen de la luna
+import reload_img from "@/public/terra/planeta2.webp"; // Imagen principal rotatoria
+import sun_img from "@/public/image/sun.webp"; // Imagen del sol
+import moon_img from "@/public/image/moon_3d.webp"; // Imagen de la luna
 
 const RotatingImageComponent: React.FC = () => {
   const [reloadClassName, setReloadClassName] = useState<HTMLImageElement | null>(null);

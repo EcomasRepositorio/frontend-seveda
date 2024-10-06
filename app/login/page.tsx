@@ -70,7 +70,7 @@ const Login: React.FC = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/api/v1/user/login",
+        "https://backend.seveda.edu.pe/api/v1/user/login",
         form
       );
       if (response.data.token) {

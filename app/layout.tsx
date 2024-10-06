@@ -14,7 +14,6 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body>
-        {/* Usa ClientWrapper para manejar la lógica de cliente */}
 
         <ClientLayout>
           {children}

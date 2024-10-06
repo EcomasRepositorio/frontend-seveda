@@ -6,7 +6,6 @@ import {
   slideInFromRight,
   slideInFromTop,
 } from "@/components/utils/motion";
-import Globe from "@/components/home/Terra"; // Importamos tu componente Globe (Terra)
 import { FaFacebookF, FaInstagram, FaTiktok, FaWhatsapp, FaYoutube } from "react-icons/fa";
 import { BiChevronLeft, BiChevronRight } from "react-icons/bi";
 import Link from "next/link";
@@ -34,6 +33,7 @@ const buttons = [
   { text: "Contacto", link: "#contact" },
   { text: "Informes", link: "#contact" },
 ];
+
 
 const Home = () => {
   const [index, setIndex] = useState(0);
@@ -64,13 +64,14 @@ const Home = () => {
   return (
     <div className=" relative overflow-hidden bg-transparent">
        <Image
-          src="/image/background_light.jpg"
-          alt="Background_light"
-          layout="fill"
-          objectFit="cover"
-          quality={75}
-          className="w-full h-full object-cover dark:hidden"
-          priority
+         src="/image/background_light.webp"
+         alt="Background_light"
+         layout="fill"
+         objectFit="cover"
+         quality={50} // Baja la calidad a 50 para reducir el tamaño
+         className="w-full h-full object-cover dark:hidden"
+         priority
+         loading="eager"
         />
         <Image
           src="/image/tep_blue.svg"
