@@ -20,7 +20,7 @@ export default function App() {
         >
           <div className="px-2 p-3 md:p-8 transform rounded-lg mx-auto max-w-screen-xl">
             <h2 className="text-blue-50 text-4xl font-extrabold mb-1 text-center">
-              Nuestros Diplomados
+              Nuestros Cursos
             </h2>
           </div>
         </div>
