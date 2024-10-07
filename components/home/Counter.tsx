@@ -184,7 +184,7 @@ const Counter: React.FC = () => {
                   <div className="flex flex-col items-center mt-52 w-60 bg-customPurple800 dark:bg-blackblue2 rounded-lg text-customWhiteOcean dark:text-customOrange">
                     <div className="flex items-center text-4xl lg:text-5xl font-extrabold">
                       <span className="ml-1">+</span>
-                      <CountUp start={0} end={350} duration={5} separator="." />
+                      <CountUp start={0} end={200} duration={5} separator="." />
                     </div>
                     <span className="mt-2 font-semibold">
                       Cursos disponibles
