@@ -26,243 +26,83 @@ export default function App() {
         </div>
       </ScrollAnimation>
 
-      <div className=" justify-center gap-2 grid grid-cols-12 grid-rows-2 px-2 mb-10">
-        <Card className="col-span-12 sm:col-span-4 h-[300px]">
-          <CardFooter className="absolute bg-black/60 bottom-0 z-10 border-t-1 border-default-600 dark:border-default-100">
-            <div className="flex flex-grow gap-2 items-center">
+      <div className="justify-center gap-2 grid grid-cols-12 grid-rows-2 px-2 mb-10">
+        {[
+          {
+            title: "Arqueología en proyectos viales",
+            imgSrc: "/courses/arqueologia.jpg",
+            icon: "/icon/haddd.svg",
+            darkIcon: "/icon/had_dark.svg",
+          },
+          {
+            title: "Sistemas de riego por goteo",
+            imgSrc: "/courses/goteo.jpg",
+            icon: "/icon/haddd.svg",
+            darkIcon: "/icon/had_dark.svg",
+          },
+          {
+            title: "Sistemas de riego por aspersión",
+            imgSrc: "/courses/aspercion.jpg",
+            icon: "/icon/haddd.svg",
+            darkIcon: "/icon/had_dark.svg",
+          },
+          {
+            title: "Gestión y manejo de residuos sólidos municipales",
+            imgSrc: "/courses/solidos.jpg",
+            icon: "/icon/haddd.svg",
+            darkIcon: "/icon/had_dark.svg",
+          },
+          {
+            title: "Supervisor SSOMA",
+            imgSrc: "/courses/ssoma.jpg",
+            icon: "/icon/haddd.svg",
+            darkIcon: "/icon/had_dark.svg",
+          },
+          {
+            title: "Monitoreo de la calidad de agua",
+            imgSrc: "/courses/agua.jpg",
+            icon: "/icon/haddd.svg",
+            darkIcon: "/icon/had_dark.svg",
+          },
+        ].map(({ title, imgSrc, icon, darkIcon }) => (
+          <Card key={title} className="col-span-12 sm:col-span-4 h-[300px]">
+            <div className="relative h-full">
               <Image
                 isZoomed
-                alt="Breathing app icon"
-                className="rounded-full w-7 h-7 bg-black dark:hidden"
-                src="/icon/haddd.svg"
+                alt="Card background"
+                className="w-full h-full object-cover"
+                src={imgSrc}
               />
-              <Image
-                isZoomed
-                alt="Breathing app icon"
-                className="rounded-full w-7 h-7 bg-black hidden dark:block"
-                src="/icon/had_dark.svg"
-              />
-
-              <div className="flex flex-col">
-                <p className=" text-tiny  text-white">Curso</p>
-                <p className=" text-lg font-light text-white">
-                  Arqueología en proyectos viales
-                </p>
-              </div>
+              <CardFooter className="absolute bg-black/60 bottom-0 z-10 border-t-1 border-default-600 dark:border-default-100">
+                <div className="flex flex-grow gap-2 items-center">
+                  <Image
+                    isZoomed
+                    alt="Breathing app icon"
+                    className="rounded-full w-7 h-7 bg-black dark:hidden"
+                    src={icon}
+                  />
+                  <Image
+                    isZoomed
+                    alt="Breathing app icon"
+                    className="rounded-full w-7 h-7 bg-black hidden dark:block"
+                    src={darkIcon}
+                  />
+                  <div className="flex flex-col">
+                    <p className="text-tiny text-white">Curso</p>
+                    <p className="text-xl font-light text-white">{title}</p>
+                  </div>
+                </div>
+                <Button
+                  className="bg-[#EC407A] text-customWhiteOcean dark:bg-[#FB8B24]"
+                  radius="full"
+                  size="sm"
+                >
+                  Más Información
+                </Button>
+              </CardFooter>
             </div>
-            <Button
-              className="bg-[#EC407A] text-customWhiteOcean dark:bg-[#FB8B24]"
-              radius="full"
-              size="sm"
-            >
-              Más Información
-            </Button>
-          </CardFooter>
-
-          <Image
-            isZoomed
-            removeWrapper
-            alt="Card background"
-            className="z-0 w-full h-full object-cover"
-            src="/courses/arqueologia.jpg"
-          />
-        </Card>
-
-        <Card className="col-span-12 sm:col-span-4 h-[300px]">
-          <CardFooter className="absolute bg-black/60 bottom-0 z-10 border-t-1 border-default-600 dark:border-default-100">
-            <div className="flex flex-grow gap-2 items-center">
-              <Image
-                isZoomed
-                alt="Breathing app icon"
-                className="rounded-full w-7 h-7 bg-black dark:hidden"
-                src="/icon/haddd.svg"
-              />
-              <Image
-                isZoomed
-                alt="Breathing app icon"
-                className="rounded-full w-7 h-7 bg-black hidden dark:block"
-                src="/icon/had_dark.svg"
-              />
-              <div className="flex flex-col">
-                <p className=" text-tiny  text-white">Curso</p>
-                <p className=" text-xl font-light text-white">
-                  Sistemas de riego por goteo
-                </p>
-              </div>
-            </div>
-            <Button
-              className="bg-[#EC407A] text-customWhiteOcean dark:bg-[#FB8B24]"
-              radius="full"
-              size="sm"
-            >
-              Más Información
-            </Button>
-          </CardFooter>
-
-          <Image
-            isZoomed
-            removeWrapper
-            alt="Card background"
-            className="z-0 w-full h-full object-cover"
-            src="/courses/goteo.jpg"
-          />
-        </Card>
-        <Card className="col-span-12 sm:col-span-4 h-[300px]">
-          <CardFooter className="absolute bg-black/60 bottom-0 z-10 border-t-1 border-default-600 dark:border-default-100">
-            <div className="flex flex-grow gap-2 items-center">
-              <Image
-                isZoomed
-                alt="Breathing app icon"
-                className="rounded-full w-7 h-7 bg-black dark:hidden"
-                src="/icon/haddd.svg"
-              />
-              <Image
-                isZoomed
-                alt="Breathing app icon"
-                className="rounded-full w-7 h-7 bg-black hidden dark:block"
-                src="/icon/had_dark.svg"
-              />
-              <div className="flex flex-col">
-                <p className=" text-tiny  text-white">Curso</p>
-                <p className=" text-xl font-light text-white">
-                  Sistemas de riego por aspersión
-                </p>
-              </div>
-            </div>
-            <Button
-              className="bg-[#EC407A] text-customWhiteOcean dark:bg-[#FB8B24]"
-              radius="full"
-              size="sm"
-            >
-              Más Información
-            </Button>
-          </CardFooter>
-
-          <Image
-            isZoomed
-            removeWrapper
-            alt="Card background"
-            className="z-0 w-full h-full object-cover"
-            src="/courses/aspercion.jpg"
-          />
-        </Card>
-        <Card className="col-span-12 sm:col-span-4 h-[300px]">
-          <CardFooter className="absolute bg-black/60 bottom-0 z-10 border-t-1 border-default-600 dark:border-default-100">
-            <div className="flex flex-grow gap-2 items-center">
-              <Image
-                isZoomed
-                alt="Breathing app icon"
-                className="rounded-full w-7 h-7 bg-black dark:hidden"
-                src="/icon/haddd.svg"
-              />
-              <Image
-                isZoomed
-                alt="Breathing app icon"
-                className="rounded-full w-7 h-7 bg-black hidden dark:block"
-                src="/icon/had_dark.svg"
-              />
-              <div className="flex flex-col">
-                <p className=" text-tiny  text-white">Curso</p>
-                <p className=" text-lg font-light text-white">
-                  Gestión y manejo de residuos sólidos municipales
-                </p>
-              </div>
-            </div>
-            <Button
-              className="w-48 ml-2 bg-[#EC407A] text-customWhiteOcean dark:bg-[#FB8B24]"
-              radius="full"
-              size="sm"
-            >
-              Más Información
-            </Button>
-          </CardFooter>
-
-          <Image
-            isZoomed
-            removeWrapper
-            alt="Card background"
-            className="z-0 w-full h-full object-cover"
-            src="/courses/solidos.jpg"
-          />
-        </Card>
-        <Card className="col-span-12 sm:col-span-4 h-[300px]">
-          <CardFooter className="absolute bg-black/60 bottom-0 z-10 border-t-1 border-default-600 dark:border-default-100">
-            <div className="flex flex-grow gap-2 items-center">
-              <Image
-                isZoomed
-                alt="Breathing app icon"
-                className="rounded-full w-7 h-7 bg-black dark:hidden"
-                src="/icon/haddd.svg"
-              />
-              <Image
-                isZoomed
-                alt="Breathing app icon"
-                className="rounded-full w-7 h-7 bg-black hidden dark:block"
-                src="/icon/had_dark.svg"
-              />
-              <div className="flex flex-col">
-                <p className=" text-tiny  text-white">Curso</p>
-                <p className=" text-xl font-light text-white">
-                  Supervisor SSOMA
-                </p>
-              </div>
-            </div>
-            <Button
-              className="bg-[#EC407A] text-customWhiteOcean dark:bg-[#FB8B24]"
-              radius="full"
-              size="sm"
-            >
-              Más Información
-            </Button>
-          </CardFooter>
-
-          <Image
-            isZoomed
-            removeWrapper
-            alt="Card background"
-            className="z-0 w-full h-full object-cover"
-            src="/courses/ssoma.jpg"
-          />
-        </Card>
-        <Card className="col-span-12 sm:col-span-4 h-[300px]">
-          <CardFooter className="absolute bg-black/60 bottom-0 z-10 border-t-1 border-default-600 dark:border-default-100">
-            <div className="flex flex-grow gap-2 items-center">
-              <Image
-                isZoomed
-                alt="Breathing app icon"
-                className="rounded-full w-7 h-7 bg-black dark:hidden"
-                src="/icon/haddd.svg"
-              />
-              <Image
-                isZoomed
-                alt="Breathing app icon"
-                className="rounded-full w-7 h-7 bg-black hidden dark:block"
-                src="/icon/had_dark.svg"
-              />
-              <div className="flex flex-col">
-                <p className=" text-tiny  text-white">Curso</p>
-                <p className=" text-xl font-light text-white">
-                  Monitoreo de la calidad de agua
-                </p>
-              </div>
-            </div>
-            <Button
-              className="bg-[#EC407A] text-customWhiteOcean dark:bg-[#FB8B24]"
-              radius="full"
-              size="sm"
-            >
-              Más Información
-            </Button>
-          </CardFooter>
-
-          <Image
-            isZoomed
-            removeWrapper
-            alt="Card background"
-            className="z-0 w-full h-full object-cover"
-            src="/courses/agua.jpg"
-          />
-        </Card>
+          </Card>
+        ))}
       </div>
     </div>
   );
