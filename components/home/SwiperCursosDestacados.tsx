@@ -1,18 +1,13 @@
 import React from "react";
-import {
-  Card,
-  CardFooter,
-  Image,
-  Button,
-} from "@nextui-org/react";
+import { Card, CardFooter, Image, Button } from "@nextui-org/react";
 
 // Definir un tipo para las propiedades del componente CourseCard
 interface CourseCardProps {
-  icon: string;              // Propiedad icon debe ser una cadena
-  darkIcon: string;          // Propiedad darkIcon debe ser una cadena
-  courseTitle: string;       // Título del curso como cadena
+  icon: string; // Propiedad icon debe ser una cadena
+  darkIcon: string; // Propiedad darkIcon debe ser una cadena
+  courseTitle: string; // Título del curso como cadena
   courseDescription: string; // Descripción del curso como cadena
-  courseImage: string;       // Ruta de la imagen del curso
+  courseImage: string; // Ruta de la imagen del curso
 }
 
 // Componente reutilizable para cada tarjeta del curso con tipos definidos
@@ -47,13 +42,19 @@ const CourseCard: React.FC<CourseCardProps> = ({
             <p className="text-lg font-light text-white">{courseDescription}</p>
           </div>
         </div>
-        <Button
-          className="bg-[#EC407A] text-customWhiteOcean w-40 dark:bg-[#FB8B24]"
-          radius="full"
-          size="sm"
+        <a
+          href="https://wa.me/51942055057?text=Hola,%20deseo%20más%20información%20del%20curso%20de%20"
+          target="_blank"
+          rel="noopener noreferrer"
         >
-          Más Información
-        </Button>
+          <Button
+            className="bg-[#EC407A] text-customWhiteOcean w-40 dark:bg-[#FB8B24]"
+            radius="full"
+            size="sm"
+          >
+            Más Información
+          </Button>
+        </a>
       </CardFooter>
 
       <Image

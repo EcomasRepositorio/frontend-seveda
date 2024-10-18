@@ -121,7 +121,7 @@ const Home = () => {
                     {icon.img3}
                   </Link>
                   <Link
-                    href="/"
+                     href="https://wa.me/51942055057?text=Hola,%20deseo%20más%20información%20"
                     target="_blank"
                     className="border bg-green-600 dark:bg-customOscure p-2 rounded-full transition-transform transform hover:scale-150 shadow-xl"
                   >

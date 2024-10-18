@@ -50,7 +50,7 @@ export default function Footer() {
                   <span>
                     Número de celular:{" "}
                     <a target="_blank" href="/">
-                      +51921818181
+                      +51 942 055 057
                     </a>
                   </span>
                 </div>
@@ -104,7 +104,7 @@ export default function Footer() {
                 </a>
 
                 <a
-                  href="/"
+                  href="https://wa.me/51942055057?text=Hola,%20deseo%20más%20información%20"
                   target="_blank"
                   className="text-primaryblue dark:text-white dark:hover:text-blue-100 transition duration-100 hover:text-[#37753a]  active:text-gray-600"
                 >

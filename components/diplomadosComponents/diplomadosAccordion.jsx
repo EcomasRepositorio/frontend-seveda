@@ -110,7 +110,10 @@ const Curso = ({ curso }) => {
                 </div>
 
                 <div className="mt-6 mb-6 flex flex-wrap justify-center gap-2">
-                  <a href="/" target="_blank">
+                  <a
+                    href="https://wa.me/51942055057?text=Hola,%20deseo%20más%20información%20sobre%20el%20diplomado%20de%20"
+                    target="_blank"
+                  >
                     <button
                       className="flex items-center justify-center px-6  py-3 rounded-full transition-colors duration-100 ease-in-out
       bg-gradient-to-r from-green-400 to-green-600 lg:w-48 md:w-40 sm:w-32 w-full text-white shadow-lg transform hover:scale-105 hover:shadow-xl dark:from-green-600 dark:to-green-800 dark:text-gray-200"
@@ -120,7 +123,10 @@ const Curso = ({ curso }) => {
                     </button>
                   </a>
 
-                  <a href="/" target="_blank">
+                  <a
+                    href="https://wa.me/51942055057?text=Hola,%20deseo%20más%20información%20sobre%20el%20plan%20de%20estudios%20del%20diplomado%20de%20"
+                    target="_blank"
+                  >
                     <button
                       className="flex items-center justify-center px-6 py-3 rounded-full transition-colors duration-300 ease-in-out
       bg-gradient-to-r from-blue-400 to-blue-600 text-white shadow-lg transform hover:scale-105 hover:shadow-xl dark:from-blue-600 dark:to-blue-800 dark:text-gray-200 w-full sm:w-40 md:w-48 lg:w-56"

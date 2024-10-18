@@ -45,9 +45,9 @@ function Header() {
           transition={{ duration: 1, delay: 0.4 }}
           className="w-full md:w-1/2 mt-8 md:mt-0 p-4"
         >
-          <h1 className="text-5xl font-bold  text-customPurple800 dark:text-customWhiteOcean mb-4">
+          <div className="text-5xl font-bold  text-customPurple800 dark:text-customWhiteOcean mb-4">
             Servicios Educativos en Línea
-          </h1>
+          </div>
           <p className="text-gray-600 font-light dark:text-customWhiteOcean mb-6">
             Descubre una plataforma de cursos en línea adaptada a tus
             necesidades, desde cualquier lugar y en cualquier momento
@@ -71,7 +71,7 @@ function Header() {
             </li>
           </ul>
           <a
-            href="/"
+            href="https://wa.me/51942055057?text=Hola,%20deseo%20más%20información%20"
             className="inline-block bg-customPurple800 dark:bg-customOrange text-white px-6 py-3 rounded-full shadow hover:bg-customOrange dark:hover:bg-customPurple800 transition duration-300"
           >
             Más Información
