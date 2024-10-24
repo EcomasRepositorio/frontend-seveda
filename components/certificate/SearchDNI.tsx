@@ -3,7 +3,7 @@ import { URL } from "@/components/utils/format/tokenConfig";
 import axios from "axios";
 import { SearchDNIProps, Student } from "@/interface/interface";
 import Modal from "../share/Modal";
-import "../../style/globals.css";
+import "./Styles.css";
 import { Button, Spinner } from "@nextui-org/react";
 import Image from "next/image";
 
@@ -20,6 +20,7 @@ const SearchName: React.FC<SearchDNIProps> = ({ onSearchDNI }) => {
   const [studentData, setStudentData] = useState<Student[]>();
   const [closeTable, setCloseTable] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
+  const [open, setOpen] = useState<boolean>(false);
   const [selectedStudentData, setSelectedStudentData] =
     useState<StudentCode | null>(null);
   const [openModals, setOpenModals] = useState<boolean[]>(
@@ -32,6 +33,7 @@ const SearchName: React.FC<SearchDNIProps> = ({ onSearchDNI }) => {
     updatedOpenModals[index] = true;
     setOpenModals(updatedOpenModals);
   };
+
   const closeStudentModal = (index: number) => {
     const updatedOpenModals = [...openModals];
     updatedOpenModals[index] = false;
@@ -43,43 +45,83 @@ const SearchName: React.FC<SearchDNIProps> = ({ onSearchDNI }) => {
   };
 
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    /* console.log(event.target.value, 'onChange ejecutado');
-    const valuee = event.target.value; */
     setQueryValue(event.target.value);
     setCloseTable(false);
-    //setSearchType(valuee.trim() ? queryValue : null);
   };
-  const openErrorModal = () => {
-    setModalOpen(true);
-  };
-  const closeErrorModal = () => {
-    setModalOpen(false);
-  };
+
+  const openErrorModal = () => setModalOpen(true);
+  const closeErrorModal = () => setModalOpen(false);
 
   const searchDNI = async (event: FormEvent) => {
     event.preventDefault();
-
-    if (queryValue.trim()) {
-      setLoading(true);
-    }
-
-    //const validToken = typeof token === "string" ? token: '';
+    if (queryValue.trim()) setLoading(true);
     try {
       const value = queryValue.trim();
       const res = await axios.get(
         `${URL()}/student/dni/${value.trim()}/type/${searchType}`
       );
-      console.log(res);
       setStudentData(res.data);
       onSearchDNI(res.data);
       setCloseTable(true);
     } catch (error) {
-      console.error("Error: DNI invalido", error);
+      console.error("Error: DNI inválido", error);
       openErrorModal();
     } finally {
       setLoading(false);
     }
   };
+
+  // Función para dividir el texto según palabras clave o cantidad de palabras
+  const splitText = (text: string): string[] => {
+    // Elimina espacios innecesarios
+    const cleanText = text.trim();
+
+    // Identificamos las posiciones de las palabras clave dentro del texto
+    const indexCorporacion = cleanText.indexOf("Corporación SEVEDA");
+    const indexFundenorp = cleanText.indexOf("FUNDENORP");
+    const indexEscuela = cleanText.indexOf("Escuela de Posgrado");
+    const indexUniversidad = cleanText.indexOf("Universidad Nacional de Piura");
+
+    // Si contiene "Escuela de Posgrado"
+    if (
+      indexCorporacion !== -1 &&
+      indexFundenorp !== -1 &&
+      indexEscuela !== -1
+    ) {
+      const corporacion = cleanText
+        .substring(indexCorporacion, indexEscuela)
+        .trim(); // Desde "Corporación SEVEDA" hasta "Escuela de Posgrado"
+      const escuela = cleanText.substring(indexEscuela, indexFundenorp).trim(); // Desde "Escuela de Posgrado" hasta "FUNDENORP"
+      const fundenorp = cleanText.substring(indexFundenorp).trim(); // Desde "FUNDENORP" hasta el final
+
+      return [corporacion, escuela, fundenorp];
+    }
+
+    // Si contiene "Universidad Nacional de Piura" (y no "Escuela de Posgrado")
+    if (
+      indexCorporacion !== -1 &&
+      indexFundenorp !== -1 &&
+      indexUniversidad !== -1
+    ) {
+      const corporacion = cleanText
+        .substring(indexCorporacion, indexUniversidad)
+        .trim(); // Desde "Corporación SEVEDA" hasta "Universidad Nacional de Piura"
+      const universidad = cleanText
+        .substring(indexUniversidad, indexFundenorp)
+        .trim(); // Desde "Universidad Nacional de Piura" hasta "FUNDENORP"
+      const fundenorp = cleanText.substring(indexFundenorp).trim(); // Desde "FUNDENORP" hasta el final
+
+      return [corporacion, universidad, fundenorp];
+    }
+
+    // Si no encuentra las palabras clave, devuelve el texto dividido en palabras
+    const words = cleanText.split(" ");
+    const firstLine = words.slice(0, 9).join(" "); // Primeras 9 palabras
+    const secondLine = words.slice(9, 10).join(" "); // Palabra 10
+    const thirdLine = words.slice(10).join(" "); // Resto de las palabras
+    return [firstLine, secondLine, thirdLine].filter((line) => line.length > 0);
+  };
+
   const tableRows = [
     {
       imgSrc: "/icons/organizadopor.svg",
@@ -111,14 +153,14 @@ const SearchName: React.FC<SearchDNIProps> = ({ onSearchDNI }) => {
   return (
     <div className="">
       <form onSubmit={searchDNI} className="w-full ">
-        <div className="flex flex-row items-center justify-center">
+        <div className="flex items-center ">
           <div className=" flex-1">
             <input
               type="search"
               id="default-search"
-              className=" font-normal text-sm text-gray-900 border-1 border-gray-300 rounded-lg bg-white  focus:border-primaryblue m-0"
-              placeholder={`Buscar por DNI ${
-                searchType === "documentNumber" ? "DNI" : ""
+              className=" font-normal text-sm text-gray-900 border-1 border-gray-300 rounded-lg bg-white  focus:border-primaryblue  m-0"
+              placeholder={`Ingrese su DNI${
+                searchType === "name" ? "nombre" : ""
               }`}
               required
               onClick={toggleIsActive}
@@ -128,20 +170,20 @@ const SearchName: React.FC<SearchDNIProps> = ({ onSearchDNI }) => {
           </div>
           <div className=" ml-2 h-full">
             <Button
-              color="primary"
               type="submit"
-              className="bg-customPurple800 dark:bg-blackblue dark:text-customWhiteOcean"
+              className="bg-primaryblue dark:bg-transparent text-white border border-white/50 rounded-lg"
             >
               Buscar
             </Button>
           </div>
         </div>
       </form>
+
       {loading && <Spinner />}
       {closeTable && studentData && (
-        <div className="relative overflow-x-auto shadow-xl sm:rounded-xl mt-8">
+        <div className="relative overflow-x-auto shadow-xl rounded-xl mt-8">
           <table className="w-full text-sm text-left rtl:text-right text-gray-500 font-semibold">
-            <thead className="text-xs text-center text-gray-700 uppercase bg-gray-300">
+            <thead className="text-xm text-center text-gray-600 uppercase bg-gray-300">
               <tr>
                 <th scope="col" className="px-6 py-3">
                   #
@@ -161,7 +203,7 @@ const SearchName: React.FC<SearchDNIProps> = ({ onSearchDNI }) => {
               </tr>
             </thead>
             <tbody>
-              {studentData?.map((student: Student, index: number) => (
+              {studentData?.map((student, index) => (
                 <tr
                   key={index}
                   className="bg-white border-b text-center hover:bg-gray-100"
@@ -179,8 +221,10 @@ const SearchName: React.FC<SearchDNIProps> = ({ onSearchDNI }) => {
                       {student.name}
                     </span>
                   </td>
-                  <td className="px-6 py-4">
-                    <span style={{ whiteSpace: "nowrap", display: "block" }}>
+
+                  <td className="px-6 py-4 truncate max-w-lg">
+                    {/* Truncate long text */}
+                    <span title={student.activityAcademy}>
                       {student.activityAcademy}
                     </span>
                   </td>
@@ -200,108 +244,74 @@ const SearchName: React.FC<SearchDNIProps> = ({ onSearchDNI }) => {
                       Ver
                     </button>
                   </td>
-                  {selectedStudentData && (
-                    <Modal
-                      open={openModals[index]}
-                      onClose={() => closeStudentModal(index)}
-                    >
-                      <div className="flex justify-center items-center mb-4 gap-2">
-                        <div className="dark:hidden flex items-center gap-4">
-                          <Image
-                            src={"/image/logo_box.png"}
-                            alt="logo_certs"
-                            className="object-contain"
-                            width={120} // Ajuste automático de tamaño
-                            height={120}
-                            priority={true}
-                          />
-                          <Image
-                            src={"/image/uni_blue.png"}
-                            alt="uni_blue"
-                            className="object-contain"
-                            width={120}
-                            height={120}
-                            priority={true}
-                          />
-                        </div>
-
-                        {/* Dark Mode Logos */}
-                        <div className="hidden dark:flex items-center gap-4">
-                          <Image
-                            src={"/image/logo_certs_dark.png"}
-                            alt="logo_certs_dark"
-                            className="object-contain"
-                            width={120}
-                            height={120}
-                            priority={true}
-                          />
-                          <Image
-                            src={"/image/uni_dark.png"}
-                            alt="uni_dark"
-                            className="object-contain"
-                            width={120}
-                            height={120}
-                            priority={true}
-                          />
-                        </div>
-                      </div>
-                      <div className="max-w-md text-center  rounded-md mx-auto">
-                        {tableRows.map((row, index) => (
-                          <div key={index} className="mb-4">
-                            <div className="inline-flex items-center text-white text-sm p-1 md:w-80 w-72 rounded-lg bg-slate-600 font-semibold">
-                              {row.imgSrc && (
-                                <Image
-                                  src={row.imgSrc}
-                                  alt={row.label}
-                                  className="flex lg:w-5 lg:h-5 w-5 h-5 object-contain ml-1"
-                                  width={200}
-                                  height={200}
-                                />
-                              )}
-                              <div className="flex-1 text-center">
-                                {row.label}
-                              </div>
-                            </div>
-
-                            <div className="flex justify-center text-gray-600 dark:text-white mt-3 mb-5 md:text-sm text-xs md:w-[410px] px-[2px] font-semibold">
-                              {row.label === "Organizado por:" ? (
-                                <span>
-                                  {row.value && (
-                                    <span>
-                                      {row.value
-                                        .split(" ")
-                                        .map((word, i, arr) => (
-                                          <React.Fragment key={i}>
-                                            {i !== arr.length - 1 ? (
-                                              word + " "
-                                            ) : (
-                                              <>
-                                                <br />
-                                                {word}
-                                              </>
-                                            )}
-                                          </React.Fragment>
-                                        ))}
-                                    </span>
-                                  )}
-                                </span>
-                              ) : (
-                                <span>{row.value}</span>
-                              )}
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    </Modal>
-                  )}
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
       )}
+
+      {selectedStudentData && (
+        <Modal
+          open={openModals.findIndex(Boolean) !== -1}
+          onClose={() => closeStudentModal(openModals.findIndex(Boolean))}
+        >
+          <div className=" flex justify-center mb-4 gap-2">
+            <Image
+              src={"/image/unp-piura.png"}
+              alt="seveda"
+              className="md:w-20 w-16  object-contain mt-2"
+              width={400}
+              height={400}
+              priority={true}
+            />
+            <Image
+              src={"/image/logo_certs.png"}
+              alt="seveda"
+              className="md:w-20 w-16  object-contain mt-2"
+              width={200}
+              height={200}
+              priority={true}
+            />
+            <Image
+              src={"/image/funde.png"}
+              alt="seveda"
+              className="md:w-20 w-16  object-contain mt-2"
+              width={400}
+              height={400}
+              priority={true}
+            />
+          </div>
+          <div className="max-w-md text-center mx-auto">
+            {tableRows.map((row, index) => (
+              <div key={index} className="mb-4">
+                <div className="inline-flex items-center text-white text-sm p-1 w-72 rounded-lg bg-slate-600 font-semibold">
+                  {row.imgSrc && (
+                    <Image
+                      src={row.imgSrc}
+                      alt={row.label}
+                      className="w-5 h-5 object-contain ml-1"
+                      width={200}
+                      height={200}
+                    />
+                  )}
+                  <div className="flex-1 text-center">{row.label}</div>
+                </div>
+                <div className="text-gray-300 mt-3 mb-5 text-sm font-semibold">
+                  {row.label === "Organizado por:" && row.value
+                    ? splitText(row.value).map((line, index) => (
+                        <p key={index}>{line}</p>
+                      ))
+                    : row.value}
+                </div>
+              </div>
+            ))}
+          </div>
+        </Modal>
+      )}
+
       <Modal open={modalOpen} onClose={closeErrorModal}>
-        <div className=" p-2 rounded-lg">
+        <div className="p-2 rounded-lg">
           <h2 className="text-md font-bold text-red-500 mb-4">
             DNI incorrecto
           </h2>

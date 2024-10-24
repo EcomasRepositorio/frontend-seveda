@@ -1,153 +1,146 @@
 "use client";
-import React, { useState } from "react";
-import SearchCode from "@/components/certificate/SearchCode";
-import SearchDNI from "@/components/certificate/SearchDNI";
-import SearchName from "@/components/certificate/SearchName";
-import { BsQrCodeScan } from "react-icons/bs";
-import { BsPersonVcard, BsPersonSquare } from "react-icons/bs";
+import React from "react";
+import dynamic from "next/dynamic";
 import Image from "next/image";
-import Whatsapp from "@/components/whatsapp/Index";
+import { Tabs, Tab, Card, CardBody } from "@nextui-org/react";
+import "./Style.css";
 
-const Certificate: React.FC = () => {
-  const [isActive, setIsActive] = useState(false);
-  const [searchType, setSearchType] = useState<string | null>(null);
+const SearchCode = dynamic(() => import("@/components/certificate/SearchCode"));
+const SearchDNI = dynamic(() => import("@/components/certificate/SearchDNI"));
+const SearchName = dynamic(() => import("@/components/certificate/SearchName"));
 
-  const handleButton = (type: string) => {
-    setSearchType(type);
-    setIsActive(true);
-  };
+interface Props {
+  // Define any props if needed
+}
 
-  const handleSearch = (data: string) => {
+const TestingPage: React.FC<Props> = () => {
+  const handleSearch = (data: any) => {
     console.log(data);
   };
 
   return (
-    <section
-      id="/certs"
-      className="relative pt-48 pb-20 p-2 items-center justify-center"
-    >
-      {/* Background */}
-      <div className="absolute inset-0 bg-no-repeat bg-center ">
-        <Image
-          src="/image/light02.svg"
-          alt="Background Image"
-          layout="fill"
-          objectFit="cover"
-          quality={75}
-          className="w-full h-full object-cover dark:hidden"
-          priority
-        />
-        <Image
-          src="/image/blue_oficial.svg"
-          alt="Background Image"
-          layout="fill"
-          objectFit="cover"
-          quality={75}
-          className="w-full h-full object-cover hidden dark:block"
-          priority
-        />
-        
-      </div>
+    <section className=" bg-fixed  " style={{}}>
+      <div className="relative">
+        {/* Imagen para modo Light */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-fixed dark:hidden"
+          style={{
+            backgroundImage: "url(/image/light02.svg)",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        ></div>
 
-      {/* Main Content */}
-      <div className="max-w-screen-lg mx-auto rounded-3xl shadow-2xl text-center p-6 relative backdrop-blur-sm dark:backdrop-blur-md bg-transparent dark:bg-transparent border border-white/20">
-        {/* Header */}
-        <div className="flex flex-wrap justify-center gap-4 md:gap-8 mb-10">
-          <Image
-            src={"/image/uni.png"}
-            className="w-24 h-24 md:w-48 md:h-48 object-contain dark:hidden"
-            width={800}
-            height={800}
-            alt="logo_seveda_light"
-            priority={true}
-          />
-          <Image
-            src={"/image/uni_dark.png"}
-            className="w-24 h-24 md:w-48 md:h-48 object-contain hidden dark:block"
-            width={800}
-            height={800}
-            alt="logo_seveda_dark"
-            priority={true}
-          />
-          <Image
-            src={"/image/logo_certs.png"}
-            className="w-24 h-24 md:w-48 md:h-48 object-contain dark:hidden"
-            width={800}
-            height={800}
-            alt="logo_certs"
-            priority={true}
-          />
-          <Image
-            src={"/image/logo_certs_dark.png"}
-            className="w-24 h-24 md:w-48 md:h-48 object-contain hidden dark:block"
-            width={800}
-            height={800}
-            alt="logo_certs_dark"
-            priority={true}
-          />
-        </div>
+        {/* Imagen para modo Dark */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-fixed hidden dark:block"
+          style={{
+            backgroundImage: "url(/image/blue_oficial.svg)",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        ></div>
 
-        {/* Certificate Section */}
-        <h2 className="text-4xl font-extrabold text-white uppercase mb-6">
-          Certificados
-        </h2>
-        <p className="font-semibold text-white text-lg lg:px-36 mb-6">
-          En este módulo podrá realizar la búsqueda de certificados de los
-          diferentes eventos ofrecidos por SEVEDA.
-        </p>
-        <p className="text-xl font-semibold text-white mb-8">Buscar por:</p>
+        <div className="relative py-8 mx-auto max-w-screen-xl lg:py-10 ">
+          <div className="" style={{ position: "relative", width: "100%" }}>
+            <div
+              className=" bg-white/20 dark:bg-transparent border border-white/20 rounded-lg p-8 md:p-12 mx-2"
+              style={{
+                marginBottom: "20px",
+              }}
+            >
+              <div className="flex flex-col md:flex-row mx-auto max-w-screen-xl md:mr-0 md:p-4">
+                <div className="md:mr-12">
+                  <div className="flex flex-col">
+                    <h2 className="mb-4 text-2xl font-extrabold text-center text-white md:mb-6 lg:text-4xl">
+                      VERIFICA TU CERTIFICADO
+                    </h2>
+                    <p className="text-white font-light text-center md:text-xl mb-8">
+                      Verifica la autenticidad de tu certificado ingresando tu
+                      DNI, nombres o código de certificación proporcionado al
+                      obtenerlo. Nos aseguramos de proteger tu privacidad y la
+                      confidencialidad de tus datos.
+                    </p>
 
-        {/* Search Buttons */}
-        <div className="flex flex-wrap justify-center items-center gap-6">
-          <button
-            onClick={() => handleButton("documentNumber")}
-            className={`px-6 py-3 font-bold border-2 rounded-lg text-white hover:text-customWhiteOcean hover:bg-customOrange/90 dark:hover:bg-blackblue2/60 transition transform hover:scale-105 ${
-              searchType === "documentNumber" ? "bg-customPurple800 dark:bg-blackblue2 " : ""
-            }`}
-          >
-            <BsPersonVcard className="text-xl inline-block mr-2" />
-            Buscar por DNI
-          </button>
-          <button
-            onClick={() => handleButton("name")}
-            className={`px-6 py-3 font-bold border-2 rounded-lg text-white hover:text-customWhiteOcean hover:bg-customOrange/90 dark:hover:bg-blackblue2/60 transition transform hover:scale-105 ${
-              searchType === "name" ? "bg-customPurple800 dark:bg-blackblue2" : ""
-            }`}
-          >
-            <BsPersonSquare className="text-xl inline-block mr-2" />
-            Buscar por nombre
-          </button>
-          <button
-            onClick={() => handleButton("code")}
-            className={`px-6 py-3 font-bold border-2 rounded-lg text-white hover:text-customWhiteOcean hover:bg-customOrange/90 dark:hover:bg-blackblue2/60 transition transform hover:scale-105 ${
-              searchType === "code" ? "bg-customPurple800 dark:bg-blackblue2" : ""
-            }`}
-          >
-            <BsQrCodeScan className="text-xl inline-block mr-2" />
-            Buscar por código
-          </button>
-        </div>
+                    <Tabs
+                      aria-label="Options"
+                      color="primary"
+                      classNames={{
+                        tabList:
+                          "w-full flex flex-col md:flex-row bg-transparent rounded-md border border-gray-300/40",
+                        cursor:
+                          "bg-transparent rounded-md border border-gray-50/50 text-gray-100",
+                        tab: "py-2 px-4 rounded-t-lg text-gray-100",
+                        tabContent:
+                          "group-data-[selected=true]:text-gray-100 text-g-100 ",
+                      }}
+                    >
+                      <Tab key="dni" title="Buscar por DNI" className="">
+                        <div className="">
+                          <div className="bg-transparent">
+                            <div className="">
+                              <SearchDNI onSearchDNI={handleSearch} />
+                            </div>
+                          </div>
+                        </div>
+                      </Tab>
+                      <Tab key="name" title="Buscar por Código">
+                        <div>
+                          <div className="bg-transparent">
+                            <div>
+                              <SearchCode onSearchCode={handleSearch} />
+                            </div>
+                          </div>
+                        </div>
+                      </Tab>
+                      <Tab key="code" title="Buscar por nombres">
+                        <div>
+                          <div className="bg-transparent dark:bg-transparent">
+                            <div>
+                              <SearchName onSearchName={handleSearch} />
+                            </div>
+                          </div>
+                        </div>
+                      </Tab>
+                    </Tabs>
+                  </div>
+                </div>
 
-        {/* Search Form */}
-        {isActive && (
-          <div className="mt-8">
-            {searchType === "documentNumber" && (
-              <SearchDNI onSearchDNI={handleSearch} />
-            )}
-            {searchType === "name" && (
-              <SearchName onSearchName={handleSearch} />
-            )}
-            {searchType === "code" && (
-              <SearchCode onSearchCode={handleSearch} />
-            )}
+                <div className="grid grid-cols-2 gap-2 mt-4 md:mt-0 md:w-full md:grid-rows-2 md:gap-y-8 justify-items-center md:items-center">
+                  <div className="row-span-2">
+                    <Image
+                      src="/image/logo_certs.png"
+                      alt="seveda"
+                      width={130}
+                      height={130}
+                      className=""
+                    />
+                  </div>
+
+                  <div className="self-center">
+                    <Image
+                      src="/image/unp.png"
+                      alt="seveda"
+                      width={140}
+                      height={140}
+                    />
+                  </div>
+                  <div className="row-span-2">
+                    <Image
+                      src="/image/funde.png"
+                      alt="seveda"
+                      width={120}
+                      height={120}
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        )}
+        </div>
       </div>
-
-      {/* Whatsapp Contact */}
-      <Whatsapp />
     </section>
   );
 };
 
-export default Certificate;
+export default TestingPage;
