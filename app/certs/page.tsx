@@ -44,7 +44,7 @@ const TestingPage: React.FC<Props> = () => {
         <div className="relative py-8 mx-auto max-w-screen-xl lg:py-10 ">
           <div className="" style={{ position: "relative", width: "100%" }}>
             <div
-              className=" bg-white/20 dark:bg-transparent border border-white/20 rounded-lg p-8 md:p-12 mx-2"
+              className=" bg-transparent  dark:bg-transparent border border-white/20 rounded-lg p-8 md:p-12 mx-2"
               style={{
                 marginBottom: "20px",
               }}
@@ -113,7 +113,14 @@ const TestingPage: React.FC<Props> = () => {
                       alt="seveda"
                       width={130}
                       height={130}
-                      className=""
+                      className="block dark:hidden"
+                    />
+                    <Image
+                      src="/image/logo_certs_dark.png"
+                      alt="seveda"
+                      width={130}
+                      height={130}
+                      className="hidden dark:block"
                     />
                   </div>
 
@@ -123,14 +130,30 @@ const TestingPage: React.FC<Props> = () => {
                       alt="seveda"
                       width={140}
                       height={140}
+                      className="block dark:hidden"
+                    />
+                    <Image
+                      src="/image/uni_dark.png"
+                      alt="seveda"
+                      width={140}
+                      height={140}
+                      className="hidden dark:block"
                     />
                   </div>
                   <div className="row-span-2">
                     <Image
                       src="/image/funde.png"
                       alt="seveda"
-                      width={120}
-                      height={120}
+                      width={140}
+                      height={140}
+                      className="block dark:hidden"
+                    />
+                    <Image
+                      src="/image/funde_dark.png"
+                      alt="seveda"
+                      width={140}
+                      height={140}
+                      className="hidden dark:block"
                     />
                   </div>
                 </div>
