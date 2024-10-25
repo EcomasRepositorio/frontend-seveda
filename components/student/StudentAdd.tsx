@@ -83,15 +83,15 @@ const CreateStudentForm: React.FC<CreateStudentFormProps> = ({ onCloseModal, onC
       <form onSubmit={handleSubmit(onSubmit)} className="grid grid-cols-2 uppercase text-gray-600 md:grid-cols-2 gap-2">
     <div  className='flex justify-between col-span-2 whitespace-pre-wrap'>
       <div className="mb-4">
-          <label className="text-xs text-customOscure dark:text-customWhiteOcean font-bold">DNI: </label>
+          <label className="text-xs text-customWhiteOcean dark:text-customWhiteOcean font-bold">DNI: </label>
           <input {...register('documentNumber', {required: true})}
-          className={`border text-customOscure dark:text-customWhiteOcean  rounded-lg p-1 lg:w-36 w-24 ${errors?.documentNumber ? 'border-red-500' : ''}`} />
+          className={`border text-customOscure dark:text-customWhiteOcean rounded-lg p-1 lg:w-36 w-24 ${errors?.documentNumber ? 'border-red-500' : ''}`} />
             {errors?.documentNumber && (
               <span className="text-xs font-mono block text-red-400">{errors.documentNumber.message}</span>
             )}
         </div>
         <div className="mb-4">
-          <label className="text-xs text-customOscure dark:text-customWhiteOcean font-bold">Código: </label>
+          <label className="text-xs text-customWhiteOcean dark:text-customWhiteOcean font-bold">Código: </label>
           <input {...register('code', {required: true})}
           className={`border text-customOscure dark:text-customWhiteOcean rounded-lg p-1 lg:w-32 w-28 ${errors?.code ? 'border-red-500' : ''}`} />
           {errors?.code && (
@@ -100,37 +100,37 @@ const CreateStudentForm: React.FC<CreateStudentFormProps> = ({ onCloseModal, onC
         </div>
     </div>
         <div className="mb-4 text-xs col-span-full md:col-span-2 lg:col-span-3">
-          <label className="block text-customOscure dark:text-customWhiteOcean font-bold">Nombres: </label>
+          <label className="block text-customWhiteOcean dark:text-customWhiteOcean font-bold">Nombres: </label>
           <input {...register('name', {required: true})} className="border text-customOscure dark:text-customWhiteOcean rounded-lg p-2 w-full" />
         </div>
         <div className="mb-4 col-span-full text-xs md:col-span-2 lg:col-span-3">
-          <label className="block text-customOscure dark:text-customWhiteOcean font-bold">Actividad Académica: </label>
+          <label className="block text-customWhiteOcean dark:text-customWhiteOcean font-bold">Actividad Académica: </label>
           <input {...register('activityAcademy', {required: true})} className="border text-customOscure dark:text-customWhiteOcean rounded-lg p-2 w-full" />
         </div>
         <div className="mb-4 col-span-full text-xs md:col-span-2 lg:col-span-3">
-          <label className="block text-customOscure dark:text-customWhiteOcean font-bold">Participación: </label>
+          <label className="block text-customWhiteOcean dark:text-customWhiteOcean font-bold">Participación: </label>
           <input {...register('participation')} className="border text-customOscure dark:text-customWhiteOcean rounded-lg p-2 w-full" />
         </div>
         <div className="mb-4 col-span-full text-xs md:col-span-2 lg:col-span-3">
-          <label className="block text-customOscure dark:text-customWhiteOcean font-bold">Instituto: </label>
+          <label className="block text-customWhiteOcean dark:text-customWhiteOcean font-bold">Instituto: </label>
           <input {...register('institute', {required: true})} className="border text-customOscure dark:text-customWhiteOcean rounded-lg p-2 w-full" />
         </div>
     <div className='flex justify-between col-span-2 whitespace-pre-wrap'>
         <div className="mb-4">
-          <label className="text-xs text-customOscure dark:text-customWhiteOcean font-bold">Hora/Creditos: </label>
+          <label className="text-xs text-customWhiteOcean dark:text-customWhiteOcean font-bold">Hora/Creditos: </label>
           <input {...register('hour', {required: true})}
-          className={`border text-customOscure dark:text-customWhiteOcean rounded-lg p-1 lg:w-36 w-36 ${errors?.hour ? 'border-red-500' : ''}`} />
+          className={`border text-customWhiteOcean dark:text-customWhiteOcean rounded-lg p-1 lg:w-36 w-36 ${errors?.hour ? 'border-red-500' : ''}`} />
           {errors?.hour && (
             <span className="text-xs font-mono block text-red-400">{errors.hour.message}</span>
           )}
         </div>
         <div className="mb-4 lg:ml-3">
-          <label className="text-xs text-customOscure dark:text-customWhiteOcean font-bold ">Fecha: </label>
+          <label className="text-xs text-customWhiteOcean dark:text-customWhiteOcean font-bold ">Fecha: </label>
           <input {...register('date', {required: true})} className="border text-customOscure dark:text-customWhiteOcean rounded-lg p-1 lg:w-44 w-36" />
         </div>
     </div>
         <div className="mb-4 text-xs col-span-full md:col-span-2">
-          <label className="block text-customOscure dark:text-customWhiteOcean font-bold">Imagen: </label>
+          <label className="block text-customWhiteOcean dark:text-customWhiteOcean font-bold">Imagen: </label>
           <input {...register('imageCertificate')} className="border text-customOscure dark:text-customWhiteOcean rounded-lg p-2 w-full" />
         </div>
         <div className="col-span-full flex justify-center">

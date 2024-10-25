@@ -113,7 +113,7 @@ const StudentForm: React.FC<StudentFormProps> = ({ id, onCloseModal, onUpdateSuc
       <form onSubmit={handleSubmit(onSubmit)} className="grid grid-cols-2 uppercase md:grid-cols-2 gap-2">
       <div  className='flex justify-between col-span-2 whitespace-pre-wrap'>
         <div className="mb-4">
-          <label className="text-xs font-bold dark:text-white">DNI: </label>
+          <label className="text-xs font-bold text-white dark:text-white">DNI: </label>
           <input {...register('documentNumber', { required: true })}
             className={`dark:bg-blackblue2 dark:border-transparent border rounded-lg p-1.5 lg:w-36 w-24 ${errors?.documentNumber ? 'border-red-500' : ''}`}
           />
@@ -122,7 +122,7 @@ const StudentForm: React.FC<StudentFormProps> = ({ id, onCloseModal, onUpdateSuc
             )}
         </div>
         <div className="mb-4">
-          <label className="text-xs font-bold dark:text-white">Código: </label>
+          <label className="text-xs font-bold text-white dark:text-white">Código: </label>
           <input {...register('code', { required: true })}
           className={`border dark:bg-blackblue2 dark:border-transparent rounded-lg p-1.5 lg:w-32 w-28 ${errors?.code ? 'border-red-500' : ''}`}
           />
@@ -132,24 +132,24 @@ const StudentForm: React.FC<StudentFormProps> = ({ id, onCloseModal, onUpdateSuc
         </div>
       </div>
         <div className="mb-4 text-xs col-span-full md:col-span-2 lg:col-span-3 ">
-          <label className="block font-bold dark:text-white">Nombres: </label>
+          <label className="block font-bold text-white dark:text-white">Nombres: </label>
           <input {...register('name')} className="border dark:bg-blackblue2 dark:border-transparent rounded-lg p-2 w-full" />
         </div>
         <div className="mb-4 col-span-full text-xs md:col-span-2 lg:col-span-3 ">
-          <label className="block font-bold dark:text-white">Actividad Académica: </label>
+          <label className="block font-bold text-white dark:text-white">Actividad Académica: </label>
           <input {...register('activityAcademy')} className="border dark:bg-blackblue2 dark:border-transparent rounded-lg p-2 w-full" />
         </div>
         <div className="mb-4 col-span-full text-xs md:col-span-2 lg:col-span-3 ">
-          <label className="block font-bold dark:text-white">Participación: </label>
+          <label className="block font-bold text-white dark:text-white">Participación: </label>
           <input {...register('participation')} className="border dark:bg-blackblue2 dark:border-transparent rounded-lg p-2 w-full" />
         </div>
         <div className="mb-4 col-span-full text-xs md:col-span-2 lg:col-span-3 ">
-          <label className="block font-bold dark:text-white">Instituto: </label>
+          <label className="block font-bold text-white dark:text-white">Instituto: </label>
           <input {...register('institute')} className="border dark:bg-blackblue2 dark:border-transparent rounded-lg p-2 w-full" />
         </div>
         <div  className='flex justify-between col-span-2 whitespace-pre-wrap'>
         <div className="mb-4">
-          <label className="text-xs font-bold dark:text-white">Hora/Créditos: </label>
+          <label className="text-xs font-bold text-white dark:text-white">Hora/Créditos: </label>
           <input {...register('hour')}
           className={`border dark:bg-blackblue2 dark:border-transparent rounded-lg p-2 lg:w-32 w-24 ${errors?.hour?.message ? 'border-red-500' : ''}`} />
           {errors?.hour && (
@@ -157,12 +157,12 @@ const StudentForm: React.FC<StudentFormProps> = ({ id, onCloseModal, onUpdateSuc
           )}
         </div>
         <div className="mb-4">
-          <label className="text-xs font-bold  dark:text-white">Fecha: </label>
+          <label className="text-xs font-bold  text-white dark:text-white">Fecha: </label>
           <input {...register('date')} className="border dark:bg-blackblue2 dark:border-transparent rounded-lg p-2 lg:w-32 w-28" />
         </div>
       </div>
         <div className="mb-4 text-xs col-span-full md:col-span-2">
-          <label className="block font-bold dark:text-white">Imagen: </label>
+          <label className="block font-bold text-white dark:text-white">Imagen: </label>
           <input {...register('imageCertificate')} className="border dark:bg-blackblue2 dark:border-transparent rounded-lg p-2 w-full" />
         </div>
         <div className="col-span-full flex justify-center">
