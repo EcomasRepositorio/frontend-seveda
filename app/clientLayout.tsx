@@ -16,7 +16,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
         enableSystem
         disableTransitionOnChange
       >
-        <link rel="icon" href="/image/layout.jpg" />  {/* Asegúrate de que la ruta sea correcta */}
+        <link rel="icon" href="/image/layout.png" />  {/* Asegúrate de que la ruta sea correcta */}
         
         <Header />
         {children}
