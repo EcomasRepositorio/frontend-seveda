@@ -5,7 +5,7 @@ const DiploCivil = () => {
   // Array de objetos que contienen los datos de cada curso
   const cursosData = [
     {
-      area: "INGENIERÍA CIVIL",
+      area: "",
       titulo: "INGENIERÍA VÍAL",
       imagen: "/graduate/INGENIERÍAVIAL.png",
       fechaInicio: "Proximamente",
@@ -51,7 +51,7 @@ const DiploCivil = () => {
       ]
     },*/
     {
-      area: "INGENIERÍA CIVIL",
+      area: "",
       titulo: "ASISTENTE TÉCNICO EN OBRAS",
       imagen: "/graduate/ASISTENTETÉCNICOENOBRAS.png",
       fechaInicio: "Proximamente",
@@ -76,7 +76,7 @@ const DiploCivil = () => {
       ],
     },
     {
-      area: "INGENIERÍA CIVIL",
+      area: "",
       titulo: "INGENIERÍA DE PUENTES",
       imagen: "/graduate/INGENIERÍADEPUENTES.png",
       fechaInicio: "Proximamente",
@@ -98,7 +98,7 @@ const DiploCivil = () => {
       ],
     },
     {
-      area: "INGENIERÍA CIVIL",
+      area: "",
       titulo: "RESIDENCIA Y SUPERVISIÓN DE OBRAS",
       imagen: "/graduate/RESIDENCIAYSUPERVISIÓNDEOBRAS.png",
       fechaInicio: "Proximamente",

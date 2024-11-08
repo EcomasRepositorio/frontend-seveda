@@ -6,7 +6,7 @@ const DiploDerecho = () => {
   const cursosData = [
     {
       area: "DERECHO",
-      titulo: "PERITO FORENSE Y CRIMINALÍSTICO",
+      titulo: "",
       imagen: "/graduate/RIEGOYFERTIRRIEGO.png",
       fechaInicio: "Proximamente",
       modalidad: "Virtual",

@@ -5,9 +5,9 @@ const DiploAmbient = () => {
   // Array de objetos que contienen los datos de cada curso
   const cursosData = [
     {
-      area: "INGENIERÍA AMBIENTAL",
+      area: "",
       titulo: "SSOMA (Seguridad y Salud Ocupacional y Medio Ambiente)",
-      imagen: "/graduate/SEGURIDAD,SALUDOCUPACIONALYMEDIOAMBIENTE.png",
+      imagen: "/dip2/5.webp",
       fechaInicio: "Proximamente",
       modalidad: "Virtual",
       duracion: "4 meses",
@@ -30,7 +30,7 @@ const DiploAmbient = () => {
       ],
     },
     {
-      area: "INGENIERÍA AMBIENTAL",
+      area: "",
       titulo: "GESTION AMBIENTAL MUNICIPAL Y REGIONAL",
       imagen: "/graduate/GESTIONMUNICIPAL.png",
       fechaInicio: "Proximamente",
@@ -54,7 +54,7 @@ const DiploAmbient = () => {
       ],
     },
     {
-      area: "INGENIERÍA AMBIENTAL",
+      area: "",
       titulo: "MONITOREO Y EVALUCIÓN DE LA CALIDAD AMBIENTAL",
       imagen: "/graduate/MONITOREOYEVALUACIÓNDELACALIDADAMBIENTAL.png",
       fechaInicio: "Proximamente",
@@ -77,7 +77,7 @@ const DiploAmbient = () => {
       ],
     },
     {
-      area: "INGENIERÍA AMBIENTAL",
+      area: "",
       titulo: "GESTIÓN Y MANEJO INTEGRAL DE RESIDUOS SÓLIDOS",
       imagen: "/graduate/GESTIÓNYMANEJOINTEGRALDERESIDUOSSÓLIDOS.png",
       fechaInicio: "Proximamente",

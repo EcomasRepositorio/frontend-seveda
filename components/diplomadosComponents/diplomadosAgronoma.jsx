@@ -5,7 +5,7 @@ const DiploAgronoma = () => {
   // Array de objetos que contienen los datos de cada curso
   const cursosData = [
     {
-      area: "INGENIERÍA AGRÓNOMA",
+      area: "",
       titulo: "SISTEMAS  DE RIEGO TECNIFICADO",
       imagen: "/graduate/SISTEMASDERIEGOTECNIFICADO.png",
       fechaInicio: "Proximamente",
@@ -27,7 +27,7 @@ const DiploAgronoma = () => {
       ],
     },
     {
-      area: "INGENIERÍA AGRÓNOMA",
+      area: "",
       titulo: "RIEGO Y FERTIRRIEGO",
       imagen: "/graduate/SISTEMASDERIEGOTECNIFICADO.png",
       fechaInicio: "Proximamente",

@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { motion } from "framer-motion"; // Importamos Framer Motion
+import ScrollAnimation from "./scrollAnimation";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
 import Link from "next/link";
@@ -8,121 +8,131 @@ import { GrFormNextLink } from "react-icons/gr";
 
 // Import Swiper styles
 import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/autoplay"; // Importa los estilos de autoplay
+import "swiper/css/scrollbar";
+import "swiper/css/navigation";
 
 // import required modules
-import { Pagination, Autoplay } from "swiper/modules";
+import {
+  Keyboard,
+  Scrollbar,
+  Autoplay,
+} from "swiper/modules";
+import { title } from "process";
 
 const SwiperCarrousel = () => {
   const cursosDestacados = [
+    // Tus datos de cursos destacados
     {
-      imageUrl: "/courses/1.jpg",
-      title: "Ingeniería Civil",
+      title: "Ingeniería de Puentes",
+      imageUrl: "/dip2/1.webp",
     },
     {
-      imageUrl: "/courses/2.jpg",
-      title: "Ingeniería Agrónoma",
+      title: "Asistente Técnico en Obras",
+      imageUrl: "/dip2/2.webp",
     },
     {
-      imageUrl: "/courses/3.jpg",
-      title: "Ingeniería Ambiental",
-    },
-    {
-      imageUrl: "/courses/4.jpg",
-      title: "Ingeniería Alimentaria",
-    },
-    {
-      imageUrl: "/courses/5.jpg",
       title: "Ingeniería Vial",
+      imageUrl: "/dip2/3.webp",
     },
     {
-      imageUrl: "/courses/7.jpg",
-      title: "SSOMA",
+      title: "Residencia y supervisón de obras",
+      imageUrl: "/dip2/4.webp",
+    },
+    {
+      title: "SSOMA (Seguridad y Salud Ocupacional y Medio Ambiente)",
+      imageUrl: "/dip2/5.webp",
+    },
+    {
+      title: "Gestión Ambiental Municipal y Regional",
+      imageUrl: "/dip2/6.webp",
+    },
+    {
+      title: "Monitoreo y Evaluación de la Calidad Ambiental",
+      imageUrl: "/dip2/7.webp",
+    },
+    {
+      title: "Gestión y manejo integral de residuos sólidos",
+      imageUrl: "/dip2/8.webp",
+    },
+    {
+      title: "Sistemas de Riego Tecnificado",
+      imageUrl: "/dip2/9.webp",
+    },
+    {
+      title: "Riego y Fertirriego",
+      imageUrl: "/dip2/10.webp",
+    },
+    {
+      title: "Gestión de la calidad e inocuidad alimentaria",
+      imageUrl: "/dip2/11.webp",
+    },
+    {
+      title: "PERITO FORENSE Y CRIMINALÍSTICO",
+      imageUrl: "/dip2/12.webp",
     },
   ];
 
   return (
-    <Swiper
-      slidesPerView={1}
-      spaceBetween={10} // Ajusta el espaciado para pantallas pequeñas
-      mousewheel={true} // Habilita la interacción con la rueda del mouse
-      autoplay={{
-        delay: 3000, // 3 segundos entre cada slide
-        disableOnInteraction: false, // No detener al interactuar
-      }}
-      pagination={{
-        clickable: true, // Habilita la paginación clicable
-      }}
-      breakpoints={{
-        640: {
-          slidesPerView: 1,
-          spaceBetween: 15, // Espaciado ajustado para pantallas pequeñas
-        },
-        768: {
-          slidesPerView: 2,
-          spaceBetween: 20, // Espaciado para pantallas medianas
-        },
-        1024: {
-          slidesPerView: 3,
-          spaceBetween: 30, // Espaciado para pantallas grandes
-        },
-      }}
-      modules={[Pagination, Autoplay]} // Importa los módulos necesarios
-      className="mySwiper"
-    >
-      {cursosDestacados.map((curso, index) => (
-        <SwiperSlide key={index}>
-          {/* Gradiente superior para light y dark mode con opciones ajustables */}
-          <div className="absolute inset-0 z-10 pointer-events-none">
-            <div
-              className="absolute inset-0 top-0 w-full h-[25%] bg-gradient-to-b from-customWhiteOcean to-transparent dark:from-blackblue hover:from-blackblue/75 dark:to-transparent"
-              style={{
-                opacity: 0.8, // Ajusta la opacidad del gradiente
-              }}
-            ></div>
-          </div>
-
-          <motion.div
-            whileHover={{ scale: 1.01 }}
-            transition={{ type: "spring", stiffness: 300 }}
-            className="w-full shadow-lg pt-2 hover:opacity-90 rounded-lg bg-customWhiteOcean dark:bg-blackblue2 ring-1 ring-gray-200/50 hover:ring-4 hover:ring-gray-50 dark:ring-1 dark:ring-blackblue2 dark:hover:ring-customOscure"
-          >
-            {/* Contenido del curso */}
-            <div className="p-2 rounded-lg">
-              <Image
-                src={curso.imageUrl}
-                alt={`Imagen del curso ${curso.title}`}
-                width={450}
-                height={450}
-                className="object-cover w-full h-auto rounded-xl" // Asegura que la imagen se adapte correctamente
-              />
-            </div>
-
-            {/* Botón de más información */}
-            <Link href="/diplomados" passHref legacyBehavior>
-              <div className="mx-2 cursor-pointer flex items-center justify-between bg-customPurple800 dark:bg-customWhiteOcean dark:text-customOscure border-none text-white rounded-md text-xs font-medium px-4 py-1">
+    <ScrollAnimation>
+      <Swiper
+        slidesPerView={1}
+        centeredSlides={false}
+        slidesPerGroupSkip={1}
+        grabCursor={true}
+        keyboard={{
+          enabled: true,
+        }}
+        spaceBetween={15}
+        breakpoints={{
+          769: {
+            slidesPerView: 2,
+            slidesPerGroup: 1,
+          },
+          1024: {
+            slidesPerView: 4,
+            slidesPerGroup: 1,
+          },
+        }}
+        scrollbar={false}
+       
+        autoplay={{
+          delay: 3000, // Intervalo de tiempo entre cada slide (5 segundos)
+          disableOnInteraction: false, // Autoplay no se detendrá al interactuar con el swiper
+        }}
+        loop={true}
+        modules={[Keyboard, Scrollbar, Autoplay]}
+        style={{ padding: "10px" }}
+      >
+        {cursosDestacados.map((curso, index) => (
+          <SwiperSlide key={index}>
+            <div className="w-full mt-4 shadow-lg pt-2 hover:opacity-90 rounded-lg bg-white dark:bg-blackblue2">
+              <div className="p-2 rounded-lg">
+                <Image
+                  src={curso.imageUrl}
+                  alt="Imagen banner"
+                  width={550}
+                  height={300}
+                  className="object-cover max-h-90 max-w-94 rounded-lg "
+                />
+              </div>
+              <a
+                href={`https://api.whatsapp.com/send?phone=51921818181&text=Hola, podría darme información sobre el curso de ${encodeURIComponent(
+                  curso.title
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mx-2 flex items-center justify-between dark:bg-blackblue dark:text-white dark:border-0 bg-blue-100 border-blue-200 border text-primaryblue rounded-md text-xs font-medium px-4 py-1"
+              >
                 <span>Más información</span>
                 <span>
                   <GrFormNextLink className="w-6 h-6" />
                 </span>
-              </div>
-            </Link>
-
-            {/* Título del curso */}
-            <div className="flex items-center justify-center px-4 pt-1 mb-12 pb-2 min-h-[4rem]">
-              <a
-                href="/diplomados"
-                className="font-normal text-center inline-block hover:text-customPurple800 dark:hover:text-customOrange transition duration-500 ease-in-out"
-              >
-                {curso.title}
               </a>
             </div>
-          </motion.div>
-        </SwiperSlide>
-      ))}
-    </Swiper>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </ScrollAnimation>
   );
 };
-
 export default SwiperCarrousel;

@@ -8,7 +8,7 @@ const DiploAlimentarias = () => {
     // Array de objetos que contienen los datos de cada curso
     const cursosData = [
         {
-            area: 'INGENIERÍA EN ALIMENTOS',
+            area: '',
             titulo: 'GESTIÓN DE LA CALIDAD E INOCUIDAD ALIMENTARIA',
             imagen: '/graduate/GESTIOALIMENTARIA.png',
             fechaInicio: 'Proximamente',
