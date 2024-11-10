@@ -32,6 +32,7 @@ module.exports = {
         'customYellow': '#FFD700',
         'customOscure':  '#1D2027',
         'customGradient': 'linear-gradient(to right, #FFD700, #FAA32F)', // Arreglar el gradiente
+
       },
       textColor: {
         'textrosa': '#ff00d4', // Cambia esto al color rosado que prefieras
