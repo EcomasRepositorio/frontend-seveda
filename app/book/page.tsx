@@ -34,7 +34,7 @@ const Book = () => {
     event?.preventDefault();
     console.log(data);
     setSending(true);
-    const serviceID = "service_8dt0m0j";
+    const serviceID = "service_6o4w2qc";
     const templateID = "template_rgpxuhc";
     const apiKey = "fuFabeBauLKR6c-V7";
     if (refForm.current) {

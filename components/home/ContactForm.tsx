@@ -26,7 +26,7 @@ const ContactForm = () => {
     event?.preventDefault();
     console.log(data);
     setSending(true);
-    const serviceID = "service_a93sala";
+    const serviceID = "service_omel13b";
     const templateID = "template_xwyx36i";
     const apiKey = "fuFabeBauLKR6c-V7";
     if (refForm.current) {
