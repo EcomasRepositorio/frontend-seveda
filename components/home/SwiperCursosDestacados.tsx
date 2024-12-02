@@ -91,6 +91,21 @@ const App = () => {
 
   return (
     <div>
+      {/* Nuevo bloque añadido */}
+      <div
+        className="
+          bg-[url('/image/purple.jpg')] dark:bg-[url('/image/bg_dark.webp')] 
+          fade-in-right mx-auto max-w-screen-xl bg-center bg-fixed to-transparent 
+          rounded-lg mt-10"
+      >
+        <div className="px-2 p-3 md:p-8 transform rounded-lg mx-auto max-w-screen-xl mb-10">
+          <h2 className="text-blue-50 text-4xl font-extrabold mb-1 text-center">
+            Nuestros Cursos
+          </h2>
+        </div>
+      </div>
+
+      {/* Componente Swiper */}
       <Swiper
         modules={[Pagination, Navigation, Autoplay]}
         spaceBetween={20}
